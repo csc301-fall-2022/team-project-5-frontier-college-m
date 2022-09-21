@@ -6,6 +6,16 @@
  
 #### Q1: What are you planning to build?
 
+We plan to build a web app that serves as the primary resource for Frontier College volunteers. Volunteers at Frontier College provide programming to support the learning and development of people of all ages. (add problems volunteers may have here). To support a volunteer's every need, the app aims to provide several key functions and features, which are:
+ * Bilingual support for both English and French
+ * Integrations with Salesforce, Form Assembly, and WordPress
+ * Communication between volunteer and supervisor
+ * Push notifications
+ * Volunteer groups
+ * Tracking of volunteer hours
+ * Invite friends to volunteer
+ * Connect to the job opportunities page of the Frontier College website
+ 
  > Short (1 - 2 min' read)
  * Start with a single sentence, high-level description of the product.
  * Be clear - Describe the problem you are solving in simple terms.
@@ -20,6 +30,8 @@
 
 
 #### Q2: Who are your target users?
+
+The target users are volunteers and staff at Frontier College.
 
   > Short (1 - 2 min' read max)
  * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
