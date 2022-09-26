@@ -38,6 +38,9 @@ The target users are volunteers and staff at Frontier College.
  * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+1. Flexibility in Use: We implement an app with two languages, which allows more potential users to use our app. In addtion, each language format has similar looking UIs so that there doesn't exist any discrimination.
+2. Simple and Intuitive Use: We will make our UI fairly straightforward so that users can use our app simply following their intuition without giving formal instruction. We also embed other applications (Salesforce, Form Assembly, and WordPress) into our app, so it saves users time by just checking one single interface.
+3. Perceptible Information: This application will provide adequate contrast between essential information and its surroundings by increasing the font of text, so the users are more easy to read information and manage their accounts. We also may use different modes (pictorial and verbal) to emphasize the display of profile and dashboard. 
 
 > Short (1 - 2 min' read max)
  * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
