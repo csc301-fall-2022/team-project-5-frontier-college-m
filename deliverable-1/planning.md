@@ -146,6 +146,16 @@ Roles:
         1. Vue.js
         2. Docker, CI/CD
         3. Figma
+* Zachary Lee: 
+    * Roles: Front-end Prototyping, Backend Development, Database Management
+    * Strengths:
+        1. Databases
+        2. Figma
+        3. JavaScript
+    * Weaknesses:
+        1. Vue.js
+        2. Deployment
+        3. Mobile Development
 * ...
 
 
