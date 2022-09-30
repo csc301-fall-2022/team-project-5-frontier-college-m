@@ -147,7 +147,16 @@ Roles:
         2. Docker, CI/CD
         3. Figma
 * ...
-
+* Michael Lai:
+    * Roles: Frontend, Deployment/Infrastructure, Project Management
+    * Strengths:
+        1. Node.js/TypeScript/JavaScript
+        2. Full-Stack Web Development
+        3. DevOps
+    * Weaknesses:
+        1. Project Management 
+        2. Presenting
+        3. Mobile Development
 
 #### Q7: What operational events will you have as a team?
 
