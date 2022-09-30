@@ -66,35 +66,41 @@ The target users are volunteers and staff at Frontier College.
  As a volunteer, I would like to access resources for conducting programming, so that I have everything I need to successfully deliver programming to students.
  
  #### Acceptance Criteria
-  - Given that a volunteer is registered, when they view their Resources page, then they are able to access all program resources relevent to their current placement.
-  - Given that a staff is supervising a program, when they view the program's Resource page, then they can change, add, or remove resources from it and these changes are refelected on all applicable volunteer's Resource pages.
+  - Given that a volunteer is registered for an event, when they view their event's Resources page, then they are able to access all program resources relevent to their current placement.
+  - Given that a coordinator is supervising an event, when they view the event's Resource page, then they can change, add, or remove resources from it and these changes are refelected on all applicable volunteer's Resource pages.
 
  ### User Story 2
- As a volunteer, I would like to track my volunteer hours and history, so that I have a up-to-date record of all the volunteer work I did.
+ As a volunteer, I would like to be able to sign in with my existing volunteer profile, so that I am able to access all my information that was available on the previous, Salesforce integrated, system. 
  
  #### Acceptance Criteria
-  - Given that a volunteer has done volunteer work, when they navigate to their profile and view the Volunteer History section, then they will be able to see their total hours and each program they volunteered for.
+  - Given that a volunteer was previously registered with Frontier College, when they try to sign in to their existing profile, then they are able to successfully sign in and access all information they were able to previously.
  
  ### User Story 3
- As a staff member, I would like to be able to manage the accounts of volunteers I supervise, so that I can view and modify relevent volunteer information.
+ As a coordinator, I would like to be able to create groups of volunteers, so that I can adminsitrate, communicate with, and share resources/information with relevent volunteers.
  
  #### Acceptance Criteria
-  - Given that a staff members is supervising volunteers, when they view their Volunteers page, then they can view and manage all volunteers they supervise.  
-  - Given that a volunteer is registered and their notification settings allow for it, when their superviser makes changes to their account, then they are notified about relevent changes.
+  - Given that a coordinator is coordinating a given event, when they choose to create a new group, then they are able to add relevant volunteers to it, share resources, and perform administrative functions.
+  - Given that a volunteer is added to a gourp, when they view it on their "Group Page", then they are able to see other group members and any other group specific information shared with them by the group coordinator.
  
  ### User Story 4
- As a staff member, I would like to be able to create groups/chats, so that I can communicate with volunteers and they can communicate with each other.
+ As a coordinator, I would like to be able to create group events that volunteers can RSVP to, so that I can easily share event information, view who is attending an event, and notify volunteers about relevent events.
  
  #### Acceptance Criteria
-  - Given that a staff member is logged in, when they click on the Chat Creation page/interface, then they can select existing volunteers or staff and add them to a chat.
-  - Given that a user is in a chat, when they navigate to the Chat page, then they can view all active chats and send messages.
-  - Given that a user's notification settings allow it, when a message is sent in a chat they are in, then they recieve a notification.
+  - Given that a coordinator has created a group, when they select "Create an Event", then they are able to enter event information, resources, and invitees.
+  - Given that a volunteer is in a group where an event has been created, when they click on the event, then they are able to see relevent event information and have to option to RSVP.
+  - Given that a volunteer has RSVPed to an event, when they view their "Event page", then they are able to see information able events they are attending and be notified of any changes.
  
  ### User Story 5
- As a volunteer, I would like to be able to invite friends to volunteer functions, so that they can exprience or assist with the programs I or other volunteers helped make possible.
+ As a volunteer, I would like to be able to recieve global announcements, so that I can be easily and reliably notified of general Frontier College changes, events, and information.
  
  #### Acceptance Criteria
- - Given that there are existing volunteer functions, when a volunteer navigates to the Current Functions page and clicks the share button for a particular function, then they get a sharable link to function information/sign up. 
+ - Given that a user is registered, when a global announcement is made, then they are notified about it and are able to view it on their "Announcements" page. 
+ 
+ ### User Story 6
+ As a volunteer, I would like to be able to edit my volunteer profile, so that other users can see my most up to date and relevent information.
+ 
+ #### Acceptance Criteria
+ - Given that a volunteer is registered and signed in, when they visit their profile, then they are able to make changes to personal and volunteer specific information and these changes are saved and visible when other users view their profile.
 
 ----
  * At least 5 user stories concerning the main features of the application - note that this can broken down further
