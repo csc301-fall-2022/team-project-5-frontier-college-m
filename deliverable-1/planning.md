@@ -129,6 +129,19 @@ List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
+Roles:
+* Samm Du: 
+    * Roles: Deployment/Infrastructure, Product Management, Full-Stack Development
+    * Strengths:
+        1. Linux, cloud provisioning, deployment
+        2. Node.js/TypeScript/JavaScript
+        3. Databases
+    * Weaknesses:
+        1. Vue.js
+        2. Docker, CI/CD
+        3. Figma
+* ...
+
 
 #### Q7: What operational events will you have as a team?
 
