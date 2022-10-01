@@ -6,15 +6,15 @@
  
 #### Q1: What are you planning to build?
 
-We plan to build a web app that serves as the primary resource for Frontier College volunteers. Volunteers at Frontier College provide programming to support the learning and development of people of all ages. (add problems volunteers may have here). To support a volunteer's every need, the app aims to provide several key functions and features, which are:
- * Bilingual support for both English and French
- * Integrations with Salesforce, Form Assembly, and WordPress
- * Communication between volunteer and supervisor
- * Push notifications
- * Volunteer groups
- * Tracking of volunteer hours
- * Invite friends to volunteer
- * Connect to the job opportunities page of the Frontier College website
+We are planning to build a standalone mobile-first web application that is integrated with Frontier College's existing infrustructure and serves as the primary application for Frontier College volunteers and coordinators to manage and share resources. Volunteers at Frontier College provide programming to members of their community across a wide variety of educational domains and coordinators facilitate this by providing volunteers with event information (location, time, etc) and all required resources (powerpoints, documents, etc). Our web application aims to solve Frontier College's concerns surounding user experience, where the current event management and resource sharing is often decentrilized and not very user friendly. Currently, many of the day-to-day features used by coordinators and volunteers are spread out accross email, Salesforce, and the Frontier College website. Thus, while still allowing for access to existing tools and resources through Salesforce integration, our application will provide bilingual support and aims to be a primary hub for volunteers and coordinators to easily:
+
+ * Create and manage groups of volunteers
+ * Create and RSVP to event
+ * Access group/event specific resources
+ * Conduct communication through tools such as group and global announcements
+ * Manage personal profiles
+
+This will greatly improve the user experience for coordinators and volunteers as all regularly used Frontier College features will be easily accessible and all in one place.
  
  > Short (1 - 2 min' read)
  * Start with a single sentence, high-level description of the product.
@@ -197,6 +197,16 @@ Team members:
     * Weaknesses:
         1. DevOps
         2. Mobile Development
+        3. Figma
+* Shawn Plotko:
+    * Roles: Frontend Development, Backend Development
+    * Strengths:
+        1. JavaScript/TypeScript
+        2. Python
+        3. Automated Testing
+    * Weaknesses:
+        1. Mobile Development
+        2. Vue.js
         3. Figma
 
 
