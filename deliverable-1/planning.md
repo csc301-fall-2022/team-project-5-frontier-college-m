@@ -6,15 +6,15 @@
  
 #### Q1: What are you planning to build?
 
-We are planning to build a standalone mobile-first web application that is integrated with Frontier College's existing infrustructure and serves as the primary application for Frontier College volunteers and coordinators to manage and share resources. Volunteers at Frontier College provide programming to members of their community across a wide variety of educational domains and coordinators facilitate this by providing volunteers with event information (location, time, etc) and all required resources (powerpoints, documents, etc). Our web application aims to solve Frontier College's concerns surounding user experience, where the current event management and resource sharing is often decentrilized and not very user friendly. Currently, many of the day-to-day features used by coordinators and volunteers are spread out accross email, Salesforce, and the Frontier College website. Thus, while still allowing for access to existing tools and resources through Salesforce integration, our application will provide bilingual support and aims to be a primary hub for volunteers and coordinators to easily:
+We are planning to build a standalone mobile-first web application that is integrated with Frontier College's existing infrastructure and serves as the primary application for Frontier College volunteers and coordinators to manage and share resources. Volunteers at Frontier College provide programming to members of their community across a wide variety of educational domains and coordinators facilitate this by providing volunteers with event information (location, time, etc) and all required resources (powerpoints, documents, etc). Our web application aims to solve Frontier College's concerns surrounding user experience, where the current event management and resource sharing is often decentralized and not very user friendly. Currently, many of the day-to-day features used by coordinators and volunteers are spread out across email, Salesforce, and the Frontier College website. Thus, while still allowing for access to existing tools and resources through Salesforce integration, our application will provide bilingual support and aims to be a primary hub for volunteers and coordinators to easily:
 
  * Create and manage groups of volunteers
- * Create and RSVP to event
+ * Create and RSVP to events
  * Access group/event specific resources
  * Conduct communication through tools such as group and global announcements
  * Manage personal profiles
 
-This will greatly improve the user experience for coordinators and volunteers as all regularly used Frontier College features will be easily accessible and all in one place.
+This will greatly improve the user experience for coordinators and volunteers, as all regularly used Frontier College features will be easily accessible and all in one place.
  
  > Short (1 - 2 min' read)
  * Start with a single sentence, high-level description of the product.
