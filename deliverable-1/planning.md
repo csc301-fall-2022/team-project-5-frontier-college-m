@@ -30,12 +30,26 @@ We plan to build a web app that serves as the primary resource for Frontier Coll
 
 
 #### Q2: Who are your target users?
+Our target users are volunteers and volunteer coordinators at Frontier College.
 
-The target users are volunteers and staff at Frontier College.
+Roger is our first persona. Roger is a college student from Quebec with some free time. He wanted to give back to his community and was referred to Frontier College by a friend. Since then, Roger has hosted weekly homework clubs at his local YMCA, tutoring reading and writing to children and youth. He is happy with what he is doing at Frontier College but wishes that their volunteer tracking system was more user-friendly. Roger's goals are:
+ * To track his volunteer hours.
+ * To find out about upcoming volunteer opportunities.
+ * To contribute to his community.
 
-  > Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+His frustrations are:
+ * He finds it difficult to navigate the user interface of the current volunteer tracking system.
+ * French is his first language but it is not well supported.
+ * His local coordinator sends emails to notify him about events instead of sending it through the system.
+    
+Kathy is a middle school teacher with a passion for education. On top of her full-time teaching position, she coordinates programming for Frontier College in her region. Kathy spends a lot of time developing resources for her volunteers to use. She thinks that they would be useful to other coordinators. Kathy's goals are:
+ * To provide volunteers with the tools they need.
+ * To organize special events.
+ * She wants to be able to talk with her volunteers online.
+
+Her frustrations are:
+ * Volunteers sometimes miss the events they sign up for.
+ * Coordinators from different regions do not collaborate on volunteer resources.
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 1. Flexibility in Use: We implement an app with two languages, which allows more potential users to use our app. In addtion, each language format has similar looking UIs so that there doesn't exist any discrimination.
@@ -136,6 +150,14 @@ List each team member and:
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
 Roles:
+ * Frontend Development: Frontend developers will use Vue.js and HTML/CSS/JavaScript to implement an intuitive user interface that communicates with the backend. They work closely with the prototyping subteam to create an enjoyable user experience.
+ * Frontend Prototyping: Frontend prototypers use Figma to design the UI/UX of the app.
+ * Backend Development: Backend developers will program a server written with Node.js and TypeScript that integrates with the partner's existing systems, along with new features like an event calendar.
+ * Database Management: Database managers will tailor a database schema according to the partner's needs. They will implement with database with PostgreSQL.
+ * Deployment/Infrastructure: Members responsible for Deployment/Infrastructure will work with tools like Docker to accelerate software development  and deployment.
+ * Product Management: Product managers work closely with the partners to figure out their needs and the problems our target users have that we are trying to solve. They determine what our team can realistically produce and the value we can provide to the partner.
+
+Team members:
 * Samm Du: 
     * Roles: Deployment/Infrastructure, Product Management, Full-Stack Development
     * Strengths:
@@ -147,7 +169,7 @@ Roles:
         2. Docker, CI/CD
         3. Figma
 * Zachary Lee: 
-    * Roles: Front-end Prototyping, Backend Development, Database Management
+    * Roles: Frontend Prototyping, Backend Development, Database Management
     * Strengths:
         1. Databases
         2. Figma
@@ -157,7 +179,7 @@ Roles:
         2. Deployment
         3. Mobile Development
 * Michael Lai:
-    * Roles: Frontend, Deployment/Infrastructure, Project Management
+    * Roles: Frontend Development, Deployment/Infrastructure, Product Management
     * Strengths:
         1. Node.js/TypeScript/JavaScript
         2. Full-Stack Web Development
@@ -166,6 +188,16 @@ Roles:
         1. Project Management 
         2. Presenting
         3. Mobile Development
+* Ricky Yi:
+    * Roles: Backend Development, Database Management
+    * Strengths:
+        1. Databases
+        2. JavaScript
+        3. Automated Testing
+    * Weaknesses:
+        1. DevOps
+        2. Mobile Development
+        3. Figma
 
 
 #### Q7: What operational events will you have as a team?
@@ -206,13 +238,14 @@ Describe your team's working culture.
 ----
 ## Highlights
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
+#### The Product
 
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
- * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
+Frontier College already has a robust volunteer management system, and it is unrealistic to migrate the entire thing. Their current solution consists of a SalesForce portal, FormAssembly for volunteer applications and inquiries, and their website. Their main issue is the SalesForce UI/UX. Volunteers find it hard to use, and it lacks some critical features such as strong bilingual support. At this point, we can improve the SalesForce applet, most functionality is already in place, or develop a standalone app and integrate it with their existing systems. The issue with improving the SalesForce applet is that it limits our options for expansion and control over the UI/UX. So, we ended up choosing to make a standalone app.
+
+#### Our Tech Stack
+
+Deciding our tech stack was one of the first design decisions we made and an important one. Our partner does not have any preference for this aspect of the project, so we were free to choose one on our own. We ended up with two main options for the backend, Python and Django or TypeScript and Node.js. Python was an obvious contender. It is easy to use, and everyone is familiar with it. As for Node.js, we have members who have worked with Node.js and can share their expertise with other members. We decided on Node.js because the individuals working on the backend wanted to learn Node.js anyways. The choices for our database implementation and frontend were more clear-cut. We chose to implement the database with a version of SQL since that is what is taught in CSC343, and we chose Vue.js for the frontend because we have members who are confident using Vue.js and individuals who want to learn.
+
+#### Team Processes
+
+We put a lot of thought and consideration into our team processes. First, we wanted a consistent time when we could expect everyone to be available for a meeting. As it turns out, it is difficult to find time where seven students can all meet. We decided on Mondays at 9-10 pm because everyone already attends the 8-9 pm Monday tutorial, so it is unlikely that anyone would have any other obligations Monday night. Then we had to decide on the meeting platform. Zoom was an option; we use it for online classes. But we already handled asynchronous discussion on Discord, and it is convenient to consolidate communication onto one platform, so we chose Discord. Discord also hosts links to our notes and resources. Another tool we are considering is a whiteboard app like Lucidpark. It provides a visual representation of project structure that Discord cannot do and might be useful once we start development. When it comes to managing project tasks, there are a lot of options. Two of the ones that came up in the discussion are Jira and Asana. We settled on GitHub Projects as we can easily access it through our GitHub repository, and our members had a good experience using it outside of the course.
