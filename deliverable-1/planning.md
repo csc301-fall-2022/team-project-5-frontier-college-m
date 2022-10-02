@@ -239,14 +239,11 @@ Describe meetings (and other events) you are planning to have.
   
 #### Q8: What artifacts will you use to self-organize?
 
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * **How do you prioritize tasks?**
-   * How do tasks get assigned to team members?
-   * How do you determine the status of work from inception to completion?
+* GitHub projects will be used as a Kanban to track tasks and who they are assigned to, deadlines, and dependencies. This will be the source of truth to track the current status of a work task. A task will only be marked as completed when it has been code reviewed, merged, and validated within the main branch of version control.
+* Tasks will be assigned based on subteam and then divided within subteam members based on availability and fairness.
+* At a high level we will prioritize tasks that move the project in the direction of completing our MVP. At a low level, we will prioritize dependencies to ensure the team remains unblocked and we can continue working in parallel.
+* A Discord server will be used to organize  our internal group communication. Channels will be used to organize communication across subteams. Additionally, a resources channel will be used to pin important resources for quick access.
+* Meeting minutes will be stored in the GitHub repo to keep track of the findings, key insights and action itmes of each meeting.
 
 #### Q9: What are the rules regarding how your team works?
 
