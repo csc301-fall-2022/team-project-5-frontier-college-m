@@ -15,18 +15,6 @@ We are planning to build a standalone mobile-first web application that is integ
  * Manage personal profiles
 
 This will greatly improve the user experience for coordinators and volunteers, as all regularly used Frontier College features will be easily accessible and all in one place.
- 
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
 
 
 #### Q2: Who are your target users?
@@ -227,15 +215,12 @@ Team members:
 
 #### Q7: What operational events will you have as a team?
 
-Describe meetings (and other events) you are planning to have. 
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
- * You should have at least 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
-   * What did you discuss during the meetings?
-   * What were the outcomes of each meeting?
-   * You must keep track of meeting minutes and add them to your repo.
-   * You must have a regular meeting schedule established by the second meeting.  
+* The meetings will generally take place online over Discord
+* We schedule regular weekly meetings during the tutorial period after the TA's keynote, and allow spillover into the 9-10PM period should more time be needed
+* The purpose of regular meetings is to align every team member on the latest status of the project, and discuss any issues that have come up since the last meeting
+* We may also schedule ad-hoc meetings for specific concerns
+* Other team communication such as code reviews, are conducted asynchronously, as described in Q8 and Q9 of this document 
+* With our project partner, we discussed the existing workflow of their volunteer program, clarified the pain points in their user experience, and established a basic expectation on where we can add the most value for them with our software. The outcome is the project framework outlined in this document
   
 #### Q8: What artifacts will you use to self-organize?
 
