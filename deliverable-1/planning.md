@@ -52,7 +52,7 @@ Her frustrations are:
  * Coordinators from different regions do not collaborate on volunteer resources.
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
-There is an existing app that is not user friendly, so people currently are not using it. The partner want to combine a bunch of features to make it easier to organize into one single location rather multiple software tools than such as across email and other file sharing, calendar RSVPing. There are thee reasons that uses would like to choose our product.
+There is an existing app that is not user friendly, so people currently are not using it. The partner want to combine a bunch of features to make it easier to organize into one single location rather multiple software tools than such as across email and other file sharing, calendar RSVPing. There are following thee reasons that users would like to choose our product.
 
 1. Flexibility in Use: We implement an app with two languages, which allows more potential users to use our app. In addtion, each language format has similar looking UIs so that there doesn't exist any discrimination.
 2. Simple and Intuitive Use: We will make our UI fairly straightforward so that users can use our app simply following their intuition without giving formal instruction. We also embed other applications (Salesforce, Form Assembly, and WordPress) into our app, so it saves users time by just checking one single interface.
