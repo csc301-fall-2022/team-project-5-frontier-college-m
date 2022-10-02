@@ -252,7 +252,7 @@ The team leads set staggered deadlines and team members are responsible for thei
 **Communications & Meetings:**
  * At least one group meeting per week, usually during the tutorial period on Monday at 8-9PM through the team discord voice channel. Should there be a need for additional meeting time, the team is expected to set aside 9-10PM after the tutorial, as much as possible.  
  * We may use Zoom meeting in case we need to share multiple screens together and make annotations. 
- * We set up and use GitHub Project to access and track Repository and branches. In addition, we use Github board to brainstorm and assign each task for each team members ([Link]( https://github.com/orgs/csc301-fall-2022/projects/1/views/1))
+ * We use GitHub repositories to access and track code and other artifacts. In addition, we use GitHub Projects as a kanban solution to brainstorm and assign each task for each team members ([Link](https://github.com/orgs/csc301-fall-2022/projects/1/views/1))
 
 
 
