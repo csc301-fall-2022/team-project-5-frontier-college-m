@@ -203,7 +203,7 @@ Team members:
         2. Vue.js
         3. Figma
 * Patrick Zhou:
-    * Roles: Fronted Development, Fronted Development
+    * Roles: Fronted Development, Backend Development
     * Strengths:
         1. JavaScript
         2. Automated Testing
