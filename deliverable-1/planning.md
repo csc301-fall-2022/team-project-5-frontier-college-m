@@ -247,7 +247,7 @@ Describe meetings (and other events) you are planning to have.
 
 #### Q9: What are the rules regarding how your team works?
 
-The team leads set staggered deadlines and team members are responsible for their assigned tasks. Another expectation is to communicate early and often, so teammates have sufficient time to discuss new implements or changing codes. As one team, we provide trust, support, and transparency to each other. When any member is stuck on how to implement specific methods or algorithms, they may ask for help as early as they can, so other teammates could provide ideas and solutions that meet both project requirements and quality standards.
+The team leads set staggered deadlines and team members are responsible for their assigned tasks. Members are expected to communicate early and often, so that there is sufficient time to discuss new implementation and changes. As one team, we provide trust, support, and transparency to each other. When a member is stuck with their task, they should ask for help as early as possible, and other members should provide ideas and suggestions that meet both project requirements and quality standards.
 
 **Communications & Meetings:**
  * At least one group meeting per week, which is on Monday at 9 -10pm through discord voice channel.  
