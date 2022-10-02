@@ -52,6 +52,8 @@ Her frustrations are:
  * Coordinators from different regions do not collaborate on volunteer resources.
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+There is an existing app that is not user friendly, so people currently are not using it. The partner want to combine a bunch of features to make it easier to organize into one single location rather multiple software tools than such as across email and other file sharing, calendar RSVPing. There are thee reasons that uses would like to choose our product.
+
 1. Flexibility in Use: We implement an app with two languages, which allows more potential users to use our app. In addtion, each language format has similar looking UIs so that there doesn't exist any discrimination.
 2. Simple and Intuitive Use: We will make our UI fairly straightforward so that users can use our app simply following their intuition without giving formal instruction. We also embed other applications (Salesforce, Form Assembly, and WordPress) into our app, so it saves users time by just checking one single interface.
 3. Perceptible Information: This application will provide adequate contrast between essential information and its surroundings by increasing the font of text, so the users are more easy to read information and manage their accounts. We also may use different modes (pictorial and verbal) to emphasize the display of profile and dashboard. 
@@ -198,7 +200,16 @@ Team members:
         1. DevOps
         2. Mobile Development
         3. Figma
-
+* Patrick Zhou:
+    * Roles: Fronted Development, Fronted Development
+    * Strengths:
+        1. JavaScript
+        2. Automated Testing
+        3. Nginx
+    * Weaknesses:
+        1. Deployment
+        2. Figma
+        3. Databases
 
 #### Q7: What operational events will you have as a team?
 
