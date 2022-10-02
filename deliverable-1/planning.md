@@ -76,6 +76,10 @@ There is an existing app that is not user friendly, so people currently are not 
  * Will you be using third party applications or APIs? If so, what are they?
  * What is your testing strategy?
 
+We will use Figma to prototype and test the flow of UI (events pages, info sections, smooth animations, and navigation bar) for improving the existing app. We use Vue.js to create a frontend framework because some groupmates already know how to use it, and it is easy to learn. We ended up choosing to learn Node.js for the backend framework. In addition, we implement the database with a version of SQL that we learned in CSC343. On the API server, we will integrate with the existing applications: FormAssembly (access and fill out forms), Salesforce (access the community portal through app), WordPress(connect to posting info page, annual reports, and Access to volunteer resources documents).
+
+
+
 #### Q5: What are the user stories that make up the MVP?
  
  ### User Story 1
