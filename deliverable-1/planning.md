@@ -242,14 +242,13 @@ Team members:
 
 #### Q9: What are the rules regarding how your team works?
 
-Describe your team's working culture.
+The team leads set staggered deadlines and team members are responsible for their assigned tasks. Members are expected to communicate early and often, so that there is sufficient time to discuss new implementation and changes. As one team, we provide trust, support, and transparency to each other. When a member is stuck with their task, they should ask for help as early as possible, and other members should provide ideas and suggestions that meet both project requirements and quality standards.
 
-**Communications:**
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
- 
-**Meetings:**
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
+**Communications & Meetings:**
+ * At least one group meeting per week, usually during the tutorial period on Monday at 8-9PM through the team discord voice channel. Should there be a need for additional meeting time, the team is expected to set aside 9-10PM after the tutorial, as much as possible.  
+ * We may use Zoom meeting in case we need to share multiple screens together and make annotations. 
+ * We use GitHub repositories to access and track code and other artifacts. In addition, we use GitHub Projects as a kanban solution to brainstorm and assign each task for each team members ([Link](https://github.com/orgs/csc301-fall-2022/projects/1/views/1))
+
 
 
 ----
