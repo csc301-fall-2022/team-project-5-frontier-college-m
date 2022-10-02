@@ -5,6 +5,8 @@
     -   Michael
     -   Samm
     -   Frontier College Representatives
+        -   Sathya Amirthavasagam (Manager , Analytics and Innovation)
+        -   Leo Wong (Digital Capacity Coordinator)
 
 ## Meeting Summary:
 
@@ -35,7 +37,7 @@
     -   Automated flow to send email to volunteer as an alumni
     -   If alumni, add to newsletter and follow up survey
 
-### 3 Pieces of Teach
+### 3 Pieces of Technology
 
 -   Salesforce for CRM + community portal
 -   Website to host Form Assembly

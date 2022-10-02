@@ -42,8 +42,8 @@
 -   IP - Level 4 - planning.md team
 -   Q6 - planning.md team
 -   Q7 - Samm
-    -   Samm will fill in the meetings (we only did one lol). Recurring meeting date
-    -   Organize at tutorial. 9-10pm
+    -   Samm will fill in the meetings, and set
+    -   Recurring meeting date: organize on Monday tutorial + 9-10pm
 -   Q8 - Michael
     -   GitHub projects will be used as a Kanban to track tasks and who they are assigned to, deadlines, and dependencies. This will be the source of truth to track the current status of a work task. A task will only be marked as completed when it has been code reviewed, merged, and validated within the main branch of version control.
     -   Tasks will be assigned based on subteam and then divided within subteam members based on availability and fairness.
