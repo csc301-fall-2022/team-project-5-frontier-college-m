@@ -15,18 +15,6 @@ We are planning to build a standalone mobile-first web application that is integ
  * Manage personal profiles
 
 This will greatly improve the user experience for coordinators and volunteers, as all regularly used Frontier College features will be easily accessible and all in one place.
- 
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
 
 
 #### Q2: Who are your target users?
