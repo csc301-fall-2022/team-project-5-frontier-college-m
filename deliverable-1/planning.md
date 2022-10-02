@@ -250,7 +250,7 @@ Describe meetings (and other events) you are planning to have.
 The team leads set staggered deadlines and team members are responsible for their assigned tasks. Members are expected to communicate early and often, so that there is sufficient time to discuss new implementation and changes. As one team, we provide trust, support, and transparency to each other. When a member is stuck with their task, they should ask for help as early as possible, and other members should provide ideas and suggestions that meet both project requirements and quality standards.
 
 **Communications & Meetings:**
- * At least one group meeting per week, which is on Monday at 9 -10pm through discord voice channel.  
+ * At least one group meeting per week, usually during the tutorial period on Monday at 8-9PM through the team discord voice channel. Should there be a need for additional meeting time, the team is expected to set aside 9-10PM after the tutorial, as much as possible.  
  * We may use Zoom meeting in case we need to share multiple screens together and make annotations. 
  * We set up and use GitHub Project to access and track Repository and branches. In addition, we use Github board to brainstorm and assign each task for each team members ([Link]( https://github.com/orgs/csc301-fall-2022/projects/1/views/1))
 
