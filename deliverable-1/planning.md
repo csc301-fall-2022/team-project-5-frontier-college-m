@@ -247,14 +247,13 @@ Describe meetings (and other events) you are planning to have.
 
 #### Q9: What are the rules regarding how your team works?
 
-Describe your team's working culture.
+The team leads set staggered deadlines and team members are responsible for their assigned tasks. Another expectation is to communicate early and often, so teammates have sufficient time to discuss new implements or changing codes. As one team, we provide trust, support, and transparency to each other. When any member is stuck on how to implement specific methods or algorithms, they may ask for help as early as they can, so other teammates could provide ideas and solutions that meet both project requirements and quality standards.
 
-**Communications:**
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
- 
-**Meetings:**
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
+**Communications & Meetings:**
+ * At least one group meeting per week, which is on Monday at 9 -10pm through discord voice channel.  
+ * We may use Zoom meeting in case we need to share multiple screens together and make annotations. 
+ * We set up and use GitHub Project to access and track Repository and branches. In addition, we use Github board to brainstorm and assign each task for each team members ([Link]( https://github.com/orgs/csc301-fall-2022/projects/1/views/1))
+
 
 
 ----
