@@ -212,6 +212,16 @@ Team members:
         1. Deployment
         2. Figma
         3. Databases
+* Greg Sherman:
+    * Roles: Backend Development, Database Management, Light Frontend Development
+    * Strengths:
+        1. Python
+        2. Figma
+        3. React
+    * Weaknesses:
+        1. TypeScript
+        2. Vue.js/Node.js
+        3. Mobile Development
 
 #### Q7: What operational events will you have as a team?
 
