@@ -93,6 +93,8 @@ We will use Figma to prototype and test the flow of UI (events pages, info secti
  #### Acceptance Criteria
  - Given that a volunteer is registered and signed in, when they visit their profile, then they are able to make changes to personal and volunteer specific information and these changes are saved and visible when other users view their profile.
 
+ ### Request for story and planning document approval
+![Planning Approval Screenshot](./planning_approval.png)
 ----
 ## Intellectual Property Confidentiality Agreement 
 > Note this section is **not marked** but must be completed briefly if you have a partner. If you have any questions, please ask on Piazza.
