@@ -1,6 +1,11 @@
-# Tutorial 2 Meeting Minutes
+# Meeting Notes
 
-## Notes
+-   ### Date: `2022-10-03`
+-   ### Topic: tutorial 2 regular meeting
+-   ### Participants:
+    -   All of team 5
+
+## Meeting Summary:
 
 Topics - What needs to be done before we start coding?
 
@@ -20,7 +25,7 @@ Topics - What needs to be done before we start coding?
   - DigitalOcean/Vercel
   - Database (managed vs VM)
 
-## Dependencies 
+### Dependencies
 
 ### Phase 1 Planning
 
