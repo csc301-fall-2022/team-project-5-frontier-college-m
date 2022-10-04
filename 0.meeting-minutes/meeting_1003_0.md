@@ -27,7 +27,7 @@ Topics - What needs to be done before we start coding?
 
 ### Dependencies
 
-### Phase 1 Planning
+#### Phase 1 Planning
 
 - Features need to be solidifed
   - Mockups need to be revised
@@ -38,7 +38,7 @@ Topics - What needs to be done before we start coding?
     - Planning Database
 - Setup the tech stack
 
-### Phase 2 Development
+#### Phase 2 Development
 
 - Frontend development
 - Backend development
