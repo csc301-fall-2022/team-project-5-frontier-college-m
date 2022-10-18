@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
+  "scripts": {
+    "build": "prisma generate && nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "db-migrate": "prisma migrate dev",
+    "db-generate": "prisma generate",
+    "db-studio": "prisma studio",
+    "db-seed": "prisma db seed",
+    "db-reset": "prisma migrate reset",
+    "test": "pnpm run test:unit && pnpm run test:e2e",
+    "test-dev": "start-server-and-test dev 3000 test",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.3",
+    "@prisma/client": "^4.4.0",
+    "@vee-validate/zod": "^4.7.0",
+    "@vueuse/core": "^9.3.0",
+    "@vueuse/nuxt": "^9.3.0",
+    "pinia": "^2.0.23",
+    "playwright": "^1.27.1",
+    "trpc-nuxt": "^0.3.0",
+    "vee-validate": "^4.7.0",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.27.1",
+    "@types/node": "18.8.0",
+    "nuxt": "3.0.0-rc.11",
+    "nuxt-windicss": "^2.5.2",
+    "prisma": "^4.4.0",
+    "start-server-and-test": "^1.14.0",
+    "ts-node": "^10.9.1",
+    "vitest": "^0.24.1"
+  }
+}
