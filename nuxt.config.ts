@@ -5,11 +5,7 @@ export default defineNuxtConfig({
       apiBase: "/trpc",
     },
   },
-  modules: [
-    "nuxt-windicss",
-    // "trpc-nuxt",
-    "@vueuse/nuxt",
-  ],
+  modules: ["nuxt-windicss", "trpc-nuxt", "@vueuse/nuxt"],
   buildModules: ["@pinia/nuxt"],
   windicss: {
     analyze: true,

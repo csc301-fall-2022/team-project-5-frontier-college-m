@@ -1,0 +1,22 @@
+diff --git a/dist/runtime/plugin.mjs b/dist/runtime/plugin.mjs
+index 1014d55ad899fbe815dfde6d5b7b69b41c545d20..ef0e6281da2e6638f7153322f59cd2f380725a61 100644
+--- a/dist/runtime/plugin.mjs
++++ b/dist/runtime/plugin.mjs
+@@ -3,6 +3,7 @@ import { unref } from "vue";
+ import { FetchError } from "ohmyfetch";
+ import { useClientHeaders } from "./client.mjs";
+ import { defineNuxtPlugin, useRequestHeaders, useRuntimeConfig } from "#app";
++import superjson from 'superjson';
+ export default defineNuxtPlugin((nuxtApp) => {
+   const config = useRuntimeConfig().public.trpc;
+   const headers = useRequestHeaders();
+@@ -23,7 +24,8 @@ export default defineNuxtPlugin((nuxtApp) => {
+     }).then((response) => ({
+       ...response,
+       json: () => Promise.resolve(response._data)
+-    }))
++    })),
++    transformer: superjson
+   });
+   nuxtApp.provide("client", client);
+ });

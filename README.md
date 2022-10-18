@@ -2,14 +2,15 @@
 
 ## Setup Instructions
 
+[] Docker install instructions
 [] fnm and Node version management
 [] pnpm
 [] ESLint for formatting and linting
+[] Document Volar take over mode for optimal type-checking performance
+[] VS Code Setup
+[] Add Preview (Per-PR) Deployments
+[] Configure heroku
 
-## TODO for Partner Project
+## Notes for Partner Project
 
 - `@types/node` pinned while waiting for this [bug](https://github.com/vuejs/core/pull/6855) to be patched
-- Document Volar take over mode for optimal type-checking performance
-- Clean up the server architecture
-- Replace trpc-nuxt dependency with custom implementation
-- Add Preview (Per-PR) Deployments

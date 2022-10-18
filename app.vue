@@ -2,6 +2,9 @@
 useHead({
   title: "App",
 });
+
+const client = useClient();
+console.log(await client.query("hello"));
 </script>
 
 <template>
