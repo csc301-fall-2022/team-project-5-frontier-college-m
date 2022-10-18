@@ -10,6 +10,7 @@
 [] VS Code Setup
 [] Add Preview (Per-PR) Deployments
 [] Configure heroku
+[] Folder level documentation
 
 ## Notes for Partner Project
 
