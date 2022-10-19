@@ -1,8 +1,8 @@
-import { createRootRouter } from "./createRouter";
-import { prisma } from "./prisma";
+import { createRootRouter } from './createRouter'
+import { prisma } from './prisma'
 
-export const router = createRootRouter().query("hello", {
+export const router = createRootRouter().query('hello', {
   async resolve() {
-    return await prisma.user.count();
-  },
-});
+    return await prisma.user.count()
+  }
+})

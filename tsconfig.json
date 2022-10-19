@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "types": [
-      "nuxt-windicss",
-      "vitest/globals"
-    ]
+    "types": ["nuxt-windicss", "vitest/globals"]
   },
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json"

@@ -71,13 +71,12 @@ pnpm run preview
 
 ## TODOs
 
-[] ESLint for formatting and linting
 [] Configure heroku (prod and preview environments)
 
 ## Notes
 
 - `@types/node` pinned while waiting for this [bug](https://github.com/vuejs/core/pull/6855) to be patched
-- `trpc-nuxt` patch
+- `trpc-nuxt` has been patched to use `superjson` transformer`
 
 ## Sources
 

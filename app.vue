@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 useHead({
-  title: "App",
-});
+  title: 'App'
+})
 
-const client = useClient();
-console.log(await client.query("hello"));
+const client = useClient()
+console.log(await client.query('hello'))
 </script>
 
 <template>

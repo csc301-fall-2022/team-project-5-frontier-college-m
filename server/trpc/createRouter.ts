@@ -1,8 +1,8 @@
-import * as trpc from "@trpc/server";
-import { ZodError } from "zod";
-import superjson from "superjson";
+import * as trpc from '@trpc/server'
+import { ZodError } from 'zod'
+import superjson from 'superjson'
 
-import { Context } from "./createContext";
+import { Context } from './createContext'
 
 export function createRootRouter() {
   return trpc
@@ -14,14 +14,14 @@ export function createRootRouter() {
         data: {
           ...shape.data,
           zodError:
-            error.code === "BAD_REQUEST" && error.cause instanceof ZodError
+            error.code === 'BAD_REQUEST' && error.cause instanceof ZodError
               ? error.cause.flatten()
-              : null,
-        },
-      };
-    });
+              : null
+        }
+      }
+    })
 }
 
 export function createRouter() {
-  return trpc.router<Context>();
+  return trpc.router<Context>()
 }
