@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "voorjaar.windicss-intellisense",
+    "prisma.prisma",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}
