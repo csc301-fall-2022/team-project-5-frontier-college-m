@@ -1,9 +1,9 @@
 # Meeting Notes
 
--   ### Date: `2022-10-03`
--   ### Topic: tutorial 2 regular meeting
--   ### Participants:
-    -   All of team 5
+- ### Date: `2022-10-03`
+- ### Topic: tutorial 2 regular meeting
+- ### Participants:
+  - All of team 5
 
 ## Meeting Summary:
 
@@ -47,20 +47,24 @@ Topics - What needs to be done before we start coding?
 ## Action Items
 
 Project Management (samm, michael, patrick)
+
 - Follow up on email regarding switch to teams. Schedule a sooner meeting with our partner
 - Tech Stack
 
-Design (zach, greg) 
+Design (zach, greg)
+
 - Invite the team to Figma account
 - Design system and component library
 
 Backend (shawn, ricky, patrick)
+
 - Start thinking about database schemas and entities
 - Look into some expected features (file upload, salesforce auth, etc)
 
 Frontend
 
 All (async)
+
 - Decide branching Scheme
 - Decide PR Template
 - Decide specific license
