@@ -14,8 +14,8 @@
     - Shawn
   - Backend
     - Patrick
-    - Ricky
-    - Samm (Lead)
+    - Ricky (Lead)
+    - Samm
     - Greg
   - Mockups
     - Zach (Lead)
