@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     }
   },
   modules: ['nuxt-windicss', 'trpc-nuxt', '@vueuse/nuxt'],
-  buildModules: ['@pinia/nuxt'],
+  buildModules: ['@pinia/nuxt', 'nuxt-icon'],
   windicss: {
     // analyze: true
   },

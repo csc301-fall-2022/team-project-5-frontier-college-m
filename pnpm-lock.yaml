@@ -17,6 +17,7 @@ specifiers:
   eslint: ^8.25.0
   eslint-config-prettier: ^8.5.0
   nuxt: 3.0.0-rc.11
+  nuxt-icon: ^0.1.7
   nuxt-windicss: ^2.5.2
   pinia: ^2.0.23
   playwright: ^1.27.1
@@ -36,6 +37,7 @@ dependencies:
   '@vee-validate/zod': 4.7.0_qind54ipyo5el6viulyhkvx3au
   '@vueuse/core': 9.3.1_vue@3.2.41
   '@vueuse/nuxt': 9.3.1_l2hkgm42quxc6f52zafmhjoquu
+  nuxt-icon: 0.1.7_vue@3.2.41
   pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
   playwright: 1.27.1
   superjson: 1.10.1
@@ -413,6 +415,19 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: false
+
+  /@iconify/vue/4.0.0_vue@3.2.41:
+    resolution: {integrity: sha512-73z81Yf2HISfehu3qvN9GqL1OnUO7wEMKkiFwVGJ2pqAdGCR8FrVylhRhka+6U+gFLlng0ynnT20svk3jJYwow==}
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.2.41
+    dev: false
 
   /@ioredis/commands/1.2.0:
     resolution: {integrity: sha512-Sx1pU8EM64o2BrqNpEO1CNLtKQwyhuXuqyfH7oGKCk+1a33d2r5saW8zNwm3j6BTExtjrv2BxTgzzkMwts6vGg==}
@@ -4275,6 +4290,16 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+
+  /nuxt-icon/0.1.7_vue@3.2.41:
+    resolution: {integrity: sha512-JQ2OKKulcDAUMiPY3Q4YaXncL5de9fiVdrgXKnNZU3Cs2VbR//RAR9xt90+hpmVzDSdEB5UXIJLnWc5uBxm/hw==}
+    dependencies:
+      '@iconify/vue': 4.0.0_vue@3.2.41
+      '@nuxt/kit': 3.0.0-rc.12
+    transitivePeerDependencies:
+      - supports-color
+      - vue
+    dev: false
 
   /nuxt-windicss/2.5.2_vite@3.1.8:
     resolution: {integrity: sha512-LLN4XDu26tbPyKATp9RACxlLuQul6cvKMQI94Oz1uTBdWTSdtgn2qEjcfUUDZ6TvcTSiUfG7AAWXntlp/OyHMw==}
