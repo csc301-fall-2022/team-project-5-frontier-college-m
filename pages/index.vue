@@ -1,5 +1,8 @@
 <script lang="ts" setup></script>
 
 <template>
-  <h1>Home Page</h1>
+  <div>
+    <h1 w:text="green" w:bg="light-blue">Home Page</h1>
+    <FCButton text="Button" />
+  </div>
 </template>
