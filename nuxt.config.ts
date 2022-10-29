@@ -6,9 +6,9 @@ export default defineNuxtConfig({
     }
   },
   modules: ['nuxt-windicss', 'trpc-nuxt', '@vueuse/nuxt'],
-  buildModules: ['@pinia/nuxt'],
+  buildModules: ['@pinia/nuxt', 'nuxt-icon'],
   windicss: {
-    analyze: true
+    // analyze: true
   },
   trpc: {
     baseURL: '', // Set empty string (default) to make requests by relative address
