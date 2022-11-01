@@ -14,7 +14,8 @@ export default defineConfig({
       purple: '#e0d1ff',
       tan: 'f6ddb6',
       'light-blue': '#cbf1ea',
-      orange: '#fece3a'
+      orange: '#fece3a',
+      white: '#ffffff'
     }
   }
 })
