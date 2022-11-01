@@ -22,6 +22,7 @@ specifiers:
   pinia: ^2.0.23
   playwright: ^1.27.1
   prettier: ^2.7.1
+  prettier-plugin-tailwindcss: ^0.1.13
   prisma: ^4.4.0
   start-server-and-test: ^1.14.0
   superjson: ^1.10.1
@@ -54,6 +55,7 @@ devDependencies:
   nuxt: 3.0.0-rc.11_z4bbprzjrhnsfa24uvmcbu7f5q
   nuxt-windicss: 2.5.2_vite@3.1.8
   prettier: 2.7.1
+  prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   prisma: 4.5.0
   start-server-and-test: 1.14.0
   ts-node: 10.9.1_5ra3kupzwcghzakkfdrtyjk72u
@@ -4967,6 +4969,15 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+
+  /prettier-plugin-tailwindcss/0.1.13_prettier@2.7.1:
+    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+    engines: {node: '>=12.17.0'}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dependencies:
+      prettier: 2.7.1
+    dev: true
 
   /prettier/2.7.1:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
