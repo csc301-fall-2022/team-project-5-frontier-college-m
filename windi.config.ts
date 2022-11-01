@@ -12,9 +12,10 @@ export default defineConfig({
       tangerine: '#ea7123',
       yellow: '#fffba5',
       purple: '#e0d1ff',
-      tan: 'f6ddb6',
+      tan: '#f6ddb6',
       'light-blue': '#cbf1ea',
-      orange: '#fece3a'
+      orange: '#fece3a',
+      pink: '#ff9daf'
     }
   }
 })
