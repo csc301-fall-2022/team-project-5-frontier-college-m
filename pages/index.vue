@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+  definePageMeta({
+    title: 'Frontier College',
+    showBack: false
+  })
+  
   const name = 'Greg'
   const title = 'New Position Openings'
   const content = "Come one come all to the grand opening of FIFTEEN new " +
@@ -30,10 +35,10 @@
     <div class="whitebar"></div>
   </div>
 </template>
+
 <style scoped>
   * {
     font-family: 'Inter';
-    font-style: normal;
   }
 
   .whitebar{
