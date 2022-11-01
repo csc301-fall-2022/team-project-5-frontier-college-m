@@ -49,6 +49,7 @@
     "nuxt-windicss": "^2.5.2",
     "prettier": "^2.7.1",
     "prisma": "^4.4.0",
+    "sass": "^1.55.0",
     "start-server-and-test": "^1.14.0",
     "ts-node": "^10.9.1",
     "vitest": "^0.24.1"
