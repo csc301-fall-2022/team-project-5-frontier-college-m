@@ -68,7 +68,7 @@ const links: Link[] = [
         </h1>
       </div>
     </header>
-    <div class="pt-18 pb-15" style="height: 2000px">
+    <div class="pt-18 pb-15">
       <slot />
     </div>
 
