@@ -12,16 +12,20 @@ export const td2Data = {
     }
   },
 
-  // userId -> groupIds
+  // userId -> groupId -> role
   userGroups: {
     0: {
-      groups: [2, 3]
+      2: 'volunteer',
+      3: 'volunteer'
     },
     1: {
-      groups: [0, 1, 3]
+      0: 'coordinator',
+      1: 'coordinator',
+      3: 'coordinator'
     },
     2: {
-      groups: [0, 2]
+      0: 'volunteer',
+      2: 'coordinator'
     }
   },
 
