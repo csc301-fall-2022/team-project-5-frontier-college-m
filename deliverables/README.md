@@ -13,8 +13,8 @@ We are building a standalone mobile-first web application that is integrated wit
  * Provide a breakdown or detail for each feature that is most appropriate for your application
  * This section will be used to assess the value of the features built -->
   * A home page
-   * Presents important announcements at the top of the page with a redirection button for the announcement page
-   * Provides short previews and a redirection button for:
+    * Presents important announcements at the top of the page with a redirection button for the announcement page
+    * Provides short previews and a redirection button for:
      * Assigned programs
      * Group chats
      * A community portal
