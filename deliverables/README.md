@@ -35,7 +35,6 @@ We are building a standalone mobile-first web application that is integrated wit
      * A description of the program
      * The relevant staff (categorized by coordinator or volunteer)
  * Programming announcements
-   * A page with announcements
    * Notifications for those announcements
  * Integrations with external calendars
 
