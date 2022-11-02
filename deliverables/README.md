@@ -1,4 +1,4 @@
-Team 5 - Frontier College
+# Team 5 - Frontier College
 
 <!-- > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical.  -->
 
