@@ -6,12 +6,38 @@
 <!--  * Provide a high-level description of your application and it's value from an end-user's perspective
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem? -->
- We are building a standalone mobile-first web application that is integrated with Frontier College's infrastructure, serving as the primary application for Frontier College volunteers and coordinators to manage and share resources. The app facilitates the process of providing academic programming to members of communities by volunteers. The problem that exists is a lackluster user experience surrounding Frontier College's current infrastructure. This app aims to solve this problem by presenting shared resources to volunteers while also allowing these resources to be managed by coordinators in a user-friendly manner.
+We are building a standalone mobile-first web application that is integrated with Frontier College's infrastructure, serving as the primary application for Frontier College volunteers and coordinators to manage and share resources. The app facilitates the process of providing academic programming to members of communities by volunteers. The problem that exists is a lackluster user experience surrounding Frontier College's current infrastructure. This app aims to solve this problem by presenting shared resources to volunteers while also allowing these resources to be managed by coordinators in a user-friendly manner.
 
 ## Key Features
- * Described the key features in the application that the user can access
+<!--  * Described the key features in the application that the user can access
  * Provide a breakdown or detail for each feature that is most appropriate for your application
- * This section will be used to assess the value of the features built
+ * This section will be used to assess the value of the features built -->
+  * A home page
+   * Presents important announcements at the top of the page with a redirection button for the announcement page
+   * Provides short previews and a redirection button for:
+     * Assigned programs
+     * Group chats
+     * A community portal
+ * An academic programming page
+   * Presents the users with the relevant programs for the current date
+     * These programs are highlighted in a section separate from upcoming programs
+   * Also presents the users with a separate section containing upcoming programs
+   * For all programs, the user is provided with:
+     * The date of the program
+     * The title of the program
+     * A description of the program
+ * A separate page containing details regarding each program
+   * Can be accessed by clicking on the program you wish to view details about
+   * When selected, provides details regarding:
+     * The date of the program
+     * The location of the program
+     * Any relevant files
+     * A description of the program
+     * The relevant staff (categorized by coordinator or volunteer)
+ * Programming announcements
+   * A page with announcements
+   * Notifications for those announcements
+ * Integrations with external calendars
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
