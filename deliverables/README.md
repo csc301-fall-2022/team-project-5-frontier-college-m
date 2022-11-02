@@ -15,9 +15,9 @@ We are building a standalone mobile-first web application that is integrated wit
   * A home page
     * Presents important announcements at the top of the page with a redirection button for the announcement page
     * Provides short previews and a redirection button for:
-     * Assigned programs
-     * Group chats
-     * A community portal
+      * Assigned programs
+      * Group chats
+      * A community portal
  * An academic programming page
    * Presents the users with the relevant programs for the current date
      * These programs are highlighted in a section separate from upcoming programs
