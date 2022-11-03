@@ -26,7 +26,7 @@ test('announcements tRPC test IDs', async () => {
     maxCount: 5
   })
   expect(announcements[0].id).toEqual(4)
-  expect(announcements[4].id).toEqual(5)
+  expect(announcements[4].id).toEqual(6)
 })
 
 test('announcements tRPC test date', async () => {

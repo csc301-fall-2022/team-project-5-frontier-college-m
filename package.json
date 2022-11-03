@@ -6,7 +6,7 @@
   },
   "scripts": {
     "build": "prisma generate && nuxt build",
-    "clean": "nuxt clean --lock --modules && rimraf node_modules && pnpm i",
+    "clean": "nuxt clean --lock --modules && pnpm i",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
