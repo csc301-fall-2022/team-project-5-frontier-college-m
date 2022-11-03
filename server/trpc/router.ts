@@ -1,34 +1,40 @@
-import { createRootRouter } from './createRouter'
-import { prisma } from './prisma'
-import { td2Data } from '~~/shared/d2-dummy-data'
+import { z } from 'zod'
+import { createRootRouter, createRouter } from './createRouter'
+import { td2Data } from '~/shared/d2-dummy-data'
 
-export const router = createRootRouter().query('hello', {
-  async resolve() {
-    return await prisma.user.count()
+const helloRouter = createRouter().query('hello', {
+  resolve() {
+    return 'Hello'
   }
 })
 
-// the input is {userID: number, maxCount: number, noEarlierThan: Date}
-export const announcementsRouter = router.query('announcements', {
-  async resolve(req) {
-    const maxCount = req.ctx.maxCount
-    const userID = req.ctx.userID
-    const noEarlierThan = req.ctx.noEarlierThan
+/**
+ * Return a list
+ * the input is {userID: number, maxCount: number, noEarlierThan: Date}
+ */
+const announcementsRouter = createRouter().query('announcements', {
+  input: z.any(),
+  resolve(req) {
+    const maxCount = req.input.maxCount
+    const userID = req.input.userID
+    const noEarlierThan = req.input.noEarlierThan
 
     // Find the group IDs of the user
-    const userGroups: { [id: number]: string } = td2Data.userGroups[userID]
-    const groupIDs = Object.keys(userGroups).map((id) => parseInt(id))
+    const userGroups: { [userId: number]: any } = td2Data.userGroups
+    const groupIDs: number[] = Object.keys(userGroups[userID]).map((id) =>
+      parseInt(id)
+    )
 
     const announcementsList = []
     let count = 0
 
     // Find the announcements for each groupID and add it to the list
     // Only if the noEarlierThan and maxCount constraint is satisfied
+    const announcements: { [eventId: number]: any } = td2Data.eventAnnouncements
     for (const groupID of groupIDs) {
-      const announcements = td2Data.eventAnnouncements[groupID]
-
-      if (announcements) {
-        for (const announcement of announcements) {
+      const userAnnouncements = announcements[groupID]
+      if (userAnnouncements) {
+        for (const announcement of userAnnouncements) {
           announcement.sentAt = new Date(announcement.sentAt)
           if (announcement.sentAt < noEarlierThan) {
             continue
@@ -39,11 +45,17 @@ export const announcementsRouter = router.query('announcements', {
             break
           }
         }
-      if (count >= maxCount) {
-        break
-      }
+
+        if (count >= maxCount) {
+          break
+        }
       }
     }
-    return await announcementsList
+
+    return announcementsList
   }
 })
+
+export const router = createRootRouter()
+  .merge(helloRouter)
+  .merge(announcementsRouter)
