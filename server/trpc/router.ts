@@ -15,7 +15,11 @@ const announcementsRouter = createRouter().query('announcements', {
   input: z.object({
     userID: z.number().nonnegative(),
     maxCount: z.number().optional(),
-    noEarlierThan: z.date().optional()
+    noEarlierThan: z
+      .preprocess((arg) => {
+        if (typeof arg === 'string' || arg instanceof Date) return new Date(arg)
+      }, z.date())
+      .optional()
   }),
 
   resolve({ input }) {

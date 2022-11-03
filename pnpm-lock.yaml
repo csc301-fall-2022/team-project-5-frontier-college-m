@@ -1,10 +1,5 @@
 lockfileVersion: 5.4
 
-patchedDependencies:
-  trpc-nuxt@0.3.0:
-    hash: qq7golkcu3kwbuj4bo6hz2sxlm
-    path: patches/trpc-nuxt@0.3.0.patch
-
 specifiers:
   '@nuxtjs/eslint-config-typescript': ^11.0.0
   '@pinia/nuxt': ^0.4.3
@@ -43,7 +38,7 @@ dependencies:
   pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
   playwright: 1.27.1
   superjson: 1.10.1
-  trpc-nuxt: 0.3.0_qq7golkcu3kwbuj4bo6hz2sxlm
+  trpc-nuxt: 0.3.0
   vee-validate: 4.7.0_vue@3.2.41
   zod: 3.19.1
 
@@ -5722,7 +5717,7 @@ packages:
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  /trpc-nuxt/0.3.0_qq7golkcu3kwbuj4bo6hz2sxlm:
+  /trpc-nuxt/0.3.0:
     resolution: {integrity: sha512-Sp7xpdzYxWh4waJlo/T0ypIE3flZXf1c0puvax+P24hWDOkISnRWovKMrWe27rGuY5C8QkXo57YWqt/el702WQ==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.11
@@ -5737,7 +5732,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
-    patched: true
 
   /ts-node/10.9.1_5ra3kupzwcghzakkfdrtyjk72u:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}

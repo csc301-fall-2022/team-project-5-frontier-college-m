@@ -56,9 +56,5 @@
     "ts-node": "^10.9.1",
     "vitest": "^0.24.1"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "trpc-nuxt@0.3.0": "patches/trpc-nuxt@0.3.0.patch"
-    }
-  }
+  "pnpm": {}
 }
