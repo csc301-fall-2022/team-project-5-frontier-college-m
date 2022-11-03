@@ -9,7 +9,9 @@ const helloRouter = createRouter().query('hello', {
 })
 
 /**
- * getEventDetails({userId: int}) => {
+ * Return an event object, identified by its id
+ *
+ * /eventDetails?input={"eventId": int} => {
  *      id: int;
  *      name: string;
  *      type: string;
@@ -18,22 +20,24 @@ const helloRouter = createRouter().query('hello', {
  *      description: string
  * }
  */
-const eventRouter = createRouter().query('getEventDetails', {
+const eventDetailsRouter = createRouter().query('eventDetails', {
   input: z.object({
-    userId: z.number().int()
+    eventId: z.number().int()
   }),
   resolve(req) {
-    const userId: number = req.input.userId
+    const eventId: number = req.input.eventId
     const eventDetails: { [eventId: number]: any } = td2Data.eventDetails
     return {
       id: req.input,
-      name: eventDetails[userId].name,
-      type: eventDetails[userId].type,
-      recurrence: eventDetails[userId].recurrence,
-      location: eventDetails[userId].location,
-      description: eventDetails[userId].description
+      name: eventDetails[eventId].name,
+      type: eventDetails[eventId].type,
+      recurrence: eventDetails[eventId].recurrence,
+      location: eventDetails[eventId].location,
+      description: eventDetails[eventId].description
     }
   }
 })
 
-export const router = createRootRouter().merge(helloRouter).merge(eventRouter)
+export const router = createRootRouter()
+  .merge(helloRouter)
+  .merge(eventDetailsRouter)
