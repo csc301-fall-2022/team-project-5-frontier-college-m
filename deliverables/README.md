@@ -13,32 +13,32 @@ We are building a standalone mobile-first web application that is integrated wit
  * Provide a breakdown or detail for each feature that is most appropriate for your application
  * This section will be used to assess the value of the features built -->
  ### Deliverable 2 features
-  * A home page
+1. A home page
     * Presents important announcements at the top of the page with a redirection button for the announcement page
     * Provides short previews and a redirection button for:
       * Assigned programs
       * Group chats
       * A community portal
- * An academic programming page
-   * Presents the users with the relevant programs for the current date
-     * These programs are highlighted in a section separate from upcoming programs
+2. An academic programming page
+    * Presents the users with the relevant programs for the current date
+      * These programs are highlighted in a section separate from upcoming programs
    * Also presents the users with a separate section containing upcoming programs
    * For all programs, the user is provided with:
      * The date of the program
      * The title of the program
      * A description of the program
- * A separate page containing details regarding each program
-   * Can be accessed by clicking on the program you wish to view details about
-   * When selected, provides details regarding:
-     * The date of the program
-     * The location of the program
-     * Any relevant files
-     * A description of the program
-     * The relevant staff (categorized by coordinator or volunteer)
+3. A separate page containing details regarding each program
+    * Can be accessed by clicking on the program you wish to view details about
+    * When selected, provides details regarding:
+      * The date of the program
+      * The location of the program
+      * Any relevant files
+      * A description of the program
+      * The relevant staff (categorized by coordinator or volunteer)
  ### Future features to implement
- * Programming announcements
+4. Programming announcements
    * Notifications for those announcements
- * Integrations with external calendars
+5. Integrations with external calendars
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
