@@ -13,45 +13,50 @@ const helloRouter = createRouter().query('hello', {
  * the input is {userID: number, maxCount: number, noEarlierThan: Date}
  */
 const announcementsRouter = createRouter().query('announcements', {
-  input: z.any(),
-  resolve(req) {
-    const maxCount = req.input.maxCount
-    const userID = req.input.userID
-    const noEarlierThan = req.input.noEarlierThan
+
+  input: z.object({
+    userID: z.number(),
+    maxCount: z.number().optional(),
+    noEarlierThan: z.date().optional()
+  }),
+
+  resolve({ input }) {
+    const maxCount = input.maxCount 
+    const userID = input.userID
+    const noEarlierThan = input.noEarlierThan ?? new Date(0)
 
     // Find the group IDs of the user
-    const userGroups: { [userId: number]: any } = td2Data.userGroups
+    const userGroups: { [userId: number]: { [groupID: number]: string} } = td2Data.userGroups
     const groupIDs: number[] = Object.keys(userGroups[userID]).map((id) =>
       parseInt(id)
     )
 
     const announcementsList = []
-    let count = 0
 
     // Find the announcements for each groupID and add it to the list
     // Only if the noEarlierThan and maxCount constraint is satisfied
-    const announcements: { [eventId: number]: any } = td2Data.eventAnnouncements
+    const announcements: { [eventId: number]:  any} = td2Data.eventAnnouncements
+    
+    // get all announcements for the groupIDs
     for (const groupID of groupIDs) {
-      const userAnnouncements = announcements[groupID]
-      if (userAnnouncements) {
-        for (const announcement of userAnnouncements) {
+      const groupAnnouncements = announcements[groupID]
+      if (groupAnnouncements) {
+        for (const announcement of groupAnnouncements) {
           announcement.sentAt = new Date(announcement.sentAt)
-          if (announcement.sentAt < noEarlierThan) {
-            continue
+          if (announcement.sentAt >= noEarlierThan) {
+            announcementsList.push(announcement)
           }
-          announcementsList.push(announcement)
-          count++
-          if (count >= maxCount) {
-            break
-          }
-        }
-
-        if (count >= maxCount) {
-          break
         }
       }
     }
-
+    // Sort the announcements by date
+    announcementsList.sort((a, b) => {
+      return a.sentAt.getTime() - b.sentAt.getTime()
+    })
+    // if the maxCount is smaller than the number of announcements, return the first maxCount announcements
+    if (maxCount && announcementsList.length > maxCount) {
+      return announcementsList.slice(0, maxCount)
+    }
     return announcementsList
   }
 })

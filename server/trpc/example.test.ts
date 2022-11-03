@@ -8,7 +8,7 @@ test('announcements tRPC test count', async () => {
   const announcements = await caller.query('announcements', {
     userID: 2,
     maxCount: 3
-  } as any)
+  })
   expect(announcements).toHaveLength(3)
 })
 
@@ -19,8 +19,8 @@ test('announcements tRPC test IDs', async () => {
   const announcements = await caller.query('announcements', {
     userID: 2,
     maxCount: 5
-  } as any)
-  expect(announcements[0].id).toEqual(0)
+  })
+  expect(announcements[0].id).toEqual(4)
   expect(announcements[4].id).toEqual(5)
 })
 
@@ -33,7 +33,7 @@ test('announcements tRPC test date', async () => {
     userID: 2,
     maxCount: 5,
     noEarlierThan: dateLimit
-  } as any)
+  })
 
   for (const announcement of announcements) {
     expect(announcement.sentAt >= dateLimit).toBeTruthy()
