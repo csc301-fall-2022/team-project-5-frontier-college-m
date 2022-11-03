@@ -9,6 +9,7 @@ useHead({
 
 const client = useClient()
 console.log(await client.query('hello'))
+console.log(await client.query('user', {userId: 2}))
 </script>
 
 <template>
