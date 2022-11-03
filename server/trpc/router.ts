@@ -9,24 +9,23 @@ const helloRouter = createRouter().query('hello', {
 })
 
 /**
- * Return a list
- * the input is {userID: number, maxCount: number, noEarlierThan: Date}
+ * Return a list of announcements that pertain to a given user.
  */
 const announcementsRouter = createRouter().query('announcements', {
-
   input: z.object({
-    userID: z.number(),
+    userID: z.number().nonnegative(),
     maxCount: z.number().optional(),
     noEarlierThan: z.date().optional()
   }),
 
   resolve({ input }) {
-    const maxCount = input.maxCount 
+    const maxCount = input.maxCount
     const userID = input.userID
     const noEarlierThan = input.noEarlierThan ?? new Date(0)
 
     // Find the group IDs of the user
-    const userGroups: { [userId: number]: { [groupID: number]: string} } = td2Data.userGroups
+    const userGroups: { [userId: number]: { [groupID: number]: string } } =
+      td2Data.userGroups
     const groupIDs: number[] = Object.keys(userGroups[userID]).map((id) =>
       parseInt(id)
     )
@@ -34,9 +33,8 @@ const announcementsRouter = createRouter().query('announcements', {
     const announcementsList = []
 
     // Find the announcements for each groupID and add it to the list
-    // Only if the noEarlierThan and maxCount constraint is satisfied
-    const announcements: { [eventId: number]:  any} = td2Data.eventAnnouncements
-    
+    // only if the noEarlierThan and maxCount constraint is satisfied
+    const announcements: { [eventId: number]: any } = td2Data.eventAnnouncements
     // get all announcements for the groupIDs
     for (const groupID of groupIDs) {
       const groupAnnouncements = announcements[groupID]
@@ -49,7 +47,8 @@ const announcementsRouter = createRouter().query('announcements', {
         }
       }
     }
-    // Sort the announcements by date
+
+    // sort the announcements by date
     announcementsList.sort((a, b) => {
       return a.sentAt.getTime() - b.sentAt.getTime()
     })
@@ -57,6 +56,7 @@ const announcementsRouter = createRouter().query('announcements', {
     if (maxCount && announcementsList.length > maxCount) {
       return announcementsList.slice(0, maxCount)
     }
+
     return announcementsList
   }
 })
