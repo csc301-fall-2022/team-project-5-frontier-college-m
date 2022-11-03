@@ -12,6 +12,7 @@ We are building a standalone mobile-first web application that is integrated wit
 <!--  * Described the key features in the application that the user can access
  * Provide a breakdown or detail for each feature that is most appropriate for your application
  * This section will be used to assess the value of the features built -->
+ ### Deliverable 2 features
   * A home page
     * Presents important announcements at the top of the page with a redirection button for the announcement page
     * Provides short previews and a redirection button for:
@@ -34,6 +35,7 @@ We are building a standalone mobile-first web application that is integrated wit
      * Any relevant files
      * A description of the program
      * The relevant staff (categorized by coordinator or volunteer)
+ ### Future features to implement
  * Programming announcements
    * Notifications for those announcements
  * Integrations with external calendars
