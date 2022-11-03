@@ -21,7 +21,7 @@ specifiers:
   nuxt-windicss: ^2.5.2
   pinia: ^2.0.23
   playwright: ^1.27.1
-  pnpm: ^7.14.0
+  pnpm: ^7.14.2
   prettier: ^2.7.1
   prisma: ^4.4.0
   sass: ^1.55.0
@@ -55,7 +55,7 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.25.0
   nuxt: 3.0.0-rc.11_3eyjpkldgso62bit6zz6w46xwu
   nuxt-windicss: 2.5.2_vite@3.1.8
-  pnpm: 7.14.0
+  pnpm: 7.14.2
   prettier: 2.7.1
   prisma: 4.5.0
   sass: 1.55.0
@@ -4670,8 +4670,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pnpm/7.14.0:
-    resolution: {integrity: sha512-yUKSckJLBIw8ByqMKJF9497kzwrevuQhdL6o2eYbky7woAictxoGX9veBdQYCdBemuC239X2FJq/LGTpCjQ55w==}
+  /pnpm/7.14.2:
+    resolution: {integrity: sha512-NSxrIaRW07jFQQ1fPFFOA8eMfuogsMeygOKd3zaFgyJBdo1oh61jl2JjWc+w0XNzWIMG7/v9HK7nP8RTL5NO3g==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
