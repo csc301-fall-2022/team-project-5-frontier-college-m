@@ -13,7 +13,7 @@ const helloRouter = createRouter().query('hello', {
  */
 const announcementsRouter = createRouter().query('announcements', {
   input: z.object({
-    userID: z.number().nonnegative(),
+    userId: z.number().nonnegative(),
     maxCount: z.number().optional(),
     noEarlierThan: z
       .preprocess((arg) => {
@@ -24,13 +24,13 @@ const announcementsRouter = createRouter().query('announcements', {
 
   resolve({ input }) {
     const maxCount = input.maxCount
-    const userID = input.userID
+    const userId = input.userId
     const noEarlierThan = input.noEarlierThan ?? new Date(0)
 
     // Find the group IDs of the user
     const userGroups: { [userId: number]: { [groupID: number]: string } } =
       td2Data.userGroups
-    const groupIDs: number[] = Object.keys(userGroups[userID]).map((id) =>
+    const groupIDs: number[] = Object.keys(userGroups[userId]).map((id) =>
       parseInt(id)
     )
 
