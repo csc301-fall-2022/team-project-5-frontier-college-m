@@ -1,27 +1,22 @@
 import { createContext } from './createContext'
 import { router } from './router'
-import { td2Data } from './d2-dummy-data'
 
-test('example tRPC test', async () => {
+test('eventDetails tRPC test name', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
-  const count = await caller.query('hello')
-  expect(count).toBeGreaterThanOrEqual(0)
+  const answer = await caller.query('eventDetails', {
+    eventId: 0
+  })
+  expect(answer.name).toBe('Figma Tutoring')
 })
 
-test('even tRPC test name', async () => {
-  const ctx = td2Data 
+test('eventDetails tRPC test type', async () => {
+  const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
-  const answer = await caller.query('get_eventDetails')
-  expect(answer[0].name).toBe('Figma Tutoring') 
-})
-
-test('even tRPC test type', async () => {
-  const ctx = td2Data 
-  const caller = router.createCaller(ctx)
-
-  const answer = await caller.query('get_eventDetails')
-  expect(answer[1].type).toBe('recurring') 
+  const answer = await caller.query('eventDetails', {
+    eventId: 1
+  })
+  expect(answer.type).toBe('recurring')
 })
