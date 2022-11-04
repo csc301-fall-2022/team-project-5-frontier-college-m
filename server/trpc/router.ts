@@ -38,6 +38,7 @@ const eventDetailsRouter = createRouter().query('eventDetails', {
   }
 })
 
+/**
  * Return an array of event ID, identified by User id
  *
  * /event_id?input={"userId": int} => {
