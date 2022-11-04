@@ -68,7 +68,7 @@ const links: Link[] = [
         </h1>
       </div>
     </header>
-    <div class="pt-18 pb-15">
+    <div class="pt-18 pb-18 main-container">
       <slot />
     </div>
 
@@ -89,7 +89,19 @@ const links: Link[] = [
   </main>
 </template>
 
+<style lang="scss">
+body {
+  min-width: 360px;
+}
+</style>
+
 <style scoped lang="scss">
+.main-container {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 95%;
+}
+
 .notification {
   background: red;
   border-radius: 50%;
