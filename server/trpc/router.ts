@@ -38,6 +38,37 @@ const eventDetailsRouter = createRouter().query('eventDetails', {
   }
 })
 
+ * Return an array of event ID, identified by User id
+ *
+ * /event_id?input={"userId": int} => {
+ *      events: array;
+ * }
+ */
+ const eventRouter = createRouter().query('id_event', {
+  input: z.object({
+    eventId: z.number().int()
+  }),
+  resolve(req) {
+    const userId: number = req.input.eventId
+    const userGroups: {[userID: number]: any} = td2Data.userGroups
+    const groupId = Object.keys(userGroups[userId])
+    const groupEvents: {[groupId: number]: any} = td2Data.groupEvents
+    const count = Object.keys(userGroups[userId]).length
+    const event_array = []
+    for (let i = 0; i < count; i++) {
+      if (groupEvents[groupId[i]] in event_array){}
+      else{
+        event_array.push(groupEvents[groupId[i]])
+      }
+    }
+    return {
+      id: req.input,
+      event: event_array
+    }
+  }
+})
+
 export const router = createRootRouter()
   .merge(helloRouter)
   .merge(eventDetailsRouter)
+  .merge(eventRouter)
