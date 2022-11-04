@@ -24,9 +24,11 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Feel free to refer/link to process artifact(s).
 
  * Weekly meetings
-We held weekly meetings during tutorials. They provide a recurring time when all members can relay their progress and discuss the next steps for the project. These weekly meetings turned out to be successful as, after each session, every member had a general idea of what to do in the upcoming week, increasing team coordination and efficiency. More specific task assignments were done within subteams.
+   
+   We held weekly meetings during tutorials. They provide a recurring time when all members can relay their progress and discuss the next steps for the project. These weekly meetings turned out to be successful as, after each session, every member had a general idea of what to do in the upcoming week, increasing team coordination and efficiency. More specific task assignments were done within subteams.
  * Subteams
-For TD2, our group was divided into subteams responsible for the backend and the frontend. Within each subteam, we held meetings on Discord to hash out the overall design as well as split the work into tasks that are assigned to individual subteam members. These assignments are put onto our GitHub Projects board. Smaller subteams made it easier to schedule synchronous meetings, as well as facilitate asynchronous communication since the insights or questions a member has may primarily be relevant to individuals working on the same part of the project. In particular, this was useful when discussing issues during implementation and their solutions.
+   
+   For TD2, our group was divided into subteams responsible for the backend and the frontend. Within each subteam, we held meetings on Discord to hash out the overall design as well as split the work into tasks that are assigned to individual subteam members. These assignments are put onto our GitHub Projects board. Smaller subteams made it easier to schedule synchronous meetings, as well as facilitate asynchronous communication since the insights or questions a member has may primarily be relevant to individuals working on the same part of the project. In particular, this was useful when discussing issues during implementation and their solutions.
 
 #### Q2. Decisions that did not turn out as well as we hoped
 
@@ -37,10 +39,12 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Explain why (i.e. give a supporting argument) you consider a decision to be unsuccessful
  * Feel free to refer/link to process artifact(s).
 
-  * Partner meeting schedule
-During TD1, we decided on having partner meetings approximately once every two weeks. This turned out to be unsuccessful. At the beginning of TD2, we were planning on implementing a database with PostgreSQL and using Prisma as the ORM. Work had already started on the database when we met with our partner. They intended for data to be mainly located on their preexisting salesforce system so we had to pivot and scrap the work we did on the database.
+ * Partner meeting schedule
+
+   During TD1, we decided on having partner meetings approximately once every two weeks. This turned out to be unsuccessful. At the beginning of TD2, we were planning on implementing a database with PostgreSQL and using Prisma as the ORM. Work had already started on the database when we met with our partner. They intended for data to be mainly located on their preexisting salesforce system so we had to pivot and scrap the work we did on the database.
   * Communication
-Despite process decisions such as weekly meetings and subteams, our team still had some communication issues. One example is how the various backend API endpoints were developed. Endpoints were split between multiple group members. When each member made their endpoints, finer implementation details were not effectively communicated, resulting in inconsistent design and formatting.
+
+    Despite process decisions such as weekly meetings and subteams, our team still had some communication issues. One example is how the various backend API endpoints were developed. Endpoints were split between multiple group members. When each member made their endpoints, finer implementation details were not effectively communicated, resulting in inconsistent design and formatting.
 
 #### Q3. Planned changes
 
