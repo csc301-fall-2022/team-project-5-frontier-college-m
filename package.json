@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "prisma generate && nuxt build",
+    "clean": "nuxt clean --lock --modules && pnpm i",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -47,6 +48,7 @@
     "eslint-config-prettier": "^8.5.0",
     "nuxt": "3.0.0-rc.11",
     "nuxt-windicss": "^2.5.2",
+    "pnpm": "^7.14.2",
     "prettier": "^2.7.1",
     "prisma": "^4.4.0",
     "sass": "^1.55.0",
@@ -54,9 +56,5 @@
     "ts-node": "^10.9.1",
     "vitest": "^0.24.1"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "trpc-nuxt@0.3.0": "patches/trpc-nuxt@0.3.0.patch"
-    }
-  }
+  "pnpm": {}
 }
