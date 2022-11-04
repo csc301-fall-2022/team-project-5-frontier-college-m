@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { createRootRouter, createRouter } from './createRouter'
-import { td2Data } from '~~/shared/d2-dummy-data'
+import { td2Data } from '~/shared/d2-dummy-data'
 
 const helloRouter = createRouter().query('hello', {
   resolve() {
@@ -39,32 +39,34 @@ const eventDetailsRouter = createRouter().query('eventDetails', {
 })
 
 /**
- * Return an array of event ID, identified by User id
+ * Return an array of event IDs for a given user, identified by the user ID
  *
  * /event_id?input={"userId": int} => {
  *      events: array;
  * }
  */
- const eventRouter = createRouter().query('id_event', {
+const userEventsRouter = createRouter().query('userEvents', {
   input: z.object({
-    eventId: z.number().int()
+    userId: z.number().int()
   }),
+
   resolve(req) {
-    const userId: number = req.input.eventId
-    const userGroups: {[userID: number]: any} = td2Data.userGroups
-    const groupId = Object.keys(userGroups[userId])
-    const groupEvents: {[groupId: number]: any} = td2Data.groupEvents
-    const count = Object.keys(userGroups[userId]).length
-    const event_array = []
-    for (let i = 0; i < count; i++) {
-      if (groupEvents[groupId[i]] in event_array){}
-      else{
-        event_array.push(groupEvents[groupId[i]])
-      }
+    const userId: number = req.input.userId
+    const userGroups: { [userId: number]: any } = td2Data.userGroups
+
+    const groups: { [groupId: number]: { events: Array<number> } } =
+      td2Data.groupEvents
+
+    const userEvents: Set<number> = new Set()
+    for (const groupId in Object.keys(userGroups[userId])) {
+      groups[parseInt(groupId)].events.forEach((eventId) => {
+        userEvents.add(eventId)
+      })
     }
+
     return {
-      id: req.input,
-      event: event_array
+      userId,
+      events: Array(...userEvents)
     }
   }
 })
@@ -72,4 +74,4 @@ const eventDetailsRouter = createRouter().query('eventDetails', {
 export const router = createRootRouter()
   .merge(helloRouter)
   .merge(eventDetailsRouter)
-  .merge(eventRouter)
+  .merge(userEventsRouter)
