@@ -1,7 +1,10 @@
 {
-  "buildpacks": [
-    {
-      "url": "https://github.com/TheSecurityDev/heroku-buildpack-nodejs-pnpm"
-    }
-  ]
+  "environments": {
+    "addons": ["heroku-postgresql:hobby-dev"],
+    "buildpacks": [
+      {
+        "url": "https://github.com/TheSecurityDev/heroku-buildpack-nodejs-pnpm"
+      }
+    ]
+  }
 }
