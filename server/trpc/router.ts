@@ -28,7 +28,7 @@ const eventDetailsRouter = createRouter().query('eventDetails', {
     const eventId: number = req.input.eventId
     const eventDetails: { [eventId: number]: any } = td2Data.eventDetails
     return {
-      id: req.input,
+      id: req.input.eventId,
       name: eventDetails[eventId].name,
       type: eventDetails[eventId].type,
       recurrence: eventDetails[eventId].recurrence,
