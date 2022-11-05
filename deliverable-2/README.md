@@ -93,8 +93,22 @@ Depending on which branch code is pushed to different deployment processes are t
 
 ## Licenses
 
-Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
+We chose to use the [Apache 2.0 License](https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/LICENSE)
 
-- What type of license will you apply to your codebase?
-- What affect does it have on the development and use of your codebase?
-- Why did you or your partner make this choice?
+```
+Copyright 2022 Samm Du, Michael Lai, Zachary Lee, Shawn Plotko, Greg Sherman, Ricky Yi, Patrick Zhou
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+We chose this license in consultation with our partner, because it allows us to release our source code for public use, enables commercial use of our source code without creating the obligation that derivative work also release their source code, and excludes us from liability or obligation to provide warranty.
