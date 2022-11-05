@@ -1,16 +1,41 @@
 <script lang="ts" setup>
+
 definePageMeta({
   title: 'Frontier College',
   showBack: false
 })
 
-const name = 'Greg'
-const title = 'New Position Openings'
-const content =
-  'Come one come all to the grand opening of FIFTEEN new ' +
-  'position openings on the job board! These non-profits need your help to ' +
-  'better the community, so get blah blah blah blah blah blah blah blah ' +
-  'blah blahblah blahblah blahblah blah'
+// Placeholder text
+const content = "Zach sent you 100 new messages: Hey man its been like 20" + 
+                " days and you still haven't responded, please there is no" + 
+                "way you cannot see this I can see you going online but you " +
+                "aren't responding pls"
+
+const currUser = 2
+const client = useClient()
+// Obtain the name of the current user (right now fixed on user 2)
+const name = await (await client.query('user', {userId: currUser})).name
+
+// Obtain the announcements for this user
+const announcement = await (await client.query('announcements', {
+    userId: currUser,
+    maxCount: 1,
+    noEarlierThan: new Date('2022-11-01T11:16:01')
+}))[0]
+
+// Obtain the assigned program events for this user
+const events = await (await client.query('userEvents', 
+  {userId: currUser})).events
+
+// Check if the events list if empty, otherwise, obtain the first one
+let eventContent = ""
+if (events.length === 0) {
+  eventContent = "No upcoming programs"
+} else {
+  const eventData = await client.query('eventDetails', {eventId: 1})
+  eventContent = eventData.name + ": " + eventData.description
+}
+
 </script>
 
 <template>
@@ -20,18 +45,29 @@ const content =
     </div>
 
     <div class="immediate-announcements">
-      <FCAnnouncementCard :title="title" :text="content" />
+      <FCAnnouncementCard 
+        :title="announcement.title" 
+        :text="announcement.description" 
+      />
       <FCViewAll />
     </div>
 
     <div class="arrow-cards">
       <FCArrowCard
         title="My Assigned Programs"
-        :text="content"
+        :text="eventContent"
         color="#98BF1E"
       />
-      <FCArrowCard title="Group Chat" :text="content" color="#FECE3A" />
-      <FCArrowCard title="Community Portal" :text="content" color="#EA7123" />
+      <FCArrowCard 
+        title="Group Chat" 
+        :text="content" 
+        color="#FECE3A" 
+      />
+      <FCArrowCard 
+        title="Community Portal" 
+        :text="content"
+        color="#EA7123" 
+      />
     </div>
 
     <!-- <div class="whitebar"></div> -->
