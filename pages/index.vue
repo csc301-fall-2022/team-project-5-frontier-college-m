@@ -103,7 +103,8 @@ if (events.length === 0) {
 .immediate-announcements {
   padding-top: 25px;
   text-align: center;
-  width: 360px;
+  width: 100vw;
+  min-width: 360px;
   height: 210px;
   left: 0px;
   top: 114px;
