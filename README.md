@@ -1,5 +1,7 @@
 # Frontier College
 
+The TD2 readme can be found at `deliverable-2/README.md`
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/) 16.x
@@ -69,14 +71,10 @@ pnpm run preview
 - Vue components should be built using [`<script setup>`](https://vuejs.org/api/sfc-script-setup.html) syntax
 - [WindiCSS](https://windicss.org/) has been configured to Tailwind-like styles.
 
-## TODOs
-
-[] Configure heroku (prod and preview environments)
-
 ## Notes
 
 - `@types/node` pinned while waiting for this [bug](https://github.com/vuejs/core/pull/6855) to be patched
-- `trpc-nuxt` has been patched to use `superjson` transformer`
+<!-- - `trpc-nuxt` has been patched to use `superjson` transformer` -->
 
 ## Sources
 
@@ -87,3 +85,21 @@ Resources we consulted or borrowed code from to create this stack.
 - https://vee-validate.logaretm.com/v4/integrations/zod-schema-validation
 - https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-heroku
 - https://www.prisma.io/docs/guides/deployment/deploy-database-changes-with-prisma-migrate
+
+## License
+
+```
+Copyright 2022 Samm Du, Michael Lai, Zachary Lee, Shawn Plotko, Greg Sherman, Ricky Yi, Patrick Zhou
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```

@@ -11,11 +11,13 @@
 
 <style scoped>
     div{
-      text-align: right;  
+      text-align: center;  
     }
  button{
     margin-top: 10px;
-    margin-right: 16px;
+    /* margin-right: 16px; */
+    position: relative;
+    left: 100px;
     width: 127px;
     height: 45px;
 
