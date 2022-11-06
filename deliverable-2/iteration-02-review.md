@@ -15,7 +15,7 @@ List **process-related** (i.e. team organization and how you work) decisions tha
 
 We held weekly meetings during tutorials. They provide a recurring time when all members can relay their progress and discuss the next steps for the project. These weekly meetings turned out to be successful as, after each session, every member had a general idea of what to do in the upcoming week, increasing team coordination and efficiency. More specific task assignments were done within subteams.
 
-##### Github Projects
+##### GitHub Projects
 
 After each weekly meeting, we would all figure out what work is needed to be done divvy it up into small tasks that each person would be assigned to. On GitHub projects, we are able to keep track of everything we discussed in the meeting, as well as know which person is assigned to a task. In a group of 7 people, it's easy to lose track of which person is doing which task, so with the projects board we are able to communicate easily about each task as well as seek help from people who are dong similar tasks.
 
@@ -26,6 +26,10 @@ Every time somebody implements a feature, they create unit tests that ensure the
 ##### Subteams
 
 For TD2, our group was divided into subteams responsible for the backend and the frontend. Within each subteam, we held meetings on Discord to hash out the overall design as well as split the work into tasks that are assigned to individual subteam members. These assignments are put onto our GitHub Projects board. Smaller subteams made it easier to schedule synchronous meetings, as well as facilitate asynchronous communication since the insights or questions a member has may primarily be relevant to individuals working on the same part of the project. In particular, this was useful when discussing issues during implementation and their solutions.
+
+##### Discord
+
+Async communication has been very quick and easy via discord. We have been able to separate groups and ideas into channels which makes accessing certain areas of our project very easy.
 
 #### Q2. Decisions that did not turn out as well as we hoped
 
@@ -47,10 +51,9 @@ During TD1, we decided on having partner meetings approximately once every two w
 
 List any **process-related** (i.e. team organization and how you work) changes you are planning to make (if there are any)
 
-- Ordered from most to least important.
-- Explain why you are making a change.
+##### Consistent Partner Meetings
 
-⚠️ TODO
+We had originally agreed on a meeting every 2 weeks with our partners, but we skipped a meeting since our group had not made any progress during a period of midterms and assignments. However, this required us to making changes later regarding the data source. To solve this problem we will be sticking more closely to our original meeting cadence commitment.
 
 ## Product - Review
 
