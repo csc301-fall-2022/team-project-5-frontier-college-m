@@ -45,7 +45,7 @@ Despite process decisions such as weekly meetings and subteams, our team still h
 
 ##### Not starting to code earlier
 
-We were all very busy so obviously we didn't have much of a choice on this front but at the same time it definitely negatively impacted the project.
+We all had packed and varying schedules which resulted in difficulty when coordinating times to work and meet for the project. This ultimately was detrimental to the project.
 
 #### Q3. Planned changes
 
