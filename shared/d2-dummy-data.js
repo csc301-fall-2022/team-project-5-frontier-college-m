@@ -32,14 +32,14 @@ export const td2Data = {
   // groupId -> eventIds
   groupEvents: {
     0: {
-      events: [1]
+      events: [1, 3]
     },
     1: {
-      events: [2]
+      events: [2, 3, 1, 0]
     },
     2: {
-      events: [0]
-    }
+      events: [0, 3]
+    },
   },
 
   // eventId -> event Object
@@ -49,7 +49,7 @@ export const td2Data = {
       type: 'recurring',
       recurrence: {
         interval: 'weekly',
-        daysOfWeek: [1] // MON-SUN -> 0-6
+        daysOfWeek: [0, 1, 2, 3] // MON-SUN -> 0-6
       },
       location: 'Soda Hall, Berkeley, CA',
       description:
@@ -60,7 +60,7 @@ export const td2Data = {
       type: 'recurring',
       recurrence: {
         interval: 'weekly',
-        daysOfWeek: [0, 2, 4] // MON-SUN -> 0-6
+        daysOfWeek: [4, 5, 6] // MON-SUN -> 0-6
       },
       location: 'Myhal Building, UofT',
       description:
@@ -71,11 +71,21 @@ export const td2Data = {
       type: 'recurring',
       recurrence: {
         interval: 'weekly',
-        daysOfWeek: [1, 3] // MON-SUN -> 0-6
+        daysOfWeek: [0, 1, 2] // MON-SUN -> 0-6
       },
       location: 'Bahen Center of Information, UofT',
       description:
         'In representations that adhere to the ISO 8601 interchange standard, dates and times are arranged such that the greatest temporal term (typically a year) is placed at the left and each successively lesser term is placed to the right of the previous term. Representations must be written in a combination of Arabic numerals and the specific computer characters (such as "-", ":", "T", "W", "Z") that are assigned specific meanings within the standard; that is, such commonplace descriptors of dates (or parts of dates) as "January", "Thursday", or "New Year\'s Day" are not allowed in interchange representations within the standard. '
+    },
+    3: {
+      name: 'Learning is Fun',
+      type: 'recurring',
+      recurrence: {
+        interval: 'weekly',
+        daysOfWeek: [3, 4, 5, 6]
+      },
+      location: 'Toronto, Ontario',
+      description: 'In representations that adhere to the ISO 8601 interchange standard, dates and times are arranged such that the greatest temporal term (typically a year) is placed at the left and each successively lesser term is placed to the right of the previous term. Representations must be written in a combination of Arabic numerals and the specific computer characters (such as "-", ":", "T", "W", "Z") that are assigned specific meanings within the standard; that is, such commonplace descriptors of dates (or parts of dates) as "January", "Thursday", or "New Year\'s Day" are not allowed in interchange representations within the standard. '
     }
   },
 
