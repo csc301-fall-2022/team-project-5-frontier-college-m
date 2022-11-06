@@ -49,10 +49,16 @@ We are building a standalone mobile-first web application that is integrated wit
 
 ## Instructions
 
-- Clear instructions for how to use the application from the end-user's perspective
-- How do you access it? Are accounts pre-created or does a user register? Where do you start? etc.
-- Provide clear steps for using each feature described above
-- This section is critical to testing your application and must be done carefully and thoughtfully
+The deployed version of our website can be accessed by going to https://frontier-college-5.herokuapp.com/. Currently, the account is pre-created and already logged in when visiting the website.
+
+Every page will have a header that indicates which page you are on, as well as a footer, which has a set of navigation buttons (Home, Program, Profile, Chat, and Updates) that will take you to their corresponding website page when clicked. Currently, only Home and Program have an associated page.
+
+Firstly, clicking the link above will bring you to the website home page (our first feature). At the top of the page you will be able to see a preview of the user’s announcement’s, along with a ‘View All’ button which, in the future, will bring you to an Announcements page. Underneath, there are previews for the user’s assigned programs, group chats and community portals. The Assigned Programs card links to the user’s Programs page. The Group Chats and Community Portals cards will link to their corresponding pages in the future.
+
+Clicking on the Program navigation button or the Assigned Programs card will bring you to the user’s Programs page (our second feature). This page contains a list of the programs the current user is assigned to, with the ones that are occurring on today’s date appearing under the ‘Today’ header and those that are upcoming appearing under the ‘Upcoming’ header. Each program card allows the user to see the date the program is occurring, the program name, and a preview of the program description.
+
+Clicking on any of these cards brings you to a page with specific information regarding that event (our third feature). An event specific page contains a title indicating the event which the page is for. Underneath you can find a set of tags indicating how often the event reoccurs (ie. weekly), the days of the week on which it occurs, and the location of the event. Additionally, there is a button, which in the future, will allow a user to download any relevant files when clicked. The page also displays the full description of the event, all users part of it, and their associated role (coordinator or volunteer).
+
 
 ## Development requirements
 
