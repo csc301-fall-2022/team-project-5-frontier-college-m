@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
     <div class="program-card" style="background-color: white;">
-        <div>
+        <div class="content">
             <div class="date-text" w:text="green">{{ props.date }}</div>
             <div class="title-text">{{ props.title }}</div>
             <div class="content-text">{{ props.content }}</div>
@@ -43,15 +43,25 @@ const props = defineProps<{
 .title-text {
     font-size: 13px;
     font-weight: 700;
+    text-overflow: ellipsis;
 }
 
 .content-text {
     font-size: 10px;
     font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 60%;
+    width: 95%;
+    
+    line-height: 14px;
 }
 
+.content {
+    width: 90%;
+}
 .card-button {
-    width: 50%;
+    width: 20%;
     font-size: 20px;
 }
 </style>

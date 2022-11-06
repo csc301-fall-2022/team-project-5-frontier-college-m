@@ -1,6 +1,39 @@
 <script lang="ts" setup>
-const desc =
-  'Come help university students in need! Join them in creating a volunteer app for Frontier College, bring your Salesforce knowledge with you! They’ll be needing you!'
+
+// day number mapping
+const days: {[day: number]: string} = 
+{0: 'Mon',
+1: 'Tue',
+2: 'Wed',
+3: 'Thu',
+4: 'Fri',
+5: 'Sat',
+6: 'Sun'}
+
+function upperFirst(str: string) {
+  if (str.length > 0) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+  return str
+}
+
+const route = useRoute()
+
+const currEventId = +route.params.programslug
+const client = useClient()
+const eventInfo = await client.query("eventDetails", {eventId: currEventId})
+
+let eventDays = ""
+const daysOfWeek: number[] = eventInfo.recurrence.daysOfWeek
+// create text for days of week tag
+for (let i = 0; i < daysOfWeek.length; i++) {
+  eventDays += days[daysOfWeek[i]]
+  
+  if (i !== daysOfWeek.length - 1) {
+    eventDays += ", "
+  }
+ 
+}
 
 definePageMeta({
   title: 'Event Info',
@@ -10,22 +43,23 @@ definePageMeta({
 
 <template>
   <div class="flex flex-col flex-nowrap justify-center items-center">
-    <h1>Design Session</h1>
+    <h1>{{eventInfo.name}}</h1>
     <div class="event-tags-wrapper">
       <div>
-        <FCTag text="09:00 January 15 2023" icon="fe:calendar" w:bg="yellow" />
-        <FCTag text="1 Billion Street" icon="fe:location" w:bg="purple" />
+        <FCTag v-if="eventInfo.type == 'recurring'" :text="upperFirst(eventInfo.recurrence.interval)" icon="fe:loop" w:bg="light-blue" />
+        <FCTag v-if="eventInfo.type == 'recurring'" :text="eventDays" icon="fe:calendar" w:bg="yellow" />
+        <FCTag :text="eventInfo.location" icon="fe:location" w:bg="purple" />
       </div>
       <FCFileButton text="Event Files" />
     </div>
 
     <h2>Description</h2>
-    <div class="desc-text">{{ desc }}</div>
+    <div class="desc-text">{{ eventInfo.description }}</div>
 
     <h2>Staff</h2>
     <FCStaffCard name="Alice N. Chain" role="Organizer" w:bg="pink" />
     <FCStaffCard name="Campbell S. Oup" role="Volunteer" />
-    <FCStaffCard name="John A. Wendys" role="Volunteer" />
+    <FCStaffCard name="Joe Mama" role="Volunteer" />
   </div>
 </template>
 

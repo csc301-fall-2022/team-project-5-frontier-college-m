@@ -46,7 +46,7 @@ const links: Link[] = [
 <template>
   <main>
     <header
-      class="bg-green font-700 h-18 fixed w-full p-4 text-center text-2xl text-white"
+      class="bg-green font-700 h-18 fixed w-full p-4 text-center text-2xl text-white z-100"
     >
       <div
         v-if="$route.path === '/'"
