@@ -1,6 +1,9 @@
 # Frontier College
 
-The TD2 readme can be found at `deliverable-2/README.md`
+## For TAs
+- TD1: https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/deliverable-1
+- TD2: https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/deliverable-2
+  - The TD2 README can be found at `deliverable-2/README.md`
 
 ## Prerequisites
 
