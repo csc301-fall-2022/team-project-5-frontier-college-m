@@ -57,16 +57,19 @@ if (events.length === 0) {
         title="My Assigned Programs"
         :text="eventContent"
         color="#98BF1E"
+        link="/programs"
       />
       <FCArrowCard 
         title="Group Chat" 
         :text="content" 
-        color="#FECE3A" 
+        color="#FECE3A"
+        link=""
       />
       <FCArrowCard 
         title="Community Portal" 
         :text="content"
-        color="#EA7123" 
+        color="#EA7123"
+        link=""
       />
     </div>
 

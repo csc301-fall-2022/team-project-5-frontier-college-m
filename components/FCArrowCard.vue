@@ -3,15 +3,18 @@
     title: string
     text: string
     color: string
+    link: string
     }>()
 </script>
 
 <template>
-  <div class="arrowcard">
-    <h1>{{ props.title }}</h1>
-    <div class="text"> {{ text }}</div>
-    <Icon name="fe:arrow-right"/>
-  </div>
+  <NuxtLink :to="link">
+    <div class="arrowcard">
+        <h1>{{ props.title }}</h1>
+        <div class="text"> {{ text }}</div>
+        <Icon name="fe:arrow-right"/>
+    </div>
+  </NuxtLink>
 </template>
 
 
