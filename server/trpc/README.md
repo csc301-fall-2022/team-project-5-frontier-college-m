@@ -12,3 +12,34 @@ We are currently using [tRPC Version 9](https://trpc.io/docs/v9/).
 - `createContext.ts` - functions to create request context on each request. Useful to inject context with request or response objects.
 - `createRouter.ts` - functions to create routers. Routers can be used to organize collections of related features and merged, see [tRPC docs](https://trpc.io/docs/v9/merging-routers)
 - `prisma.ts` - Global ORM client that can be imported to interact with the database
+
+## Dev Access to Salesforce API
+
+- Ensure [Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm#sfdx_setup_install_cli_npm) is installed correctly. This repository should already include the Salesforce CLI in the devDependencies. Run `pnpm i` to install the latest project dependencies, and verify you have the Salesforce CLI by running `npx sfdx --version`
+- [Login to Salesforce via Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm). You will need to specify the URL prefix for our sandbox account.
+
+  - Find the URL prefix, by going to the sandbox web URL, and noting the first segment. For example, if you login to Salesforce at `https://organization--group888.sandbox.lightning.force.com/...`, the URL prefix is `organization--group888`.
+  - Run the login command with the URL prefix you found above:
+    ```bash
+    npx sfdx auth:web:login -r https://organization--group888.sandbox.my.salesforce.com
+    ```
+    Note that the ending of the URL is different in the command (`...salesforce.com`) than your web login URL (`...force.com`).
+  - Verify you have successfully logged in by typing the following:
+    ```bash
+    npx sfdx auth:list
+    ```
+    The output should contain a list with one entry, and you should see your email in the `USERNAME` column
+
+- Get an access token for authenticating with the API by typing the following command:
+
+  ```bash
+  npx sfdx force:org:display --targetusername your@login.email.from.above
+  ```
+
+  This access token can be used as a Bearer token for API access using any tool you like, or in code.
+
+- Checkout [basic Salesforce REST API usage](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_code.htm).
+
+- Checkout [Salesforce API access examples](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_user_tasks.htm).
+
+- Learn about [Salesforce Object Query Language (SOQL) and Salesforce Object Search Language (SOSL)](https://developer.salesforce.com/docs/atlas.en-us.240.0.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_sosl_intro.htm)
