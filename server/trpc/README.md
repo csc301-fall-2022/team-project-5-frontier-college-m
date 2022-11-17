@@ -43,3 +43,32 @@ We are currently using [tRPC Version 9](https://trpc.io/docs/v9/).
 - Checkout [Salesforce API access examples](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_user_tasks.htm).
 
 - Learn about [Salesforce Object Query Language (SOQL) and Salesforce Object Search Language (SOSL)](https://developer.salesforce.com/docs/atlas.en-us.240.0.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_sosl_intro.htm)
+
+## Accessing and querying Salesforce data
+
+View and search through all available objects using this URL: https://frontiercollege--group467.sandbox.lightning.force.com/lightning/setup/ObjectManager/home  
+Click into an object and go to "Fields & Relationships" tab on the left, to view all available fields.
+
+You can try out the queries below in the [Developer Console](https://help.salesforce.com/s/articleView?id=sf.code_dev_console_opening.htm&type=5), using the [Query Editor](https://help.salesforce.com/s/articleView?id=sf.code_dev_console_tab_query_editor.htm&type=5).
+
+Once you are happy with the query results, you can execute the query through the REST API like so: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm
+
+### Examples:
+
+- Get `Contact` info
+
+  ```sql
+  SELECT Id, Name, Assigned_Program__c, Regional_Supervisor_Contact__c, RecordTypeId FROM Contact
+  ```
+
+- Get `Program__c` info
+
+  ```sql
+  SELECT Id, Name, Program_Description__c, Goals__c, Type__c, Contact_Person__c, OwnerId, Regional_Record_owner_Contact__c, Reporting_Region__c, Start_Date__c, End_Date__c, Delivery_Method__c, Program_Offering_Schedule__c, Location_Label__c, Location_Address__c, Location_City__c, Location_Province__c, RecordTypeId FROM Program__c
+  ```
+
+- Get `RecordType` names (Volunteer, FC Staff, etc). Useful for corroborating `RecordTypeId` from other queries
+
+  ```sql
+  SELECT Id, Name, DeveloperName FROM RecordType
+  ```
