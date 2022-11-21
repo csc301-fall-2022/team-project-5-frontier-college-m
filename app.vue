@@ -30,11 +30,21 @@ console.log(await client.query('user', {userId: 2}))
 
 <style>
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
+
+  --dark-green: #00565A;
+  --dark-blue: #093254;
+  --green: #3FA947;
+  --lime-green: #92C83E;
+  --spring-green:#00734F;
+  --light-blue: #00BFDF;
+  --purple: #73308C;
+  --orange:#F36C21;
+
 }
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: 'Inter var', sans-serif;
+    font-family: Arial, sans-serif;
   }
 }
 </style>
