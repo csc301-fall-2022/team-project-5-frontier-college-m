@@ -7,6 +7,7 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, '**/playwright/**'],
     alias: {
       '~/': fileURLToPath(new URL('./', import.meta.url))
-    }
+    },
+    setupFiles: 'dotenv/config'
   }
 })

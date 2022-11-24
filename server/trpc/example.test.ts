@@ -76,9 +76,7 @@ test('eventDetails tRPC test type', async () => {
 test('user tRPC test', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
-  const users = [0, 1, 2]
-  users.forEach(async (id) => {
-    const user = await caller.query('user', { userId: id })
-    expect(user.name).toEqual(td2Data.users[id].name)
-  })
+
+  const user = await caller.query('user', { username: 'frontiercollege@plative.com.group467' })
+  expect(user.name).toEqual('Frontier College Hub')
 })

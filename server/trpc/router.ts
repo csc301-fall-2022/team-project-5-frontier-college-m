@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import fetch from 'node-fetch'
 import { createRootRouter, createRouter } from './createRouter'
 import { td2Data } from '~/shared/d2-dummy-data'
 
@@ -129,18 +130,25 @@ const userEventsRouter = createRouter().query('userEvents', {
 })
 
 /**
- * Return a user object, identified by its id.
+ * Return a user object, identified by its username.
  */
 const userRouter = createRouter().query('user', {
   input: z.object({
-    userId: z.number().int().nonnegative()
+    username: z.string()
   }),
 
-  resolve({ input }) {
-    const userDetails: { [userId: number]: any } = td2Data.users
+  async resolve({ input }) {
+    const response = await fetch( `${process.env.SALESFORCE_URL}/?q=SELECT Name, Username FROM User WHERE Username='${input.username}'` , {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`
+      }
+    })
+    const data = await response.json()
+    const user = data.records[0]
     return {
-      userId: input.userId,
-      name: userDetails[input.userId].name
+      username: user.Username,
+      name: user.Name
     }
   }
 })
