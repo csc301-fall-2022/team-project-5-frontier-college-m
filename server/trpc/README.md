@@ -53,6 +53,8 @@ You can try out the queries below in the [Developer Console](https://help.salesf
 
 Once you are happy with the query results, you can execute the query through the REST API like so: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm
 
+To get a bearer token, create a [new connected app](https://developer.salesforce.com/docs/atlas.en-us.api_iot.meta/api_iot/qs_auth_connected_app.htm), set permitted users to all users may self-authorize, and ensure trusted IP ranges are set or change IP relaxation to Relax IP restrictions. Use the consumer details from this app to send a [POST request](https://developer.salesforce.com/docs/atlas.en-us.api_iot.meta/api_iot/qs_auth_access_token.htm) to https://frontiercollege--group467.sandbox.my.salesforce.com/services/oauth2/token.
+
 ### Examples:
 
 - Get `Contact` info
