@@ -43,6 +43,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@playwright/test": "^1.27.1",
+    "@salesforce/cli": "^1.52.0",
     "@types/node": "18.8.0",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
@@ -52,6 +53,7 @@
     "prettier": "^2.7.1",
     "prisma": "^4.4.0",
     "sass": "^1.55.0",
+    "sfdx-cli": "^7.175.0",
     "start-server-and-test": "^1.14.0",
     "ts-node": "^10.9.1",
     "vitest": "^0.24.1"
