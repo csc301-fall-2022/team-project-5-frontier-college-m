@@ -5,15 +5,18 @@ import { td2Data } from '~/shared/d2-dummy-data'
 
 const helloRouter = createRouter().query('hello', {
   async resolve() {
-    // please also check the query response for token expiry/invalidity to get a new bearer token
     if (!auth.token) {
       await auth.getBearerToken(api)
     }
 
-    const data = api.query(
-      'SELECT Id, Name, Assigned_Program__c, RecordTypeId FROM Contact',
-      auth.token as string
-    )
+    const qString =
+      'SELECT Id, Name, Assigned_Program__c, RecordTypeId FROM Contact'
+
+    let data = await api.query(qString, auth.token as string)
+    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
+      await auth.getBearerToken(api)
+      data = await api.query(qString, auth.token as string)
+    }
 
     return data
   }
