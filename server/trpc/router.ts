@@ -1,10 +1,21 @@
 import { z } from 'zod'
 import { createRootRouter, createRouter } from './createRouter'
+import { auth, api } from './salesforce'
 import { td2Data } from '~/shared/d2-dummy-data'
 
 const helloRouter = createRouter().query('hello', {
-  resolve() {
-    return 'Hello'
+  async resolve() {
+    // please also check the query response for token expiry/invalidity to get a new bearer token
+    if (!auth.token) {
+      await auth.getBearerToken(api)
+    }
+
+    const data = api.query(
+      'SELECT Id, Name, Assigned_Program__c, RecordTypeId FROM Contact',
+      auth.token as string
+    )
+
+    return data
   }
 })
 
