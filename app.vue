@@ -16,7 +16,7 @@ console.log(await client.query('announcements', {
 }))
 console.log(await client.query('eventDetails', {eventId: 1}))
 console.log(await client.query('userEvents', {userId: 0}))
-console.log(await client.query('user', {userId: 2}))
+console.log(await client.query('user', {username: "frontiercollege@plative.com.group467"}))
 
 </script>
 

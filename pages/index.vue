@@ -14,7 +14,8 @@ const content = "Zach sent you 100 new messages: Hey man its been like 20" +
 const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
-const name = await (await client.query('user', {userId: currUser})).name
+// TODO: Frontend team pls update calling convention
+const name = await (await client.query('user', {username: "frontiercollege@plative.com.group467"})).name
 
 // Obtain the announcements for this user
 const announcement = await (await client.query('announcements', {
