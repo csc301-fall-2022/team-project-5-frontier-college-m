@@ -11,13 +11,23 @@ export const userRouter = createRouter().query('user', {
   }),
 
   async resolve({ input }) {
-    const statement = `SELECT Name, Username FROM User WHERE Username='${input.username}'`
-    const token = await auth.getBearerToken(api)
-    if (typeof token == "string") {
-      const data = await api.query(statement, token)
+    if (!auth.token) {
+      await auth.getBearerToken(api)
+    }
+
+    const qString = `SELECT Name, Username FROM User WHERE Username='${input.username}'`
+    let data = await api.query(qString, auth.token as string)
+
+    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
+      await auth.getBearerToken(api)
+      data = await api.query(qString, auth.token as string)
+    }
+
+    const user = data.records[0]
+    if (user) {
       return {
-        username: data.records[0].Username,
-        name: data.records[0].Name
+        username: user.Username,
+        name: user.Name
       }
     }
   }
