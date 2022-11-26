@@ -40,7 +40,8 @@
     "vee-validate": "^4.7.0",
     "zod": "^3.19.1",
     "dotenv": "^16.0.3",
-    "node-fetch": "^3.3.0"
+    "node-fetch": "^3.3.0",
+    "form-data": "^4.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
