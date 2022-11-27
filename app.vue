@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: 'App',
+  title: 'United for Literacy',
   link: [
     { rel: 'preconnect', href: 'https://rsms.me/' },
     { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
@@ -9,7 +9,8 @@ useHead({
 
 const client = useClient()
 console.log(await client.query('hello'))
-console.log(await client.query('announcements', {
+console.log(
+  await client.query('announcements', {
     userId: 2,
     maxCount: 5,
     noEarlierThan: new Date('2022-11-01T11:16:01')
@@ -32,15 +33,14 @@ console.log(await client.query('user', {userId: "003Au000005YI4mIAG"}))
 :root {
   font-family: Arial, sans-serif;
 
-  --dark-green: #00565A;
+  --dark-green: #00565a;
   --dark-blue: #093254;
-  --green: #3FA947;
-  --lime-green: #92C83E;
-  --spring-green:#00734F;
-  --light-blue: #00BFDF;
-  --purple: #73308C;
-  --orange:#F36C21;
-
+  --green: #3fa947;
+  --lime-green: #92c83e;
+  --spring-green: #00734f;
+  --light-blue: #00bfdf;
+  --purple: #73308c;
+  --orange: #f36c21;
 }
 @supports (font-variation-settings: normal) {
   :root {
