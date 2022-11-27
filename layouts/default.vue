@@ -44,21 +44,18 @@ const links: Link[] = [
 </script>
 
 <template>
-  <main>
-    <header
-      class="bg-green font-700 h-18 fixed w-full p-4 text-center text-2xl text-white z-100"
-    >
+  <main :class="$route.path === '/' ? 'home' : ''">
+    <header class="header fixed w-full text-center text-2xl z-100">
       <div
         v-if="$route.path === '/'"
-        class="flex h-full w-full flex-row flex-nowrap justify-between"
+        class="p-2 flex h-full w-full flex-row flex-nowrap"
       >
         <img class="w-auto h-full" src="~/assets/header-logo.png" />
-        <p class="whitespace-nowrap pl-2 leading-[40px]">Frontier College</p>
       </div>
-      <div v-else>
+      <div v-else class="p-4 h-full flex flex-col justify-center">
         <button
           v-if="route.meta.showBack"
-          class="absolute left-4 top-1/2 -translate-y-1/2 transform"
+          class="back-button absolute left-4 top-1/2 -translate-y-1/2 transform"
           @click="goBack"
         >
           <Icon name="feather:arrow-left" />
@@ -68,11 +65,11 @@ const links: Link[] = [
         </h1>
       </div>
     </header>
-    <div class="pt-18 pb-18 main-container">
+    <div class="pb-18 main-container">
       <slot />
     </div>
 
-    <footer class="bg-light-blue h-18 fixed bottom-0 w-full">
+    <footer class="footer h-18 fixed bottom-0 w-full">
       <nav class="flex h-full flex-row flex-nowrap justify-center">
         <NuxtLink
           v-for="(link, i) in links"
@@ -82,7 +79,7 @@ const links: Link[] = [
         >
           <Icon :name="link.icon" size="25px" />
           <span class="font-500 text-sm">{{ link.text }}</span>
-          <span class="notification banner" v-show="link.notification"></span>
+          <span v-show="link.notification" class="notification banner"></span>
         </NuxtLink>
       </nav>
     </footer>
@@ -96,6 +93,27 @@ body {
 </style>
 
 <style scoped lang="scss">
+main {
+  header {
+    height: 80px;
+  }
+
+  .main-container {
+    padding-top: 80px;
+  }
+}
+
+.header {
+  background-color: var(--purple);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-weight: 700;
+}
+
+// .back-button {
+//   color: var(--dark-blue);
+// }
+
 .main-container {
   margin: 0 auto;
   max-width: 700px;
@@ -115,8 +133,14 @@ body {
 .mobile-button {
   position: relative;
 
+  // &:hover,
+  // &.router-link-active {
+  //   color: var(--light-blue);
+  // }
+
   &:after {
-    background: #3dc5c4;
+    // background: var(--green);
+    background: var(--lime-green);
     border-radius: 16px;
     content: '';
     height: 32px;
@@ -134,5 +158,15 @@ body {
       opacity: 1;
     }
   }
+}
+
+.footer {
+  // background-color: var(--spring-green);
+  // background-color: var(--dark-blue);
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  // color: white;
+  // color: var(--light-blue);
+  color: var(--dark-blue);
 }
 </style>
