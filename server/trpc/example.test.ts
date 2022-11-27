@@ -80,3 +80,11 @@ test('user tRPC test name', async () => {
   const user = await caller.query('user', { userId: '0056g000005JD9wAAG' })
   expect(user.name).toEqual('Frontier College Hub')
 })
+
+test('user tRPC test contact', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
+
+  const user = await caller.query('user', { userId: '005Au0000028agHIAQ' })
+  expect(user.contacts[0]).toEqual('003Au000006dNMPIA2')
+})
