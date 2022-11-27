@@ -5,6 +5,10 @@ definePageMeta({
   showBack: false
 })
 
+// The link for the community portal
+const communityLink = "https://unitedforliteracy.my.site.com/customerservice/" + 
+"login?sfdcIFrameOrigin=null"
+
 // Placeholder text
 const content = "Zach sent you 100 new messages: Hey man its been like 20" + 
                 " days and you still haven't responded, please there is no" + 
@@ -56,20 +60,20 @@ if (events.length === 0) {
       <FCArrowCard
         title="My Assigned Programs"
         :text="eventContent"
-        color="#98BF1E"
+        color="var(--lime-green)"
         link="/programs"
       />
       <FCArrowCard 
         title="Group Chat" 
         :text="content" 
-        color="#FECE3A"
+        color="var(--orange)"
         link=""
       />
-      <FCArrowCard 
+      <FCArrowCard
         title="Community Portal" 
         :text="content"
-        color="#EA7123"
-        link=""
+        color="var(--green)"
+        :link="communityLink"
       />
     </div>
 
@@ -78,9 +82,6 @@ if (events.length === 0) {
 </template>
 
 <style scoped>
-* {
-  font-family: 'Inter';
-}
 
 .whitebar {
   position: absolute;
