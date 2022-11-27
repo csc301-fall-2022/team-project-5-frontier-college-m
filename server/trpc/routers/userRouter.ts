@@ -7,7 +7,7 @@ import { createRouter } from '../createRouter'
  */
 export const userRouter = createRouter().query('user', {
   input: z.object({
-    username: z.string()
+    userId: z.string()
   }),
 
   async resolve({ input }) {
@@ -15,7 +15,7 @@ export const userRouter = createRouter().query('user', {
       await auth.getBearerToken(api)
     }
 
-    const qString = `SELECT Name, Username FROM User WHERE Username='${input.username}'`
+    const qString = `SELECT Name, Username FROM User WHERE Id='${input.userId}'`
     let data = await api.query(qString, auth.token as string)
 
     if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
@@ -26,7 +26,7 @@ export const userRouter = createRouter().query('user', {
     const user = data.records[0]
     if (user) {
       return {
-        username: user.Username,
+        userId: user.Id,
         name: user.Name
       }
     }

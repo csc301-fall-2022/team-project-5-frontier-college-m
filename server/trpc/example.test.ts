@@ -77,6 +77,6 @@ test('user tRPC test', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
-  const user = await caller.query('user', { username: 'frontiercollege@plative.com.group467' })
+  const user = await caller.query('user', { userId: '0056g000005JD9wAAG' })
   expect(user.name).toEqual('Frontier College Hub')
 })
