@@ -3,7 +3,7 @@ import { auth, api } from '../salesforce'
 import { createRouter } from '../createRouter'
 
 /**
- * Return a user object, identified by its id.
+ * Return a user, identified by its id.
  */
 export const userRouter = createRouter().query('user', {
   input: z.object({
@@ -15,20 +15,33 @@ export const userRouter = createRouter().query('user', {
       await auth.getBearerToken(api)
     }
 
-    const qString = `SELECT Name, Username FROM User WHERE Id='${input.userId}'`
-    let data = await api.query(qString, auth.token as string)
+    const userQuery = `SELECT Id, Name, Email FROM User WHERE Id='${input.userId}'`
 
-    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
+    let userData = await api.query(userQuery, auth.token as string)
+
+    if (userData && userData.errorCode && userData.errorCode === 'INVALID_SESSION_ID') {
       await auth.getBearerToken(api)
-      data = await api.query(qString, auth.token as string)
+      userData = await api.query(userQuery, auth.token as string)
     }
 
-    const user = data.records[0]
-    if (user) {
-      return {
-        userId: user.Id,
-        name: user.Name
-      }
+    if (!userData.records || !userData.records[0]) return
+    
+    const user = userData.records[0]
+    const contactQuery = `SELECT Id FROM Contact WHERE Email='${user.Email}'`
+
+    let contactData = await api.query(contactQuery, auth.token as string)
+
+    if (contactData && contactData.errorCode && contactData.errorCode === 'INVALID_SESSION_ID') {
+      await auth.getBearerToken(api)
+      contactData = await api.query(contactQuery, auth.token as string)
+    }
+
+    const contacts = contactData.records.map(entry => entry.Id)
+
+    return {
+      userId: user.Id,
+      name: user.Name,
+      contacts: contacts
     }
   }
 })

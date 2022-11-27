@@ -16,7 +16,7 @@ console.log(await client.query('announcements', {
 }))
 console.log(await client.query('eventDetails', {eventId: 1}))
 console.log(await client.query('userEvents', {userId: 0}))
-console.log(await client.query('user', {userId: "0056g000005JD9wAAG"}))
+console.log(await client.query('user', {userId: "0055o000000KOuXAAW"}))
 
 </script>
 

@@ -73,7 +73,7 @@ test('eventDetails tRPC test type', async () => {
  * Tests for /user
  */
 
-test('user tRPC test', async () => {
+test('user tRPC test name', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
