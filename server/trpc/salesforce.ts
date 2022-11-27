@@ -19,6 +19,11 @@ export class SFAPI {
       }
     )
 
+    if (response && (response as Response).status !== 200) {
+      console.error((response as Response).status)
+      console.error(await (response as Response).json())
+    }
+
     return (response as Response).json()
   }
 }
