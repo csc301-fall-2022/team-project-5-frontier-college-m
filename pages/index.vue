@@ -15,7 +15,7 @@ const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
 // TODO: Frontend team pls update calling convention
-const name = await (await client.query('user', {userId: "0055o000000KOuXAAW"})).name
+const name = await (await client.query('user', {userId: "003Au000005YI4mIAG"})).name
 
 // Obtain the announcements for this user
 const announcement = await (await client.query('announcements', {

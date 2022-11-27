@@ -77,14 +77,22 @@ test('user tRPC test name', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
-  const user = await caller.query('user', { userId: '0056g000005JD9wAAG' })
-  expect(user.name).toEqual('Frontier College Hub')
+  const user = await caller.query('user', { userId: '003Au000005YI4mIAG' })
+  expect(user.name).toEqual('Du')
 })
 
-test('user tRPC test contact', async () => {
+test('user tRPC test email', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
-  const user = await caller.query('user', { userId: '005Au0000028agHIAQ' })
-  expect(user.contacts[0]).toEqual('003Au000006dNMPIA2')
+  const user = await caller.query('user', { userId: '003Au000005YI4mIAG' })
+  expect(user.email).toEqual('samm.du@mail.utoronto.ca')
+})
+
+test('user tRPC test userType', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
+
+  const user = await caller.query('user', { userId: '003Au000005YI4mIAG' })
+  expect(user.userType).toEqual('Partner')
 })

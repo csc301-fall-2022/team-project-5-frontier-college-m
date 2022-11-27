@@ -1,9 +1,9 @@
 import { z } from 'zod'
 import { auth, api } from '../salesforce'
-import { createRouter } from '../createRouter'
+import { createRouter, TRPCError } from '../createRouter'
 
 /**
- * Return a user, identified by its id.
+ * Return a user, identified by its id (Contact Id in Salesforce).
  */
 export const userRouter = createRouter().query('user', {
   input: z.object({
@@ -15,33 +15,43 @@ export const userRouter = createRouter().query('user', {
       await auth.getBearerToken(api)
     }
 
-    const userQuery = `SELECT Id, Name, Email FROM User WHERE Id='${input.userId}'`
-
-    let userData = await api.query(userQuery, auth.token as string)
-
-    if (userData && userData.errorCode && userData.errorCode === 'INVALID_SESSION_ID') {
-      await auth.getBearerToken(api)
-      userData = await api.query(userQuery, auth.token as string)
-    }
-
-    if (!userData.records || !userData.records[0]) return
-    
-    const user = userData.records[0]
-    const contactQuery = `SELECT Id FROM Contact WHERE Email='${user.Email}'`
+    const contactQuery = `SELECT Id, Name, Email, RecordTypeId FROM Contact WHERE Id='${input.userId}'`
 
     let contactData = await api.query(contactQuery, auth.token as string)
-
-    if (contactData && contactData.errorCode && contactData.errorCode === 'INVALID_SESSION_ID') {
+    if (
+      contactData &&
+      contactData.errorCode &&
+      contactData.errorCode === 'INVALID_SESSION_ID'
+    ) {
       await auth.getBearerToken(api)
       contactData = await api.query(contactQuery, auth.token as string)
     }
 
-    const contacts = contactData.records.map(entry => entry.Id)
+    if (!contactData || !contactData.totalSize || contactData.totalSize !== 1) {
+      throw new TRPCError({
+        code: 'NOT_FOUND',
+        message: 'Given user not found by Id = ' + input.userId
+      })
+    }
+
+    const contact = contactData.records[0]
+
+    const recordTypeQuery = `SELECT Id, Name, DeveloperName FROM RecordType WHERE Id = '${contact.RecordTypeId}'`
+    let recordData = await api.query(recordTypeQuery, auth.token as string)
+    if (
+      recordData &&
+      recordData.errorCode &&
+      recordData.errorCode === 'INVALID_SESSION_ID'
+    ) {
+      await auth.getBearerToken(api)
+      recordData = await api.query(recordTypeQuery, auth.token as string)
+    }
 
     return {
-      userId: user.Id,
-      name: user.Name,
-      contacts: contacts
+      userId: contact.Id,
+      name: contact.Name,
+      email: contact.Email,
+      userType: recordData.records[0].Name
     }
   }
 })
