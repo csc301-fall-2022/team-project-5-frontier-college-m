@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'
+import fetch from 'node-fetch';
 dotenv.config()
 
 export class SFAPI {
@@ -17,6 +18,11 @@ export class SFAPI {
         headers: { Authorization: `Bearer ${token}` }
       }
     )
+
+    if (response && (response as Response).status !== 200) {
+      console.error((response as Response).status)
+      console.error(await (response as Response).json())
+    }
 
     return (response as Response).json()
   }
@@ -37,7 +43,7 @@ export class SFAuth {
   }
 
   async getBearerToken(api: SFAPI): Promise<string | undefined> {
-    const oauthParams = new FormData()
+    const oauthParams = new URLSearchParams()
     oauthParams.append('grant_type', 'password')
     oauthParams.append('client_id', this.clientId as string)
     oauthParams.append('client_secret', this.clientSecret as string)
