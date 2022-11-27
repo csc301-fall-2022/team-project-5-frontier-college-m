@@ -4,34 +4,40 @@ import { createRouter } from '../createRouter'
 import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
- * Return an array of event IDs for a given user, identified by the user ID
- *
- * /event_id?input={"userId": int} => {
- *      events: array;
- * }
+ * Return a list of announcements that pertain to a given user.
  */
-export const userEventsRouter = createRouter().query('userEvents', {
+ export const userEventsRouter = createRouter().query('userEvents', {
   input: z.object({
-    userId: z.number().int()
+    userId: z.string()
   }),
 
-  resolve(req) {
-    const userId: number = req.input.userId
-    const userGroups: { [userId: number]: any } = td2Data.userGroups
+// SELECT Id, Program_Name__c, RecordTypeId FROM ProgPar__C
 
-    const groups: { [groupId: number]: { events: Array<number> } } =
-      td2Data.groupEvents
+  async resolve({input}) {
+    if (!auth.token) {
+      await auth.getBearerToken(api)
+    }
+    const qString = `SELECT Id, Participant_Contact__c, Program_Name__c, Program_OFFERING__c, RecordTypeId FROM ProgPar__C WHERE Patricipant_Contact__c='${input.userId
+    }'`
+    let data = await api.query(qString, auth.token as string)
 
-    const userEvents: Set<number> = new Set()
-    for (const groupId in Object.keys(userGroups[userId])) {
-      groups[parseInt(groupId)].events.forEach((eventId) => {
-        userEvents.add(eventId)
-      })
+    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
+      await auth.getBearerToken(api)
+      data = await api.query(qString, auth.token as string)
     }
 
-    return {
-      userId,
-      events: Array(...userEvents)
+    const userEvents: Set<string> = new Set()
+    for (let i = 0; i < data.record[0].length; i++) {
+      if(data.record[0][i].Patricipant_Contact__c === input.userId){
+        userEvents.add(data.record[0][i].Program_OFFERING__c)
+      }
+    }
+
+    if (data.record[0]) {
+      return {
+        userId: input.userId,
+        events: userEvents
+      }
     }
   }
 })
