@@ -133,6 +133,11 @@ main {
 .mobile-button {
   position: relative;
 
+  // &:hover,
+  // &.router-link-active {
+  //   color: var(--light-blue);
+  // }
+
   &:after {
     // background: var(--green);
     background: var(--lime-green);
