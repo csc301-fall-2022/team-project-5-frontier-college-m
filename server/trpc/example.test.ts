@@ -11,39 +11,36 @@ test('announcements tRPC test count', async () => {
   const caller = router.createCaller(ctx)
 
   const announcements = await caller.query('announcements', {
-    userId: 2,
+    userId: "005Au0000028amjIAA",
     maxCount: 3
   })
-  expect(announcements).toHaveLength(3)
-})
-
-test('announcements tRPC test IDs', async () => {
-  const ctx = await createContext()
-  const caller = router.createCaller(ctx)
-
-  const announcements = await caller.query('announcements', {
-    userId: 2,
-    maxCount: 5
-  })
-  expect(announcements[0].id).toEqual(4)
-  expect(announcements[4].id).toEqual(6)
+  expect(announcements.length).toBeLessThanOrEqual(3)
 })
 
 test('announcements tRPC test date', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
-  const dateLimit = new Date('2022-11-01T11:16:01')
   const announcements = await caller.query('announcements', {
-    userId: 2,
-    maxCount: 5,
-    noEarlierThan: dateLimit
+    userId: "005Au0000028amjIAA",
+    noEarlierThan: new Date(0)
   })
-
   for (const announcement of announcements) {
-    expect(announcement.sentAt >= dateLimit).toBeTruthy()
+    expect(new Date(announcement.createdDate) > new Date(0)).toBe(true)
   }
 })
+
+test('announcements tRPC test false user', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
+
+  const announcements = await caller.query('announcements', {
+    userId: "baduserid",
+    noEarlierThan: new Date(0)
+  })
+  expect(announcements).toHaveLength(0)
+})
+
 
 /**
  * Tests for /eventDetails

@@ -1,14 +1,13 @@
 import { z } from 'zod'
 import { auth, api } from '../salesforce'
 import { createRouter } from '../createRouter'
-import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
  * Return a list of announcements that pertain to a given user.
  */
 export const announcementsRouter = createRouter().query('announcements', {
   input: z.object({
-    userId: z.number().nonnegative(),
+    userId: z.string(),
     maxCount: z.number().optional(),
     noEarlierThan: z
       .preprocess((arg) => {
@@ -17,45 +16,72 @@ export const announcementsRouter = createRouter().query('announcements', {
       .optional()
   }),
 
-  resolve({ input }) {
-    const maxCount = input.maxCount
+  async resolve({ input }) {
+
+    const maxCount = input.maxCount || 100
     const userId = input.userId
     const noEarlierThan = input.noEarlierThan ?? new Date(0)
 
-    // Find the group IDs of the user
-    const userGroups: { [userId: number]: { [groupID: number]: string } } =
-      td2Data.userGroups
-    const groupIDs: number[] = Object.keys(userGroups[userId]).map((id) =>
-      parseInt(id)
-    )
+    if (!auth.token) {
+      await auth.getBearerToken(api)
+    }
+
+    // get the users announcements
+    const announcements = await fetch(
+      `${api.baseUrl}/services/data/${api.version}/chatter/feeds/user-profile/${userId}/feed-elements`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    ).then((response) => response.json())
+
+    // check if announcements.elements exists, if not, user has no announcements or is not found
+    if (!announcements.elements) {
+      return []
+    }
+      
+    const qString = 'SELECT ChatterGroupID__c FROM pmdm__Program__c'
+
+    let data = await api.query(qString, auth.token as string)
+    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
+      await auth.getBearerToken(api)
+      data = await api.query(qString, auth.token as string)
+    }
+
+    
+    // make a set containing all chatterID's
+    const chatterIDs = new Set()
+    data.records.forEach((record: any) => {
+      chatterIDs.add(record.ChatterGroupID__c)
+    })
 
     const announcementsList = []
 
-    // Find the announcements for each groupID and add it to the list
-    // only if the noEarlierThan and maxCount constraint is satisfied
-    const announcements: { [eventId: number]: any } = td2Data.eventAnnouncements
-    // get all announcements for the groupIDs
-    for (const groupID of groupIDs) {
-      const groupAnnouncements = announcements[groupID]
-      if (groupAnnouncements) {
-        for (const announcement of groupAnnouncements) {
-          announcement.sentAt = new Date(announcement.sentAt)
-          if (announcement.sentAt >= noEarlierThan) {
-            announcementsList.push(announcement)
-          }
+    for (const announcement of announcements.elements) {
+      if (new Date(announcement.createdDate) > noEarlierThan) {
+        const groupID = announcement.parent.id
+        const formattedAnnouncement = {
+          id: announcement.id,
+          title: announcement.parent.name,
+          body: announcement.body.text,
+          createdDate: announcement.createdDate,
         }
+
+        if (chatterIDs.has(groupID) || announcement.type === 'TextPost') {
+          announcementsList.push(formattedAnnouncement)
+        }
+
+      } else {
+        break
+      }
+
+      if (announcementsList.length >= maxCount) {
+        break
       }
     }
-
-    // sort the announcements by date
-    announcementsList.sort((a, b) => {
-      return a.sentAt.getTime() - b.sentAt.getTime()
-    })
-    // if the maxCount is smaller than the number of announcements, return the first maxCount announcements
-    if (maxCount && announcementsList.length > maxCount) {
-      return announcementsList.slice(0, maxCount)
-    }
-
     return announcementsList
   }
 })
