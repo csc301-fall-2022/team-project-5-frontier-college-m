@@ -1,37 +1,32 @@
+
 import { z } from 'zod'
 import { auth, api } from '../salesforce'
+import fetch from 'node-fetch'
 import { createRouter } from '../createRouter'
 import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
- * Return an array of event IDs for a given user, identified by the user ID
- *
- * /event_id?input={"userId": int} => {
- *      events: array;
- * }
+ * Return a list of programs from a given user.
  */
-export const userEventsRouter = createRouter().query('userEvents', {
+const userEventsRouter = createRouter().query('userEvents', {
   input: z.object({
-    userId: z.number().int()
+    userID: z.string()
   }),
 
-  resolve(req) {
-    const userId: number = req.input.userId
-    const userGroups: { [userId: number]: any } = td2Data.userGroups
+// SELECT Id, Program_Name__c, RecordTypeId FROM ProgPar__C
 
-    const groups: { [groupId: number]: { events: Array<number> } } =
-      td2Data.groupEvents
-
-    const userEvents: Set<number> = new Set()
-    for (const groupId in Object.keys(userGroups[userId])) {
-      groups[parseInt(groupId)].events.forEach((eventId) => {
-        userEvents.add(eventId)
-      })
+async resolve({input}) {
+  const response = await fetch( `${process.env.SALESFORCE_URL}/?q=SELECT ID, Program_Name__c, RecordTypeId FROM ProgPar__C WHERE ID='${input.userID}'` , {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`
     }
-
-    return {
-      userId,
-      events: Array(...userEvents)
-    }
+  })
+  const data = await response.json()
+  const userEvents = data.record[0] // not sure
+  return {
+    userID: userEvents.ID,
+    events: userEvents.Program_Name__c // not sure if it forms array 
   }
+}
 })
