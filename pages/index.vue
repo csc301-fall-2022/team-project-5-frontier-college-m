@@ -19,7 +19,8 @@ const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
 // TODO: Frontend team pls update calling convention
-const name = await (await client.query('user', {userId: "003Au000005YI4mIAG"})).name
+const name = await (
+  await client.query('user', {userId: "003Au000005YI4mIAG"})).name
 
 // Obtain the announcements for this user
 const announcement = await (await client.query('announcements', {
@@ -80,7 +81,6 @@ if (events.length === 0) {
         :link="communityLink"
       />
     </div>
-    <div class="background"></div>
     <body></body>
     </div>
 </template>
@@ -93,16 +93,6 @@ template, body{
   width: 100%;
   margin: 0;
   padding: 0;
-}
-.background{
-  position: absolute;
-  background: var(--black);
-  z-index: -1;
-  min-width: 360px;
-  top:0px;
-  right:0px;
-  bottom:0px;
-  left:0px;
 }
 .welcome-card {
   color: white;
