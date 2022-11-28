@@ -10,7 +10,7 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
   input: z.object({
     eventId: z.string()
   }),
-  
+
   async resolve({ input }) {
     if (!auth.token) {
       await auth.getBearerToken(api)
@@ -23,7 +23,7 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
       await auth.getBearerToken(api)
       data = await api.query(qString, auth.token as string)
     }
-    
+
     // console.log(data)
     const program = data.records[0]
 
@@ -40,23 +40,23 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
 
     // only parse data if records are available
     if (data.totalSize && data.totalSize > 0) {
-        return {
-          programId: data.Id,
-          name: program.Name,
-          description: program.Program_Description__c,
-          goals: program.Goals__c,
-          contactPerson: program.Contact_Person__c,
-          ownerId: program.OwnerId,
-          regionalRecordOwner: program.Regional_Record_owner_Contact__c,
-          reportingRegion:program.Reporting_Region__c,
-          startDate: program.Start_Date__c, 
-          endDate: program.End_Date__c,
-          deliveryMethod: program.Delivery_Method__c,
-          programOfferingSchedule: program.Program_Offering_Schedule__c,
-          locationLabel: program.Location_Label__c, 
-          locationAddress: program.Location_Address__c,
-          recordType: recordData.records[0].Name
-        }
+      return {
+        programId: data.Id,
+        name: program.Name,
+        description: program.Program_Description__c,
+        goals: program.Goals__c,
+        contactPerson: program.Contact_Person__c,
+        ownerId: program.OwnerId,
+        regionalRecordOwner: program.Regional_Record_owner_Contact__c,
+        reportingRegion: program.Reporting_Region__c,
+        startDate: program.Start_Date__c,
+        endDate: program.End_Date__c,
+        deliveryMethod: program.Delivery_Method__c,
+        programOfferingSchedule: program.Program_Offering_Schedule__c,
+        locationLabel: program.Location_Label__c,
+        locationAddress: program.Location_Address__c,
+        recordType: recordData.records[0].Name
       }
+    }
   }
 })
