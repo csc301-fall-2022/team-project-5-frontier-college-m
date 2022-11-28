@@ -52,7 +52,7 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
         startDate: program.Start_Date__c,
         endDate: program.End_Date__c,
         deliveryMethod: program.Delivery_Method__c,
-        programOfferingSchedule: program.Program_Offering_Schedule__c,
+        programOfferingSchedule: JSON.parse(program.Program_Offering_Schedule__c),
         locationLabel: program.Location_Label__c,
         locationAddress: program.Location_Address__c,
         recordType: recordData.records[0].Name
