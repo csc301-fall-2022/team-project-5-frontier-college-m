@@ -29,7 +29,7 @@ function closestUpcoming(days: number[], day: number) {
 const currDate = getDateStr(date)
 
 // set currUser to 2 for now
-const currUser = 2
+const currUser = '003Au000005D9H7IAK'
 const client = useClient()
 
 const eventIds: number[] = (await client.query("userEvents", {userId: currUser})).events

@@ -30,14 +30,14 @@ const announcement = await (await client.query('announcements', {
 
 // Obtain the assigned program events for this user
 const events = await (await client.query('userEvents', 
-  {userId: currUser})).events
+  {userId: "003Au000005YI4mIAG"})).events
 
 // Check if the events list if empty, otherwise, obtain the first one
 let eventContent = ""
 if (events.length === 0) {
   eventContent = "No upcoming programs"
 } else {
-  const eventData = await client.query('eventDetails', {eventId: 1})
+  const eventData = await client.query('eventDetails', {eventId: 'a26Au00000008tdIAA'})
   eventContent = eventData.name + ": " + eventData.description
 }
 
