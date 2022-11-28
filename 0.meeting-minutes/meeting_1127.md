@@ -1,6 +1,6 @@
 # Meeting Notes
 
-- ### Date: `2022-XX-XX`
+- ### Date: `2022-11-27`
 - ### Topic: TD3 Prep
 - ### Participants:
   - All of team 5
@@ -8,51 +8,41 @@
 ## Agenda
 
 - Discuss remaining development work
+  - Backend
+    - Greg working on announcements (TD4)
+    - All endpoints will be done by Nov 27 EOD
+    - No new endpoints, but shape of data may be slightly different
+      - Add (simple) program recurrence data (JSON string)
+  - Frontend
+    - Update data fetching for the new data
+    - Address all client feedback
+    - Update to newest mockups
+    - Remove unecessary buttons
 - TD3 Prep
-  - Presentation and Demo
-    - Show the volunteer role
-    - Show the Salesforce role
-  - Process and Accessing your application
-    - Describe how they can view and interact with the application
-    - Describe the backend integration with the Salesforce API
-    - Handoff includes the code and demos delivered to client stakeholders
-  - Technical discussion
+  - Presentation and Demo 7 minutes
+    - Describe your client, and the app you built, and what value it has - Ricky
+    - Show the volunteer role - Shawn
+    - Show the Salesforce role - Samm
+    - Describe the backend integration with the Salesforce API - Gregg
+  - Process and Accessing your application 2 minutes
+    - Describe our processes (git, PR, Discord, license) - Patrick
+    - Handoff includes the code and demos delivered to client stakeholders - Michael
+  - Technical discussion - Michael
     - Web to allow a single application accessible to the wide range of users
     - Create an application architecture diagram
-    - Explain the directory breakdown and shit
-  - Key learnings
+    - Explain the directory breakdown
+  - Key learnings - Zach
     - Having trust in our team to complete different tasks
     - Subteams was vital. Focused on using async communication
     - Idk what else
-  - Individual Contributions
+  - Individual Contributions - everyone says their own contribution
     - Have everyone fill in their own individual contributions
-- Rubrick
-  - Presentation
-    - We will create slides
-    - Clear business case and communicated the value of our product
-  - Product Quality
-    - Functionality is implemented
-      - Remove any broken buttons
-      - Good test data
-    - Application is responsive, proper loading and error screens
-  - Software Quality and architecture
-    - Why we used tools
-    - Coding practices
-    - Documentation
-  - Process
-    - How we worked together
-    - DevOps
-    - Handoff with the partner
-
-## Meeting Summary:
-
-- Remaining development
-  - Frontend
-  - Backend
 
 ## Action Items:
 
-- Finish development work by Monday
-- Prepare a polish review during Monday tutorial section
+- Finish development work by Monday EOD
 - Prepare slide materials by Tuesday for Samm and I's presentation
-- Do a practice demo - Wednesday probably
+  - Share the rubric with partner
+- Michael to setup google slide with everyone's role + rubric
+- Do a practice demo - Wednesday@6 probably
+- Michael to share client feedback w/ frontend team to make adjustments
