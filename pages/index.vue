@@ -61,40 +61,51 @@ if (events.length === 0) {
       <FCArrowCard
         title="My Assigned Programs"
         :text="eventContent"
+        textcolor="black"
         color="var(--lime-green)"
         link="/programs"
       />
       <FCArrowCard 
         title="Group Chat" 
         :text="content" 
-        color="var(--orange)"
+        textcolor="black"
+        color="var(--green)"
         link=""
       />
       <FCArrowCard
         title="Community Portal" 
         :text="content"
-        color="var(--green)"
+        textcolor="white"
+        color="var(--dark-green)"
         :link="communityLink"
       />
     </div>
-
-    <!-- <div class="whitebar"></div> -->
-  </div>
+    <div class="background"></div>
+    <body></body>
+    </div>
 </template>
 
 <style scoped>
-
-.whitebar {
-  position: absolute;
-  width: 7px;
-  height: 416px;
-  left: 273px;
-  top: 339px;
-
-  background: #ffffff;
+template, body{
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
+.background{
+  position: absolute;
+  background: var(--black);
+  z-index: -1;
+  min-width: 360px;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+}
 .welcome-card {
+  color: white;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
@@ -114,7 +125,7 @@ if (events.length === 0) {
   left: 0px;
   top: 114px;
 
-  background: #e1e1e1;
+  background: var(--gray);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
