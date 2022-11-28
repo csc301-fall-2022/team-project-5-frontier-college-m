@@ -1,7 +1,6 @@
 import { z } from 'zod'
 import { auth, api } from '../salesforce'
 import { createRouter } from '../createRouter'
-import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
  * Return a list of announcements that pertain to a given user.
