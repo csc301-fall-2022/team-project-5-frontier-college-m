@@ -46,9 +46,9 @@ definePageMeta({
     <h1>{{eventInfo.name}}</h1>
     <div class="event-tags-wrapper">
       <div>
-        <FCTag v-if="eventInfo.type == 'recurring'" :text="upperFirst(eventInfo.recurrence.interval)" icon="fe:loop" w:bg="light-blue" />
-        <FCTag v-if="eventInfo.type == 'recurring'" :text="eventDays" icon="fe:calendar" w:bg="yellow" />
-        <FCTag :text="eventInfo.location" icon="fe:location" w:bg="purple" />
+        <FCTag v-if="eventInfo.type == 'recurring'" :text="upperFirst(eventInfo.recurrence.interval)" icon="fe:loop" color="var(--light-blue)" />
+        <FCTag v-if="eventInfo.type == 'recurring'" :text="eventDays" icon="fe:calendar" color="var(--lime-green)" />
+        <FCTag :text="eventInfo.location" icon="fe:location" color="var(--purple)" />
       </div>
       <FCFileButton text="Event Files" />
     </div>
@@ -57,9 +57,9 @@ definePageMeta({
     <div class="desc-text">{{ eventInfo.description }}</div>
 
     <h2>Staff</h2>
-    <FCStaffCard name="Alice N. Chain" role="Organizer" w:bg="pink" />
-    <FCStaffCard name="Campbell S. Oup" role="Volunteer" />
-    <FCStaffCard name="Joe Mama" role="Volunteer" />
+    <FCStaffCard name="Alice N. Chain" role="Organizer" color="var(--lime-green)" />
+    <FCStaffCard name="Campbell S. Oup" role="Volunteer" color="var(--light-blue)" />
+    <FCStaffCard name="Joe Mama" role="Volunteer" color="var(--light-blue)"/>
   </div>
 </template>
 
