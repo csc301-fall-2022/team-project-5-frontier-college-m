@@ -1,7 +1,6 @@
 import { z } from 'zod'
 import { auth, api } from '../salesforce'
 import { createRouter } from '../createRouter'
-import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
  * Return an event object, identified by its id
@@ -56,7 +55,7 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
           programOfferingSchedule: program.Program_Offering_Schedule__c,
           locationLabel: program.Location_Label__c, 
           locationAddress: program.Location_Address__c,
-          recordTypeId: recordData.records[0].Name
+          recordType: recordData.records[0].Name
         }
       }
   }
