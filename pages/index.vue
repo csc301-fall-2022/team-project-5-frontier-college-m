@@ -19,7 +19,8 @@ const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
 // TODO: Frontend team pls update calling convention
-const name = await (await client.query('user', {userId: "003Au000005YI4mIAG"})).name
+const name = await (await client.query('user', {
+  userId: "003Au000005YI4mIAG"})).name
 
 // Obtain the announcements for this user
 const announcement = await (await client.query('announcements', {
@@ -32,13 +33,21 @@ const announcement = await (await client.query('announcements', {
 const events = await (await client.query('userEvents', 
   {userId: "003Au000005YI4mIAG"})).events
 
+
 // Check if the events list if empty, otherwise, obtain the first one
-let eventContent = ""
+let eventContent = "No upcoming programs"
 if (events.length === 0) {
   eventContent = "No upcoming programs"
 } else {
-  const eventData = await client.query('eventDetails', {eventId: 'a26Au00000008tdIAA'})
-  eventContent = eventData.name + ": " + eventData.description
+  const eventData = await client.query('eventDetails', {
+    eventId: 'a26Au00000008tdIAA'})
+  
+  if (eventData?.description === null){
+    eventContent =  eventData.name + 
+    ", Goals: " + eventData.goals.replace(/;/g, ', ')
+  } else if (eventData?.description != null) {
+    eventContent = eventData.name + ": " + eventData.description
+  }
 }
 
 </script>
