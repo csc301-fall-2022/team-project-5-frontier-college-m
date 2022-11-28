@@ -17,15 +17,28 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
       await auth.getBearerToken(api)
     }
 
-    const qString = `SELECT Id, Name, Program_Description__c, Goals__c, Type__c, Contact_Person__c, OwnerId, Regional_Record_owner_Contact__c, Reporting_Region__c, Start_Date__c, End_Date__c, Delivery_Method__c, Program_Offering_Schedule__c, Location_Label__c, Location_Address__c, RecordTypeId FROM Program__c='${input.eventId}'`
+    const qString = `SELECT Id, Name, Program_Description__c, Goals__c, Type__c, Contact_Person__c, OwnerId, Regional_Record_owner_Contact__c, Reporting_Region__c, Start_Date__c, End_Date__c, Delivery_Method__c, Program_Offering_Schedule__c, Location_Label__c, Location_Address__c, RecordTypeId FROM Program__c WHERE Id ='${input.eventId}'`
 
     let data = await api.query(qString, auth.token as string)
     if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
       await auth.getBearerToken(api)
       data = await api.query(qString, auth.token as string)
     }
-    console.log(data)
+    
+    // console.log(data)
     const program = data.records[0]
+
+    const recordTypeQuery = `SELECT Id, Name, DeveloperName FROM RecordType WHERE Id = '${program.RecordTypeId}'`
+    let recordData = await api.query(recordTypeQuery, auth.token as string)
+    if (
+      recordData &&
+      recordData.errorCode &&
+      recordData.errorCode === 'INVALID_SESSION_ID'
+    ) {
+      await auth.getBearerToken(api)
+      recordData = await api.query(recordTypeQuery, auth.token as string)
+    }
+
     // only parse data if records are available
     if (data.totalSize && data.totalSize > 0) {
         return {
@@ -42,8 +55,8 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
           deliveryMethod: program.Delivery_Method__c,
           programOfferingSchedule: program.Program_Offering_Schedule__c,
           locationLabel: program.Location_Label__c, 
-          locationAdress: program.Location_Address__c,
-          recordTyperId: program.RecordTypeId
+          locationAddress: program.Location_Address__c,
+          recordTypeId: recordData.records[0].Name
         }
       }
   }
