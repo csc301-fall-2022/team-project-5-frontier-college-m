@@ -48,25 +48,27 @@ test('announcements tRPC test date', async () => {
  * Tests for /eventDetails
  */
 
-// test('eventDetails tRPC test name', async () => {
-//   const ctx = await createContext()
-//   const caller = router.createCaller(ctx)
+test('eventDetails tRPC test name', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
 
-//   const answer = await caller.query('eventDetails', {
-//     eventId: 0
-//   })
-//   expect(answer.name).toBe('Figma Tutoring')
-// })
+  const answer = await caller.query('eventDetails', {
+    eventId: "a26Au00000008tdIAA"
+  })
+  expect(answer?.name).toBe('Beat the Street (Literacy and Basic Skills/Pre-GED Prep)')
+})
 
-// test('eventDetails tRPC test type', async () => {
-//   const ctx = await createContext()
-//   const caller = router.createCaller(ctx)
+test('eventDetails tRPC test json', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
 
-//   const answer = await caller.query('eventDetails', {
-//     eventId: 1
-//   })
-//   expect(answer.type).toBe('recurring')
-// })
+  const answer = await caller.query('eventDetails', {
+    eventId: "a26Au00000008wrIAA"
+  })
+  expect(answer?.programOfferingSchedule).toEqual({
+    "interval": "weekly", "daysOfWeek": [1, 5, 6]
+  })
+})
 
 /**
  * Tests for /user
