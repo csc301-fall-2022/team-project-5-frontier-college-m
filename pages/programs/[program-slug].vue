@@ -19,10 +19,18 @@ function upperFirst(str: string) {
 
 const route = useRoute()
 
-const currEventId = +route.params.programslug
+const currEventId: string = route.params.programslug.toString()
 const client = useClient()
-const eventInfo = await client.query("eventDetails", {eventId: currEventId})
+const eventDetails = await client.query("eventDetails", {eventId: currEventId})
 
+const eventInfo = {
+    id: eventDetails?.programId,
+    name: eventDetails?.name,
+    type: 'recurring',
+    recurrence: eventDetails?.programOfferingSchedule,
+    location: eventDetails?.locationLabel,
+    description: eventDetails?.description
+}
 let eventDays = ""
 const daysOfWeek: number[] = eventInfo.recurrence.daysOfWeek
 // create text for days of week tag
