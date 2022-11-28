@@ -48,7 +48,7 @@ definePageMeta({
       <div>
         <FCTag v-if="eventInfo.type == 'recurring'" :text="upperFirst(eventInfo.recurrence.interval)" icon="fe:loop" color="var(--light-blue)" />
         <FCTag v-if="eventInfo.type == 'recurring'" :text="eventDays" icon="fe:calendar" color="var(--lime-green)" />
-        <FCTag :text="eventInfo.location" icon="fe:location" color="var(--purple)" />
+        <FCTag :text="eventInfo.location" icon="fe:location" color="var(--purple)" style="color:white;" />
       </div>
       <FCFileButton text="Event Files" />
     </div>
