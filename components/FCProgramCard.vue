@@ -9,7 +9,7 @@ const props = defineProps<{
 <template>
     <div class="program-card" style="background-color: white;">
         <div class="content">
-            <div class="date-text" w:text="green">{{ props.date }}</div>
+            <div class="date-text">{{ props.date }}</div>
             <div class="title-text">{{ props.title }}</div>
             <div class="content-text">{{ props.content }}</div>
         </div>
@@ -38,6 +38,7 @@ const props = defineProps<{
     font-size: 13px;
     font-weight: 700;
     margin-top: 5px;
+    color: var(--dark-green)
 }
 
 .title-text {
