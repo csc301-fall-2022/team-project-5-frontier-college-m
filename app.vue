@@ -41,6 +41,8 @@ console.log(await client.query('user', { userId: '003Au000005YI4mIAG' }))
   --light-blue: #00bfdf;
   --purple: #73308c;
   --orange: #f36c21;
+  --gray: #4d4d4d;
+  --black: #2b2b2b;
 }
 @supports (font-variation-settings: normal) {
   :root {
