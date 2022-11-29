@@ -16,8 +16,11 @@ console.log(
     noEarlierThan: new Date('2022-11-01T11:16:01')
   })
 )
-console.log(await client.query('eventDetails', { eventId: 1 }))
-console.log(await client.query('userEvents', { userId: 0 }))
+
+console.log(
+  await client.query('eventDetails', { eventId: 'a26Au00000008tdIAA' })
+)
+console.log(await client.query('userEvents', { userId: '003Au000005D9H7IAK' }))
 console.log(await client.query('user', { userId: '003Au000005YI4mIAG' }))
 </script>
 

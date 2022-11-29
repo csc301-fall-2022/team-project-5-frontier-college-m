@@ -1,6 +1,5 @@
 import { createContext } from './createContext'
 import { router } from './router'
-import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
  * Tests for /announcements
@@ -54,19 +53,21 @@ test('eventDetails tRPC test name', async () => {
   const caller = router.createCaller(ctx)
 
   const answer = await caller.query('eventDetails', {
-    eventId: 0
+    eventId: "a26Au00000008tdIAA"
   })
-  expect(answer.name).toBe('Figma Tutoring')
+  expect(answer?.name).toBe('Beat the Street (Literacy and Basic Skills/Pre-GED Prep)')
 })
 
-test('eventDetails tRPC test type', async () => {
+test('eventDetails tRPC test json', async () => {
   const ctx = await createContext()
   const caller = router.createCaller(ctx)
 
   const answer = await caller.query('eventDetails', {
-    eventId: 1
+    eventId: "a26Au00000008wrIAA"
   })
-  expect(answer.type).toBe('recurring')
+  expect(answer?.programOfferingSchedule).toEqual({
+    "interval": "weekly", "daysOfWeek": [1, 5, 6]
+  })
 })
 
 /**
@@ -95,4 +96,26 @@ test('user tRPC test userType', async () => {
 
   const user = await caller.query('user', { userId: '003Au000005YI4mIAG' })
   expect(user.userType).toEqual('Partner')
+})
+
+/**
+ * Tests for /userEvents
+ */
+
+test('userEvents tRPC test userId', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
+  const userEvents = await caller.query('userEvents', {
+    userId: '003Au000005D9H7IAK'
+  })
+  expect(userEvents.userId).toEqual('003Au000005D9H7IAK')
+})
+
+test('userEvents tRPC test event', async () => {
+  const ctx = await createContext()
+  const caller = router.createCaller(ctx)
+  const userEvents = await caller.query('userEvents', {
+    userId: '003Au000005D9H7IAK'
+  })
+  expect(userEvents.events[0]).toEqual('a26Au00000008tdIAA')
 })

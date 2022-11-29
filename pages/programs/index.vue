@@ -28,44 +28,70 @@ function closestUpcoming(days: number[], day: number) {
 
 const currDate = getDateStr(date)
 
-// set currUser to 2 for now
-const currUser = 2
+// set currUser to premade user
+const currUser = '003Au000005D9H7IAK'
 const client = useClient()
 
-const eventIds: number[] = (await client.query("userEvents", {userId: currUser})).events
+const eventIds: string[] = (await client.query("userEvents", {userId: currUser})).events
+
 const todayEventsInfo: {
-    id: number;
+    id: string;
     name: any;
     type: any;
     recurrence: any;
     location: any;
     description: any;
+    goals: any;
 }[] = []
 const upcomingEventsInfo: {
-    id: number;
+    id: string;
     name: any;
     type: any;
     recurrence: any;
     location: any;
     description: any;
+    goals: any;
 }[] = []
 
-const upcomingDates: {[id: number]: string} = {}
+const upcomingDates: {[id: string]: string} = {}
 
 // set events that are happening today and those that are upcoming
 for (let i = 0; i < eventIds.length; i++) {
   const eventInfo = await client.query("eventDetails", {eventId: eventIds[i]})
-  if (eventInfo.recurrence.daysOfWeek.includes(currDay)) {
-    todayEventsInfo.push(eventInfo)
+  if (!eventInfo) {
+    continue
+  }
+  const simplifiedEvent = {
+    id: eventIds[i],
+    name: eventInfo.name,
+    type: 'recurring',
+    recurrence: eventInfo.programOfferingSchedule,
+    location: eventInfo.locationLabel,
+    description: eventInfo.description, 
+    goals: eventInfo.goals
+  }
+
+  // Handle null description/goal
+  if (simplifiedEvent.description && simplifiedEvent.goals) {
+    simplifiedEvent.description += '\n\nGoals: ' + simplifiedEvent.goals
+  } else if (simplifiedEvent.goals) {
+    simplifiedEvent.description = '\n\nGoals: ' + simplifiedEvent.goals
+  } else if (simplifiedEvent.description) {
+    simplifiedEvent.goals = "There are no goals for this program."
   } else {
-    upcomingEventsInfo.push(eventInfo)
+    simplifiedEvent.description = "There is no description for this program."
+  }
+
+  if (eventInfo.programOfferingSchedule.daysOfWeek.includes(currDay)) {
+    todayEventsInfo.push(simplifiedEvent)
+  } else {
+    upcomingEventsInfo.push(simplifiedEvent)
     
-    const day = (closestUpcoming(eventInfo.recurrence.daysOfWeek, currDay) + 1) % 7
+    const day = (closestUpcoming(eventInfo.programOfferingSchedule.daysOfWeek, currDay) + 1) % 7
 
     const date = new Date()
     date.setDate(date.getDate() + (day + 7 - date.getDay()) % 7)
-
-    upcomingDates[eventInfo.id] = getDateStr(date)
+    upcomingDates[simplifiedEvent.id] = getDateStr(date)
   }
   
 }
