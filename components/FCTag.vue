@@ -2,6 +2,7 @@
 const props = defineProps<{
     text: string
     icon: string
+    color: string 
 }>()
 </script>
 
@@ -19,6 +20,7 @@ const props = defineProps<{
     display: flex;
     padding: 5px;
     margin: 10px;
+    background-color: v-bind(color);
 }
 
 .tag-icon {
@@ -28,5 +30,6 @@ const props = defineProps<{
 
 .tag-text {
     font-size: 11px;
+    font-weight: 700;
 }
 </style>

@@ -2,11 +2,12 @@
 const props = defineProps<{
     name: string
     role: string
+    color: string
 }>()
 </script>
 
 <template>
-    <div class="staff-card" w:bg="light-blue">
+    <div class="staff-card">
         <Icon name="fe:user" class="user-icon"/>
         <div class="user-text">{{ props.name }} - {{ props.role }}</div>
 
@@ -21,6 +22,7 @@ const props = defineProps<{
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
+        background-color: v-bind(color);
     }
 
     .user-text {
