@@ -23,7 +23,7 @@
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
-    color: #FFFFFF;
-    background: #005954;
+    color: black;
+    background: var(--orange);
  }
 </style>
