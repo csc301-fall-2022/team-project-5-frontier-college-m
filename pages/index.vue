@@ -95,20 +95,19 @@ if (events.length === 0) {
         :link="communityLink"
       />
     </div>
-    <body></body>
+    <!-- <body></body> -->
   </div>
 </template>
 
 <style scoped>
-template,
-body {
+/* template, body{
   background-color: var(--black);
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0;
   padding: 0;
-}
+} */
 .welcome-card {
   color: white;
   font-weight: 700;

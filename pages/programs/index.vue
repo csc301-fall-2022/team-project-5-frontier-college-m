@@ -148,6 +148,7 @@ definePageMeta({
   font-weight: 700;
   margin-left: 15px;
   margin-top: 5px;
+  color: white;
 }
 .today-text {
   color: white;

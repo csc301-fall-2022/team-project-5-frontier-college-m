@@ -33,9 +33,12 @@ console.log(await client.query('user', { userId: '003Au000005YI4mIAG' }))
 </template>
 
 <style>
-:root {
+body{
+  background-color: var(--black);
   font-family: Arial, sans-serif;
+}
 
+:root {
   --dark-green: #00565a;
   --dark-blue: #093254;
   --green: #3fa947;
@@ -46,10 +49,5 @@ console.log(await client.query('user', { userId: '003Au000005YI4mIAG' }))
   --orange: #f36c21;
   --gray: #4d4d4d;
   --black: #2b2b2b;
-}
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: Arial, sans-serif;
-  }
 }
 </style>
