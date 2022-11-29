@@ -55,7 +55,7 @@ if (events.length === 0) {
         :title="announcement.title" 
         :text="announcement.description" 
       />
-      <FCViewAll />
+      <!-- <FCViewAll /> -->
     </div>
 
     <div class="arrow-cards">
@@ -66,13 +66,13 @@ if (events.length === 0) {
         color="var(--lime-green)"
         link="/programs"
       />
-      <FCArrowCard 
+      <!-- <FCArrowCard 
         title="Group Chat" 
         :text="content" 
         textcolor="black"
         color="var(--green)"
         link=""
-      />
+      /> -->
       <FCArrowCard
         title="Community Portal" 
         :text="content"
@@ -111,7 +111,8 @@ template, body{
   text-align: center;
   width: 100vw;
   min-width: 360px;
-  height: 210px;
+  /* height: 210px; - with view all */
+  height: 160px;
   left: 0px;
   top: 114px;
 
