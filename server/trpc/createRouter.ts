@@ -18,6 +18,8 @@ export function createRootRouter() {
   })
 }
 
+export const TRPCError = trpc.TRPCError
+
 export function createRouter() {
   return trpc.router<Context>()
 }
