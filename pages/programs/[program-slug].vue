@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-
 // day number mapping
-const days: {[day: number]: string} = 
-{0: 'Mon',
-1: 'Tue',
-2: 'Wed',
-3: 'Thu',
-4: 'Fri',
-5: 'Sat',
-6: 'Sun'}
+const days: { [day: number]: string } = {
+  0: 'Mon',
+  1: 'Tue',
+  2: 'Wed',
+  3: 'Thu',
+  4: 'Fri',
+  5: 'Sat',
+  6: 'Sun'
+}
 
 function upperFirst(str: string) {
   if (str.length > 0) {
@@ -21,16 +21,18 @@ const route = useRoute()
 
 const currEventId: string = route.params.programslug.toString()
 const client = useClient()
-const eventDetails = await client.query("eventDetails", {eventId: currEventId})
+const eventDetails = await client.query('eventDetails', {
+  eventId: currEventId
+})
 
 const eventInfo = {
-    id: eventDetails?.programId,
-    name: eventDetails?.name,
-    type: 'recurring',
-    recurrence: eventDetails?.programOfferingSchedule,
-    location: eventDetails?.locationLabel,
-    description: eventDetails?.description,
-    goals: eventDetails?.goals
+  id: eventDetails?.programId,
+  name: eventDetails?.name,
+  type: 'recurring',
+  recurrence: eventDetails?.programOfferingSchedule,
+  location: eventDetails?.locationLabel,
+  description: eventDetails?.description,
+  goals: eventDetails?.goals
 }
 
 // Handle null description/goal
@@ -39,21 +41,20 @@ if (eventInfo.description && eventInfo.goals) {
 } else if (eventInfo.goals) {
   eventInfo.description = '\n\nGoals: ' + eventInfo.goals
 } else if (eventInfo.description) {
-  eventInfo.goals = "There are no goals for this program."
+  eventInfo.goals = 'There are no goals for this program.'
 } else {
-  eventInfo.description = "There is no description for this program."
+  eventInfo.description = 'There is no description for this program.'
 }
 
-let eventDays = ""
+let eventDays = ''
 const daysOfWeek: number[] = eventInfo.recurrence.daysOfWeek
 // create text for days of week tag
 for (let i = 0; i < daysOfWeek.length; i++) {
   eventDays += days[daysOfWeek[i]]
-  
+
   if (i !== daysOfWeek.length - 1) {
-    eventDays += ", "
+    eventDays += ', '
   }
- 
 }
 
 definePageMeta({
@@ -64,12 +65,27 @@ definePageMeta({
 
 <template>
   <div class="flex flex-col flex-nowrap justify-center items-center">
-    <h1>{{eventInfo.name}}</h1>
+    <h1>{{ eventInfo.name }}</h1>
     <div class="event-tags-wrapper">
       <div>
-        <FCTag v-if="eventInfo.type == 'recurring'" :text="upperFirst(eventInfo.recurrence.interval)" icon="fe:loop" w:bg="light-blue" />
-        <FCTag v-if="eventInfo.type == 'recurring'" :text="eventDays" icon="fe:calendar" w:bg="yellow" />
-        <FCTag v-if="eventInfo.location" :text="eventInfo.location" icon="fe:location" w:bg="purple" />
+        <FCTag
+          v-if="eventInfo.type == 'recurring'"
+          :text="upperFirst(eventInfo.recurrence.interval)"
+          icon="fe:loop"
+          color="var(--light-blue)"
+        />
+        <FCTag
+          v-if="eventInfo.type == 'recurring'"
+          :text="eventDays"
+          icon="fe:calendar"
+          color="var(--lime-green)"
+        />
+        <FCTag
+          :text="eventInfo.location"
+          icon="fe:location"
+          color="var(--purple)"
+          style="color: white"
+        />
       </div>
       <FCFileButton text="Event Files" />
     </div>
@@ -78,9 +94,17 @@ definePageMeta({
     <div class="desc-text">{{ eventInfo.description }}</div>
 
     <h2>Staff</h2>
-    <FCStaffCard name="Alice N. Chain" role="Organizer" w:bg="pink" />
-    <FCStaffCard name="Campbell S. Oup" role="Volunteer" />
-    <FCStaffCard name="Joe Mama" role="Volunteer" />
+    <FCStaffCard
+      name="Alice N. Chain"
+      role="Organizer"
+      color="var(--lime-green)"
+    />
+    <FCStaffCard
+      name="Campbell S. Oup"
+      role="Volunteer"
+      color="var(--light-blue)"
+    />
+    <FCStaffCard name="Joe Mama" role="Volunteer" color="var(--light-blue)" />
   </div>
 </template>
 

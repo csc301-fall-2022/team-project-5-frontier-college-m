@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <button w:bg="tan">
+    <button>
         <Icon name="fe:file" class="button-icon"/>
         <div class="button-text">{{ props.text }}</div>
     </button>
@@ -19,6 +19,8 @@ button {
     width: 126px;
     height: 126px;
     position: relative;
+    background-color: var(--orange);
+    font-weight: 700;
 }
 
 .button-text {

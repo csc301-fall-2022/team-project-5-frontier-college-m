@@ -105,7 +105,7 @@ definePageMeta({
 <template>
   <div class="flex flex-col flex-nowrap justify-center items-center">
     <div>
-      <div w:bg="green" class="card-wrapper" style="display: inline-block">
+      <div w:bg="green" class="card-wrapper" style="display: inline-block; background-color: var(--dark-green);">
         <div class="heading-text today-text">Today</div>
         <div v-if="todayEventsInfo.length == 0" class="today-text no-program-text">No programs today!</div>
         <NuxtLink v-for="event in todayEventsInfo" :key="event.id" :to="'/programs/' + event.id">

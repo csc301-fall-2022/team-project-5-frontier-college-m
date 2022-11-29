@@ -23,23 +23,23 @@ const links: Link[] = [
     text: 'Programs',
     href: '/programs',
     icon: 'feather:briefcase'
-  },
-  {
-    text: 'Profile',
-    href: '',
-    icon: 'feather:user'
-  },
-  {
-    text: 'Chat',
-    href: '',
-    icon: 'feather:message-square'
-  },
-  {
-    text: 'Updates',
-    href: '',
-    icon: 'feather:bell',
-    notification: true
   }
+  // {
+  //   text: 'Profile',
+  //   href: '',
+  //   icon: 'feather:user'
+  // },
+  // {
+  //   text: 'Chat',
+  //   href: '',
+  //   icon: 'feather:message-square'
+  // },
+  // {
+  //   text: 'Updates',
+  //   href: '',
+  //   icon: 'feather:bell',
+  //   notification: true
+  // }
 ]
 </script>
 
@@ -104,7 +104,7 @@ main {
 }
 
 .header {
-  background-color: var(--purple);
+  background-color: var(--dark-blue);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   font-weight: 700;
@@ -133,23 +133,22 @@ main {
 .mobile-button {
   position: relative;
 
-  // &:hover,
-  // &.router-link-active {
-  //   color: var(--light-blue);
-  // }
-
   &:after {
     // background: var(--green);
-    background: var(--lime-green);
+    background: var(--light-blue);
     border-radius: 16px;
     content: '';
     height: 32px;
     opacity: 0;
     position: absolute;
     top: 10px;
-    transition: opacity 0.3s;
+    transition: background-color 0.5s;
     width: 60px;
     z-index: -1;
+  }
+  svg {
+    color: white;
+    transition: color 0.3s;
   }
 
   &:hover,
@@ -157,16 +156,19 @@ main {
     &:after {
       opacity: 1;
     }
+    svg {
+      color: var(--black);
+    }
   }
 }
 
 .footer {
   // background-color: var(--spring-green);
-  // background-color: var(--dark-blue);
-  background-color: white;
+  background-color: var(--dark-blue);
+  // background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  // color: white;
+  color: white;
   // color: var(--light-blue);
-  color: var(--dark-blue);
+  // color: var(--dark-blue);
 }
 </style>

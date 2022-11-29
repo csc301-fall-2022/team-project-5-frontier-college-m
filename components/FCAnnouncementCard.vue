@@ -40,8 +40,8 @@
     }
 
     .announcementcard{
-      color: #FFFFFF;
-      background: rgba(0, 89, 84, 0.84);
+      color: black;
+      background: var(--light-blue);
       display: inline-block;
       width: 328px;
       height: 110px;
