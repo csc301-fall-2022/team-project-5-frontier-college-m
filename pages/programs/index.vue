@@ -41,6 +41,7 @@ const todayEventsInfo: {
     recurrence: any;
     location: any;
     description: any;
+    goals: any;
 }[] = []
 const upcomingEventsInfo: {
     id: string;
@@ -49,6 +50,7 @@ const upcomingEventsInfo: {
     recurrence: any;
     location: any;
     description: any;
+    goals: any;
 }[] = []
 
 const upcomingDates: {[id: string]: string} = {}
@@ -65,7 +67,19 @@ for (let i = 0; i < eventIds.length; i++) {
     type: 'recurring',
     recurrence: eventInfo.programOfferingSchedule,
     location: eventInfo.locationLabel,
-    description: eventInfo.description
+    description: eventInfo.description, 
+    goals: eventInfo.goals
+  }
+
+  // Handle null description/goal
+  if (simplifiedEvent.description && simplifiedEvent.goals) {
+    simplifiedEvent.description += '\n\nGoals: ' + simplifiedEvent.goals
+  } else if (simplifiedEvent.goals) {
+    simplifiedEvent.description = '\n\nGoals: ' + simplifiedEvent.goals
+  } else if (simplifiedEvent.description) {
+    simplifiedEvent.goals = "There are no goals for this program."
+  } else {
+    simplifiedEvent.description = "There is no description for this program."
   }
 
   if (eventInfo.programOfferingSchedule.daysOfWeek.includes(currDay)) {
@@ -77,8 +91,7 @@ for (let i = 0; i < eventIds.length; i++) {
 
     const date = new Date()
     date.setDate(date.getDate() + (day + 7 - date.getDay()) % 7)
-
-    upcomingDates[eventInfo.programId] = getDateStr(date)
+    upcomingDates[simplifiedEvent.id] = getDateStr(date)
   }
   
 }

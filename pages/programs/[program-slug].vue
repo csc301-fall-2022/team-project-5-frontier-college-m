@@ -29,8 +29,21 @@ const eventInfo = {
     type: 'recurring',
     recurrence: eventDetails?.programOfferingSchedule,
     location: eventDetails?.locationLabel,
-    description: eventDetails?.description
+    description: eventDetails?.description,
+    goals: eventDetails?.goals
 }
+
+// Handle null description/goal
+if (eventInfo.description && eventInfo.goals) {
+  eventInfo.description += '\n\nGoals: ' + eventInfo.goals
+} else if (eventInfo.goals) {
+  eventInfo.description = '\n\nGoals: ' + eventInfo.goals
+} else if (eventInfo.description) {
+  eventInfo.goals = "There are no goals for this program."
+} else {
+  eventInfo.description = "There is no description for this program."
+}
+
 let eventDays = ""
 const daysOfWeek: number[] = eventInfo.recurrence.daysOfWeek
 // create text for days of week tag
@@ -56,7 +69,7 @@ definePageMeta({
       <div>
         <FCTag v-if="eventInfo.type == 'recurring'" :text="upperFirst(eventInfo.recurrence.interval)" icon="fe:loop" w:bg="light-blue" />
         <FCTag v-if="eventInfo.type == 'recurring'" :text="eventDays" icon="fe:calendar" w:bg="yellow" />
-        <FCTag :text="eventInfo.location" icon="fe:location" w:bg="purple" />
+        <FCTag v-if="eventInfo.location" :text="eventInfo.location" icon="fe:location" w:bg="purple" />
       </div>
       <FCFileButton text="Event Files" />
     </div>
