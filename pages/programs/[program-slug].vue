@@ -74,17 +74,20 @@ h1 {
   margin-left: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: white;
 }
 
 h2 {
   font-size: 14px;
   font-weight: 700;
   margin: 15px;
+  color: white;
 }
 
 .desc-text {
   font-size: 11px;
   margin: 15px;
   max-width: 322px;
+  color: white;
 }
 </style>
