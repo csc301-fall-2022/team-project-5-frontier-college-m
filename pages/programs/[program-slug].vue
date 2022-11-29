@@ -87,13 +87,16 @@ definePageMeta({
           style="color: white"
         />
       </div>
-      <FCFileButton text="Event Files" />
+
+      <a target="_self" href="https://www.dropbox.com/">
+        <FCFileButton text="Event Files" />
+      </a>
     </div>
 
     <h2>Description</h2>
     <div class="desc-text">{{ eventInfo.description }}</div>
 
-    <h2>Staff</h2>
+    <!-- <h2>Staff</h2>
     <FCStaffCard
       name="Alice N. Chain"
       role="Organizer"
@@ -104,7 +107,7 @@ definePageMeta({
       role="Volunteer"
       color="var(--light-blue)"
     />
-    <FCStaffCard name="Joe Mama" role="Volunteer" color="var(--light-blue)" />
+    <FCStaffCard name="Joe Mama" role="Volunteer" color="var(--light-blue)" /> -->
   </div>
 </template>
 
