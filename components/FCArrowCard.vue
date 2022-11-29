@@ -2,6 +2,7 @@
     const props = defineProps<{
     title: string
     text: string
+    textcolor: string
     color: string
     link: string
     }>()
@@ -20,6 +21,7 @@
 
 <style scoped>
  h1{
+   color: v-bind(textcolor);
    margin-top: 10px;
    margin-left: 16px;
    float: left;
@@ -27,6 +29,7 @@
    font-weight: 700;
  }
  .text{
+   color: v-bind(textcolor);
    text-overflow: ellipsis;
    overflow: hidden;
    margin-top: 5px;
