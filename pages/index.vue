@@ -19,7 +19,8 @@ const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
 // TODO: Frontend team pls update calling convention
-const name = await (await client.query('user', {userId: "003Au000005YI4mIAG"})).name
+const name = await (
+  await client.query('user', {userId: "003Au000005YI4mIAG"})).name
 
 // Obtain the announcements for this user
 const announcement = await (await client.query('announcements', {
@@ -54,47 +55,47 @@ if (events.length === 0) {
         :title="announcement.title" 
         :text="announcement.description" 
       />
-      <FCViewAll />
+      <!-- <FCViewAll /> -->
     </div>
 
     <div class="arrow-cards">
       <FCArrowCard
         title="My Assigned Programs"
         :text="eventContent"
+        textcolor="black"
         color="var(--lime-green)"
         link="/programs"
       />
-      <FCArrowCard 
+      <!-- <FCArrowCard 
         title="Group Chat" 
         :text="content" 
-        color="var(--orange)"
+        textcolor="black"
+        color="var(--green)"
         link=""
-      />
+      /> -->
       <FCArrowCard
         title="Community Portal" 
         :text="content"
-        color="var(--green)"
+        textcolor="white"
+        color="var(--dark-green)"
         :link="communityLink"
       />
     </div>
-
-    <!-- <div class="whitebar"></div> -->
-  </div>
+    <body></body>
+    </div>
 </template>
 
 <style scoped>
-
-.whitebar {
-  position: absolute;
-  width: 7px;
-  height: 416px;
-  left: 273px;
-  top: 339px;
-
-  background: #ffffff;
+template, body{
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
 .welcome-card {
+  color: white;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
@@ -110,11 +111,12 @@ if (events.length === 0) {
   text-align: center;
   width: 100vw;
   min-width: 360px;
-  height: 210px;
+  /* height: 210px; - with view all */
+  height: 160px;
   left: 0px;
   top: 114px;
 
-  background: #e1e1e1;
+  background: var(--gray);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
