@@ -39,7 +39,7 @@ export const td2Data = {
     },
     2: {
       events: [0, 3]
-    },
+    }
   },
 
   // eventId -> event Object
@@ -85,62 +85,63 @@ export const td2Data = {
         daysOfWeek: [3, 4, 5, 6]
       },
       location: 'Toronto, Ontario',
-      description: 'In representations that adhere to the ISO 8601 interchange standard, dates and times are arranged such that the greatest temporal term (typically a year) is placed at the left and each successively lesser term is placed to the right of the previous term. Representations must be written in a combination of Arabic numerals and the specific computer characters (such as "-", ":", "T", "W", "Z") that are assigned specific meanings within the standard; that is, such commonplace descriptors of dates (or parts of dates) as "January", "Thursday", or "New Year\'s Day" are not allowed in interchange representations within the standard. '
+      description:
+        'In representations that adhere to the ISO 8601 interchange standard, dates and times are arranged such that the greatest temporal term (typically a year) is placed at the left and each successively lesser term is placed to the right of the previous term. Representations must be written in a combination of Arabic numerals and the specific computer characters (such as "-", ":", "T", "W", "Z") that are assigned specific meanings within the standard; that is, such commonplace descriptors of dates (or parts of dates) as "January", "Thursday", or "New Year\'s Day" are not allowed in interchange representations within the standard. '
     }
   },
 
   // eventId -> announcement Objects
   eventAnnouncements: {
     0: [
-      {
-        id: 0,
-        sentAt: '2022-11-02T01:13:15',
-        title: 'Nuclear Strike Alert!',
-        description: 'THIS IS NOT A DRILL. PLEASE SEEK SHELTER. '
-      },
-      {
-        id: 1,
-        sentAt: '2022-11-02T11:15:00',
-        title: 'False Alarm!',
-        description: 'SORRY GUYS! That was a fat finger moment.'
-      }
-    ],
-    1: [
-      {
-        id: 2,
-        sentAt: '2022-10-24T12:26:05',
-        title: 'Midterm canceled',
-        description: 'That right! No more midterm. Free marks for all!'
-      },
-      {
-        id: 3,
-        sentAt: '2022-10-30T10:11:50',
-        title: 'Student Cybercrime Notice',
-        description:
-          'A student has hacked into our system and sent out a false midterm cancellation notice, which caused unnecessary disruption. Anyone with information leading to the identification of said student will receive an automatic A in this course. Thank you.'
-      }
+      //   {
+      //     id: 0,
+      //     sentAt: '2022-11-02T01:13:15',
+      //     title: 'Nuclear Strike Alert!',
+      //     description: 'THIS IS NOT A DRILL. PLEASE SEEK SHELTER. '
+      //   },
+      //   {
+      //     id: 1,
+      //     sentAt: '2022-11-02T11:15:00',
+      //     title: 'False Alarm!',
+      //     description: 'SORRY GUYS! That was a fat finger moment.'
+      //   }
+      // ],
+      // 1: [
+      //   {
+      //     id: 2,
+      //     sentAt: '2022-10-24T12:26:05',
+      //     title: 'Midterm canceled',
+      //     description: 'That right! No more midterm. Free marks for all!'
+      //   },
+      //   {
+      //     id: 3,
+      //     sentAt: '2022-10-30T10:11:50',
+      //     title: 'Student Cybercrime Notice',
+      //     description:
+      //       'A student has hacked into our system and sent out a false midterm cancellation notice, which caused unnecessary disruption. Anyone with information leading to the identification of said student will receive an automatic A in this course. Thank you.'
+      //   }
     ],
     2: [
-      {
-        id: 4,
-        sentAt: '2022-10-31T12:32:23',
-        title: 'Putnam competition info',
-        description: "Give up lmao you won't win anything lol. "
-      },
+      // {
+      //   id: 4,
+      //   sentAt: '2022-10-31T12:32:23',
+      //   title: 'Putnam competition info',
+      //   description: "Give up lmao you won't win anything lol. "
+      // },
       {
         id: 5,
         sentAt: '2022-11-01T14:16:01',
         title: 'Midterm Study Session',
         description:
           'Midterm study session will be held in the Chem building. Attendees will receive a secret token they can use on the exam for an automatic 10% grade boost.'
-      },
-      {
-        id: 6,
-        sentAt: '2022-11-02T18:09:22',
-        title: 'Prof has some issues',
-        description:
-          "Hey students: my girlfriend dumped me and I'm now getting drunk at a bar. Probably won't be at the midterm tomorrow. Please follow the TA's instructions. Thanc"
       }
+      // {
+      //   id: 6,
+      //   sentAt: '2022-11-02T18:09:22',
+      //   title: 'Prof has some issues',
+      //   description:
+      //     "Hey students: my girlfriend dumped me and I'm now getting drunk at a bar. Probably won't be at the midterm tomorrow. Please follow the TA's instructions. Thanc"
+      // }
     ]
   }
 }
