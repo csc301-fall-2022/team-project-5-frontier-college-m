@@ -23,13 +23,18 @@ const name = await(
 ).name
 
 // Obtain the announcements for this user
-const announcement = await(
-  await client.query('announcements', {
-    userId: currUser,
-    maxCount: 1,
-    noEarlierThan: new Date('2022-11-01T11:16:01')
-  })
-)[0]
+// const announcement = await(
+//   await client.query('announcements', {
+//     userId: currUser,
+//     maxCount: 1,
+//     noEarlierThan: new Date('2022-11-01T11:16:01')
+//   })
+// )[0]
+const announcement = {
+  title: 'Midterm Study Session',
+  description:
+    'Midterm study session will be held in the Chem building. Attendees will receive a secret token they can use on the exam for an automatic 10% grade boost.'
+}
 
 // Obtain the assigned program events for this user
 const events = await(
