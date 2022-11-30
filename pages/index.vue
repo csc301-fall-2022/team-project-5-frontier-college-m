@@ -12,7 +12,7 @@ const communityLink =
 // Placeholder text
 const content = 'Zach sent you 5 new messages'
 
-const currUser = 2
+// const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
 // TODO: Frontend team pls update calling convention
