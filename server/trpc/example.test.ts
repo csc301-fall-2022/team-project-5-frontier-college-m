@@ -55,7 +55,7 @@ test('eventDetails tRPC test name', async () => {
   const answer = await caller.query('eventDetails', {
     eventId: "a26Au00000008tdIAA"
   })
-  expect(answer?.name).toBe('Beat the Street (Literacy and Basic Skills/Pre-GED Prep)')
+  expect(answer?.name).toBe('Literacy and Basic Skills')
 })
 
 test('eventDetails tRPC test json', async () => {
@@ -66,7 +66,7 @@ test('eventDetails tRPC test json', async () => {
     eventId: "a26Au00000008wrIAA"
   })
   expect(answer?.programOfferingSchedule).toEqual({
-    "interval": "weekly", "daysOfWeek": [1, 5, 6]
+    "interval": "weekly", "daysOfWeek": [0, 1, 2, 3]
   })
 })
 
@@ -79,7 +79,7 @@ test('user tRPC test name', async () => {
   const caller = router.createCaller(ctx)
 
   const user = await caller.query('user', { userId: '003Au000005YI4mIAG' })
-  expect(user.name).toEqual('Du')
+  expect(user.name).toEqual('Samm Du')
 })
 
 test('user tRPC test email', async () => {
