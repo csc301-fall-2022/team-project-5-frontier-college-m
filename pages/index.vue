@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 definePageMeta({
-  title: 'Frontier College',
-  showBack: false
+  showBack: false,
+  home: true
 })
 
 // The link for the community portal
@@ -10,11 +10,7 @@ const communityLink =
   'login?sfdcIFrameOrigin=null'
 
 // Placeholder text
-const content =
-  'Zach sent you 100 new messages: Hey man its been like 20' +
-  " days and you still haven't responded, please there is no" +
-  'way you cannot see this I can see you going online but you ' +
-  "aren't responding pls"
+const content = 'Zach sent you 5 new messages'
 
 const currUser = 2
 const client = useClient()
@@ -69,7 +65,9 @@ if (events.length === 0) {
         :title="announcement.title"
         :text="announcement.description"
       />
-      <!-- <FCViewAll /> -->
+      <NuxtLink to="/updates">
+        <FCViewAll />
+      </NuxtLink>
     </div>
 
     <div class="arrow-cards">
@@ -80,34 +78,25 @@ if (events.length === 0) {
         color="var(--lime-green)"
         link="/programs"
       />
-      <!-- <FCArrowCard 
-        title="Group Chat" 
-        :text="content" 
+      <FCArrowCard
+        title="Group Chat"
+        :text="content"
         textcolor="black"
         color="var(--green)"
-        link=""
-      /> -->
+        link="/chat"
+      />
       <FCArrowCard
         title="Community Portal"
-        :text="content"
+        text="View your volunteer hours and testimonials"
         textcolor="white"
         color="var(--dark-green)"
         :link="communityLink"
       />
     </div>
-    <!-- <body></body> -->
   </div>
 </template>
 
 <style scoped>
-/* template, body{
-  background-color: var(--black);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-} */
 .welcome-card {
   color: white;
   font-weight: 700;
@@ -125,8 +114,7 @@ if (events.length === 0) {
   text-align: center;
   width: 100vw;
   min-width: 360px;
-  /* height: 210px; - with view all */
-  height: 160px;
+  height: 210px;
   left: 0px;
   top: 114px;
 

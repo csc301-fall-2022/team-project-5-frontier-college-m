@@ -23,31 +23,31 @@ const links: Link[] = [
     text: 'Programs',
     href: '/programs',
     icon: 'feather:briefcase'
+  },
+  {
+    text: 'Profile',
+    href: '/profile',
+    icon: 'feather:user'
+  },
+  {
+    text: 'Chat',
+    href: '/chat',
+    icon: 'feather:message-square'
+  },
+  {
+    text: 'Updates',
+    href: '/updates',
+    icon: 'feather:bell',
+    notification: true
   }
-  // {
-  //   text: 'Profile',
-  //   href: '',
-  //   icon: 'feather:user'
-  // },
-  // {
-  //   text: 'Chat',
-  //   href: '',
-  //   icon: 'feather:message-square'
-  // },
-  // {
-  //   text: 'Updates',
-  //   href: '',
-  //   icon: 'feather:bell',
-  //   notification: true
-  // }
 ]
 </script>
 
 <template>
-  <main :class="$route.path === '/' ? 'home' : ''">
+  <main :class="route.meta.home ? 'home' : ''">
     <header class="header fixed w-full text-center text-2xl z-100">
       <div
-        v-if="$route.path === '/'"
+        v-if="$route.meta.home"
         class="p-2 flex h-full w-full flex-row flex-nowrap"
       >
         <img class="w-auto h-full" src="~/assets/header-logo.png" />

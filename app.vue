@@ -27,13 +27,14 @@ console.log(await client.query('user', { userId: '003Au000005YI4mIAG' }))
 <template>
   <div>
     <NuxtLayout>
+      <NuxtLoadingIndicator />
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
 
 <style>
-body{
+body {
   background-color: var(--black);
   font-family: Arial, sans-serif;
 }
