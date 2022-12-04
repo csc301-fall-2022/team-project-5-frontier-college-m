@@ -110,7 +110,7 @@ if (events.length === 0) {
   text-align: center;
   width: 100vw;
   min-width: 360px;
-  height: 234px;
+  height: 237px;
   left: 0px;
   top: 114px;
 

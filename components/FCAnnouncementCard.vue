@@ -29,23 +29,31 @@
     .text{
       text-overflow: ellipsis;
       overflow: hidden;
-      margin-top: 7px;
-      margin-left: 13px;
-      margin-right: 13px;
+      margin-top: 24px;
+      margin-left: 18px;
+      margin-right: 18px;
       text-align: left;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 14px;
-      height: 42px;
+      line-height: 16px;
+      height: 48px;
+      color: white;
     }
 
     .announcementcard{
       color: black;
-      background: var(--light-blue);
+      background: linear-gradient(
+        180deg, 
+        var(--light-blue) 0%, 
+        var(--light-blue) 38%, 
+        var(--black)35%, 
+        var(--black) 100%
+      );
       display: inline-block;
       width: 328px;
-      height: 110px;
+      height: 134px;
       left: 16px;
       border-radius: 10px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 </style>
