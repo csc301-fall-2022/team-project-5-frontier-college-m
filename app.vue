@@ -11,7 +11,7 @@ const client = useClient()
 console.log(await client.query('hello'))
 console.log(
   await client.query('announcements', {
-    userId: 2,
+    userId: "003Au000005YI4mIAG",
     maxCount: 5,
     noEarlierThan: new Date('2022-11-01T11:16:01')
   })
