@@ -1,14 +1,13 @@
 import { z } from 'zod'
 import { auth, api } from '../salesforce'
 import { createRouter } from '../createRouter'
-import { td2Data } from '~/shared/d2-dummy-data'
 
 /**
  * Return a list of announcements that pertain to a given user.
  */
 export const announcementsRouter = createRouter().query('announcements', {
   input: z.object({
-    userId: z.number().nonnegative(),
+    userId: z.string(),
     maxCount: z.number().optional(),
     noEarlierThan: z
       .preprocess((arg) => {
@@ -17,45 +16,57 @@ export const announcementsRouter = createRouter().query('announcements', {
       .optional()
   }),
 
-  resolve({ input }) {
-    const maxCount = input.maxCount
+  async resolve({ input }) {
+    const maxCount = input.maxCount || 100
     const userId = input.userId
     const noEarlierThan = input.noEarlierThan ?? new Date(0)
 
-    // Find the group IDs of the user
-    const userGroups: { [userId: number]: { [groupID: number]: string } } =
-      td2Data.userGroups
-    const groupIDs: number[] = Object.keys(userGroups[userId]).map((id) =>
-      parseInt(id)
+    // Get the Program__c IDs for the user's programs
+    const qString = `SELECT Program_Offering__c FROM ProgPar__C WHERE Participant_Contact__c='${userId}'`
+    const resp = await api.query(qString, auth)
+    if (!resp || resp.status !== 200) return []
+    const programData = await resp.json()
+    const programids = programData.records.map(
+      (r: any) => r.Program_Offering__c
     )
 
-    const announcementsList = []
+    // Get the chatter group IDs from Program__c
+    const qString2 = `SELECT Id, Name, Chatter_Group_ID__c FROM Program__C WHERE Id IN ('${programids.join(
+      "','"
+    )}')`
+    const resp2 = await api.query(qString2, auth)
+    if (!resp2 || resp2.status !== 200) return []
+    const chatterData = await resp2.json()
 
-    // Find the announcements for each groupID and add it to the list
-    // only if the noEarlierThan and maxCount constraint is satisfied
-    const announcements: { [eventId: number]: any } = td2Data.eventAnnouncements
-    // get all announcements for the groupIDs
-    for (const groupID of groupIDs) {
-      const groupAnnouncements = announcements[groupID]
-      if (groupAnnouncements) {
-        for (const announcement of groupAnnouncements) {
-          announcement.sentAt = new Date(announcement.sentAt)
-          if (announcement.sentAt >= noEarlierThan) {
-            announcementsList.push(announcement)
-          }
-        }
+    // map the chatter group IDs to the program names
+    const chatterids = chatterData.records.map(
+      (r: any) => r.Chatter_Group_ID__c
+    )
+    const chatterMap = chatterData.records.reduce((acc: any, r: any) => {
+      acc[r.Chatter_Group_ID__c] = {
+        id: r.Id,
+        name: r.Name
       }
-    }
+      return acc
+    }, {})
 
-    // sort the announcements by date
-    announcementsList.sort((a, b) => {
-      return a.sentAt.getTime() - b.sentAt.getTime()
+    // Get the announcements from the chatter groups
+    const qString3 = `SELECT Id, CreatedDate, Title, Body, ParentId FROM FeedItem WHERE ParentId IN ('${chatterids.join(
+      "','"
+    )}') AND CreatedDate > ${noEarlierThan.toISOString()} ORDER BY CreatedDate DESC LIMIT ${maxCount}`
+    const resp3 = await api.query(qString3, auth)
+    if (!resp3 || resp3.status !== 200) return []
+    const announcementData = await resp3.json()
+
+    // sanitize the announcement data
+    const announcements = announcementData.records.map((r: any) => {
+      r.Title = chatterMap[r.ParentId] ? chatterMap[r.ParentId].name : ''
+      r.ProgramId = chatterMap[r.ParentId] ? chatterMap[r.ParentId].id : null
+      delete r.ParentId
+      delete r.attributes
+      return r
     })
-    // if the maxCount is smaller than the number of announcements, return the first maxCount announcements
-    if (maxCount && announcementsList.length > maxCount) {
-      return announcementsList.slice(0, maxCount)
-    }
 
-    return announcementsList
+    return announcements
   }
 })
