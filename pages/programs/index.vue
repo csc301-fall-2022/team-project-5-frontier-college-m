@@ -105,14 +105,16 @@ definePageMeta({
 <template>
   <div class="flex flex-col flex-nowrap justify-center items-center">
     <div>
-      <div w:bg="green" class="card-wrapper" style="display: inline-block; background-color: var(--dark-green);">
+      <div w:bg="green" class="card-wrapper" style="display: inline-block; background-color: var(--gray);">
         <div class="heading-text today-text">Today</div>
         <div v-if="todayEventsInfo.length == 0" class="today-text no-program-text">No programs today!</div>
         <NuxtLink v-for="event in todayEventsInfo" :key="event.id" :to="'/programs/' + event.id">
           <FCProgramCard 
           :date="currDate" 
           :title="event.name"
-          :content="event.description">
+          :content="event.description"
+          contentcolor="var(--black)"
+          datecolor="var(--black)">
           </FCProgramCard>
         </NuxtLink>
       </div>
@@ -122,10 +124,12 @@ definePageMeta({
         <div v-if="upcomingEventsInfo.length == 0" class="no-program-text">No upcoming programs!</div>
         <NuxtLink  v-for="event in upcomingEventsInfo" :key="event.id" :to="'/programs/' + event.id">
           <FCProgramCard
-            style="background-color: #e1e1e1"
+            style="background-color: var(--dark-green);"
             :date="upcomingDates[event.id]"
             :title="event.name"
             :content="event.description"
+            contentcolor= "white"
+            datecolor="var(--light-blue)"
           />
         </NuxtLink>
       </div>
@@ -157,5 +161,6 @@ definePageMeta({
 .no-program-text {
   margin-left: 15px;
   width: 289px;
+  color: white;
 }
 </style>

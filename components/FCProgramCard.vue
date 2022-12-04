@@ -1,13 +1,16 @@
 <script lang="ts" setup>
+
 const props = defineProps<{
     date: string
     title: string
     content: string
+    contentcolor: string
+    datecolor: string
 }>()
 </script>
 
 <template>
-    <div class="program-card" style="background-color: white;">
+    <div class="program-card" style="background-color: var(--green);">
         <div class="content">
             <div class="date-text">{{ props.date }}</div>
             <div class="title-text">{{ props.title }}</div>
@@ -38,31 +41,37 @@ const props = defineProps<{
     font-size: 13px;
     font-weight: 700;
     margin-top: 5px;
-    color: var(--dark-green)
+    color: v-bind(datecolor)
 }
 
 .title-text {
-    font-size: 13px;
+    font-size: 18px;
+    line-height: 19px;
     font-weight: 700;
     text-overflow: ellipsis;
+    color: white;
 }
 
 .content-text {
-    font-size: 10px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
     text-overflow: ellipsis;
     overflow: hidden;
-    height: 60%;
+    height:35%;
     width: 95%;
-    
-    line-height: 14px;
+    line-height: 19px;
+    padding-bottom: 10%;
+    margin-top: 5px;
+    color: v-bind(contentcolor);
 }
 
 .content {
     width: 90%;
+    overflow: hidden;
 }
 .card-button {
     width: 20%;
     font-size: 20px;
+    color: white;
 }
 </style>

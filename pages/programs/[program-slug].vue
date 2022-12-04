@@ -37,9 +37,9 @@ const eventInfo = {
 
 // Handle null description/goal
 if (eventInfo.description && eventInfo.goals) {
-  eventInfo.description += '\n\nGoals: ' + eventInfo.goals
+  eventInfo.description += '\n\nGoals: ' + eventInfo.goals.replaceAll(';', ', ')
 } else if (eventInfo.goals) {
-  eventInfo.description = '\n\nGoals: ' + eventInfo.goals
+  eventInfo.description = '\n\nGoals: ' + eventInfo.goals.replaceAll(';', ', ')
 } else if (eventInfo.description) {
   eventInfo.goals = 'There are no goals for this program.'
 } else {
@@ -57,8 +57,22 @@ for (let i = 0; i < daysOfWeek.length; i++) {
   }
 }
 
+// Set url for location search
+let googleMapsURL: string = 'https://www.google.com/maps/search/'
+if (eventDetails?.locationAddress) {
+  let locationStr: string = eventDetails.locationAddress
+  locationStr = locationStr.replaceAll('<br>', '+').replaceAll(' ', '+')
+  googleMapsURL += locationStr
+} else if (eventInfo.location) {
+  let locationStr: string = eventInfo.location
+  locationStr = locationStr.replaceAll('<br>', '+').replaceAll(' ', '+')
+  googleMapsURL += locationStr
+} else {
+  googleMapsURL = ''
+}
+
 definePageMeta({
-  title: 'Event Info',
+  title: 'Program Info',
   showBack: true
 })
 </script>
@@ -80,12 +94,21 @@ definePageMeta({
           icon="fe:calendar"
           color="var(--lime-green)"
         />
+        <a v-if="googleMapsURL" target="_self" :href="googleMapsURL">
+          <FCTag
+            :text="eventInfo.location"
+            icon="fe:location"
+            color="var(--purple)"
+            style="color: white"
+          />
+        </a>
         <FCTag
-          :text="eventInfo.location"
-          icon="fe:location"
-          color="var(--purple)"
-          style="color: white"
-        />
+            v-else
+            :text="eventInfo.location"
+            icon="fe:location"
+            color="var(--purple)"
+            style="color: white"
+          />
       </div>
 
       <a target="_self" href="https://www.dropbox.com/">
@@ -126,14 +149,14 @@ h1 {
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 700;
   margin: 15px;
   color: white;
 }
 
 .desc-text {
-  font-size: 11px;
+  font-size: 16px;
   margin: 15px;
   max-width: 322px;
   color: white;

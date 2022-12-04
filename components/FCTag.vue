@@ -18,7 +18,9 @@ const props = defineProps<{
     width:fit-content;
     border-radius: 31px;
     display: flex;
+    align-items: center;
     padding: 5px;
+    padding-right: 10px;
     margin: 10px;
     background-color: v-bind(color);
 }
@@ -31,5 +33,8 @@ const props = defineProps<{
 .tag-text {
     font-size: 11px;
     font-weight: 700;
+    overflow-wrap: normal;
+    width:fit-content;
+    max-width: 85%;
 }
 </style>
