@@ -12,31 +12,15 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
   }),
 
   async resolve({ input }) {
-    if (!auth.token) {
-      await auth.getBearerToken(api)
-    }
-
     const qString = `SELECT Id, Name, Program_Description__c, Goals__c, Type__c, Contact_Person__c, OwnerId, Regional_Record_owner_Contact__c, Reporting_Region__c, Start_Date__c, End_Date__c, Delivery_Method__c, Program_Offering_Schedule__c, Location_Label__c, Location_Address__c, RecordTypeId FROM Program__c WHERE Id ='${input.eventId}'`
+    const resp = await api.query(qString, auth)
+    const data = await resp.json()
 
-    let data = await api.query(qString, auth.token as string)
-    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
-      await auth.getBearerToken(api)
-      data = await api.query(qString, auth.token as string)
-    }
-
-    // console.log(data)
     const program = data.records[0]
 
     const recordTypeQuery = `SELECT Id, Name, DeveloperName FROM RecordType WHERE Id = '${program.RecordTypeId}'`
-    let recordData = await api.query(recordTypeQuery, auth.token as string)
-    if (
-      recordData &&
-      recordData.errorCode &&
-      recordData.errorCode === 'INVALID_SESSION_ID'
-    ) {
-      await auth.getBearerToken(api)
-      recordData = await api.query(recordTypeQuery, auth.token as string)
-    }
+    const recordResp = await api.query(recordTypeQuery, auth)
+    const recordData = await recordResp.json()
 
     // only parse data if records are available
     if (data.totalSize && data.totalSize > 0) {
@@ -52,7 +36,9 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
         startDate: program.Start_Date__c,
         endDate: program.End_Date__c,
         deliveryMethod: program.Delivery_Method__c,
-        programOfferingSchedule: JSON.parse(program.Program_Offering_Schedule__c),
+        programOfferingSchedule: JSON.parse(
+          program.Program_Offering_Schedule__c
+        ),
         locationLabel: program.Location_Label__c,
         locationAddress: program.Location_Address__c,
         recordType: recordData.records[0].Name
