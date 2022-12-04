@@ -1,19 +1,18 @@
 import { auth, api } from '../salesforce'
-import { createRouter } from '../createRouter'
+import { createRouter, TRPCError } from '../createRouter'
 
 export const helloRouter = createRouter().query('hello', {
   async resolve() {
-    if (!auth.token) {
-      await auth.getBearerToken(api)
-    }
-
     const qString =
       'SELECT Id, Name, Assigned_Program__c, RecordTypeId FROM Contact'
 
-    let data = await api.query(qString, auth.token as string)
-    if (data && data.errorCode && data.errorCode === 'INVALID_SESSION_ID') {
-      await auth.getBearerToken(api)
-      data = await api.query(qString, auth.token as string)
+    const resp = await api.query(qString, auth)
+    const data = await resp.json()
+    if (!resp || resp.status !== 200) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        cause: data
+      })
     }
 
     return data

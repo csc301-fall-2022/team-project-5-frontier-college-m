@@ -11,20 +11,14 @@ export const userRouter = createRouter().query('user', {
   }),
 
   async resolve({ input }) {
-    if (!auth.token) {
-      await auth.getBearerToken(api)
-    }
-
     const contactQuery = `SELECT Id, Name, Email, RecordTypeId FROM Contact WHERE Id='${input.userId}'`
-
-    let contactData = await api.query(contactQuery, auth.token as string)
-    if (
-      contactData &&
-      contactData.errorCode &&
-      contactData.errorCode === 'INVALID_SESSION_ID'
-    ) {
-      await auth.getBearerToken(api)
-      contactData = await api.query(contactQuery, auth.token as string)
+    const contactResp = await api.query(contactQuery, auth)
+    const contactData = await contactResp.json()
+    if (!contactResp || contactResp.status !== 200) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        cause: contactData
+      })
     }
 
     if (!contactData || !contactData.totalSize || contactData.totalSize !== 1) {
@@ -33,18 +27,16 @@ export const userRouter = createRouter().query('user', {
         message: 'Given user not found by Id = ' + input.userId
       })
     }
-
     const contact = contactData.records[0]
 
     const recordTypeQuery = `SELECT Id, Name, DeveloperName FROM RecordType WHERE Id = '${contact.RecordTypeId}'`
-    let recordData = await api.query(recordTypeQuery, auth.token as string)
-    if (
-      recordData &&
-      recordData.errorCode &&
-      recordData.errorCode === 'INVALID_SESSION_ID'
-    ) {
-      await auth.getBearerToken(api)
-      recordData = await api.query(recordTypeQuery, auth.token as string)
+    const recordResp = await api.query(recordTypeQuery, auth)
+    const recordData = await recordResp.json()
+    if (!recordResp || recordResp.status !== 200) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        cause: recordData
+      })
     }
 
     return {
