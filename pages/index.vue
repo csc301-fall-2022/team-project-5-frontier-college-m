@@ -9,8 +9,6 @@ const communityLink =
   'https://unitedforliteracy.my.site.com/customerservice/' +
   'login?sfdcIFrameOrigin=null'
 
-// Placeholder text
-const content = 'Zach sent you 5 new messages'
 
 // const currUser = 2
 const client = useClient()
@@ -77,18 +75,11 @@ if (events.length === 0) {
 
     <div class="arrow-cards">
       <FCArrowCard
-        title="My Assigned Programs"
+        title="Assigned Programs"
         :text="eventContent"
         textcolor="black"
         color="var(--lime-green)"
         link="/programs"
-      />
-      <FCArrowCard
-        title="Group Chat"
-        :text="content"
-        textcolor="black"
-        color="var(--green)"
-        link="/chat"
       />
       <FCArrowCard
         title="Community Portal"
@@ -119,7 +110,7 @@ if (events.length === 0) {
   text-align: center;
   width: 100vw;
   min-width: 360px;
-  height: 210px;
+  height: 237px;
   left: 0px;
   top: 114px;
 

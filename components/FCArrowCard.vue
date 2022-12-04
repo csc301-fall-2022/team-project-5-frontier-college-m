@@ -34,24 +34,24 @@ h1 {
   margin-top: 5px;
   margin-left: 16px;
   float: left;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   text-align: left;
-  width: 224px;
-  line-height: 14px;
-  height: 56px;
+  width: 250px;
+  line-height: 18px;
+  height: 54px;
 }
 .arrowcard {
   margin: 16px;
   position: relative;
   width: 328px;
-  height: 118px;
+  height: 128px;
   border-radius: 10px;
   background: v-bind(color);
 }
 
 .icon {
-  margin-top: 5px;
+  margin-top: 12px;
   margin-right: 19px;
   width: 24px;
   height: 24px;
