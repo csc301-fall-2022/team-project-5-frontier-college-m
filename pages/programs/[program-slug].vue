@@ -57,8 +57,22 @@ for (let i = 0; i < daysOfWeek.length; i++) {
   }
 }
 
+// Set url for location search
+let googleMapsURL: string = 'https://www.google.com/maps/search/'
+if (eventDetails?.locationAddress) {
+  let locationStr: string = eventDetails.locationAddress
+  locationStr = locationStr.replaceAll('<br>', '+').replaceAll(' ', '+')
+  googleMapsURL += locationStr
+} else if (eventInfo.location) {
+  let locationStr: string = eventInfo.location
+  locationStr = locationStr.replaceAll('<br>', '+').replaceAll(' ', '+')
+  googleMapsURL += locationStr
+} else {
+  googleMapsURL = ''
+}
+
 definePageMeta({
-  title: 'Event Info',
+  title: 'Program Info',
   showBack: true
 })
 </script>
@@ -80,12 +94,21 @@ definePageMeta({
           icon="fe:calendar"
           color="var(--lime-green)"
         />
+        <a v-if="googleMapsURL" target="_self" :href="googleMapsURL">
+          <FCTag
+            :text="eventInfo.location"
+            icon="fe:location"
+            color="var(--purple)"
+            style="color: white"
+          />
+        </a>
         <FCTag
-          :text="eventInfo.location"
-          icon="fe:location"
-          color="var(--purple)"
-          style="color: white"
-        />
+            v-else
+            :text="eventInfo.location"
+            icon="fe:location"
+            color="var(--purple)"
+            style="color: white"
+          />
       </div>
 
       <a target="_self" href="https://www.dropbox.com/">
