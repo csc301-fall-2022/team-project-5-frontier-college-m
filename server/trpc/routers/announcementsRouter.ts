@@ -31,7 +31,7 @@ export const announcementsRouter = createRouter().query('announcements', {
     )
 
     // Get the chatter group IDs from Program__c
-    const qString2 = `SELECT Name, Chatter_Group_ID__c FROM Program__C WHERE Id IN ('${programids.join(
+    const qString2 = `SELECT Id, Name, Chatter_Group_ID__c FROM Program__C WHERE Id IN ('${programids.join(
       "','"
     )}')`
     const resp2 = await api.query(qString2, auth)
@@ -43,7 +43,10 @@ export const announcementsRouter = createRouter().query('announcements', {
       (r: any) => r.Chatter_Group_ID__c
     )
     const chatterMap = chatterData.records.reduce((acc: any, r: any) => {
-      acc[r.Chatter_Group_ID__c] = r.Name
+      acc[r.Chatter_Group_ID__c] = {
+        id: r.Id,
+        name: r.Name
+      }
       return acc
     }, {})
 
@@ -57,11 +60,14 @@ export const announcementsRouter = createRouter().query('announcements', {
 
     // sanitize the announcement data
     const announcements = announcementData.records.map((r: any) => {
-      r.Title = chatterMap[r.ParentId]
+      r.Title = chatterMap[r.ParentId] ? chatterMap[r.ParentId].name : ''
+      r.ProgramId = chatterMap[r.ParentId] ? chatterMap[r.ParentId].id : null
       delete r.ParentId
       delete r.attributes
       return r
     })
+
+    console.log(announcements)
 
     return announcements
   }
