@@ -17,7 +17,6 @@ export const eventDetailsRouter = createRouter().query('eventDetails', {
     const data = await resp.json()
 
     const program = data.records[0]
-    console.log(program)
     const recordTypeQuery = `SELECT Id, Name, DeveloperName FROM RecordType WHERE Id = '${program.RecordTypeId}'`
     const recordResp = await api.query(recordTypeQuery, auth)
     const recordData = await recordResp.json()
