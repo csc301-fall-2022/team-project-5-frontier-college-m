@@ -37,9 +37,9 @@ const eventInfo = {
 
 // Handle null description/goal
 if (eventInfo.description && eventInfo.goals) {
-  eventInfo.description += '\n\nGoals: ' + eventInfo.goals
+  eventInfo.description += '\n\nGoals: ' + eventInfo.goals.replaceAll(';', ', ')
 } else if (eventInfo.goals) {
-  eventInfo.description = '\n\nGoals: ' + eventInfo.goals
+  eventInfo.description = '\n\nGoals: ' + eventInfo.goals.replaceAll(';', ', ')
 } else if (eventInfo.description) {
   eventInfo.goals = 'There are no goals for this program.'
 } else {
@@ -126,14 +126,14 @@ h1 {
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 700;
   margin: 15px;
   color: white;
 }
 
 .desc-text {
-  font-size: 11px;
+  font-size: 16px;
   margin: 15px;
   max-width: 322px;
   color: white;

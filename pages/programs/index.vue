@@ -121,7 +121,7 @@ definePageMeta({
 
       <div class="card-wrapper">
         <div class="heading-text">Upcoming</div>
-        <div v-if="upcomingEventsInfo.length == 0" class="no-program-text">No upcoming programs!</div>
+        <div v-if="upcomingEventsInfo.length == 0" class="no-program-text today-text">No upcoming programs!</div>
         <NuxtLink  v-for="event in upcomingEventsInfo" :key="event.id" :to="'/programs/' + event.id">
           <FCProgramCard
             style="background-color: var(--dark-green);"
