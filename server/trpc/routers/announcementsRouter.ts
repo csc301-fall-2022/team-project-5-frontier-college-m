@@ -67,8 +67,6 @@ export const announcementsRouter = createRouter().query('announcements', {
       return r
     })
 
-    console.log(announcements)
-
     return announcements
   }
 })
