@@ -27,16 +27,16 @@ const links = computed<Link[]>(() => {
       href: '/programs',
       icon: 'feather:briefcase'
     },
-    {
-      text: 'Profile',
-      href: '/profile',
-      icon: 'feather:user'
-    },
-    {
-      text: 'Chat',
-      href: '/chat',
-      icon: 'feather:message-square'
-    },
+    // {
+    //   text: 'Profile',
+    //   href: '/profile',
+    //   icon: 'feather:user'
+    // },
+    // {
+    //   text: 'Chat',
+    //   href: '/chat',
+    //   icon: 'feather:message-square'
+    // },
     {
       text: 'Updates',
       href: '/updates',
