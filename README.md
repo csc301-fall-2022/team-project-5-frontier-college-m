@@ -24,6 +24,8 @@ Run the following commands after cloning this git repository.
 ```bash
 # Install Node.js dependencies
 pnpm install
+# Clean install (deletes build artifacts)
+pnpm run clean
 
 # Start a local PostgreSQL instance
 # If this command fails make sure to start the Docker app
