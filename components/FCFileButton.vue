@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 const props = defineProps<{
     text: string
+    enabled: boolean
 }>()
 </script>
 
 <template>
-    <button>
+    <button :class="{ disabled: !enabled }">
         <Icon name="fe:file" class="button-icon"/>
         <div class="button-text">{{ props.text }}</div>
     </button>
@@ -36,5 +37,10 @@ button {
     width: 100%;
     left: 0%;
     font-size: 80px;
+}
+
+.disabled {
+    background-color: var(--gray);
+    pointer-events: none;
 }
 </style>

@@ -32,7 +32,8 @@ const eventInfo = {
   recurrence: eventDetails?.programOfferingSchedule,
   location: eventDetails?.locationLabel,
   description: eventDetails?.description,
-  goals: eventDetails?.goals
+  goals: eventDetails?.goals,
+  fileSharing: eventDetails?.fileSharing
 }
 
 // Handle null description/goal
@@ -112,9 +113,11 @@ definePageMeta({
           />
       </div>
 
-      <a target="_self" href="https://www.dropbox.com/">
-        <FCFileButton text="Event Files" />
+      <a v-if="eventInfo.fileSharing" target="_self" :href="eventInfo.fileSharing">
+        <FCFileButton text="Event Files" :enabled ="true"/>
       </a>
+
+      <FCFileButton v-else text="No Event Files" :enabled="false"/>
     </div>
 
     <h2>Description</h2>
@@ -173,4 +176,5 @@ h2 {
   max-width: 25rem;
   margin: 0 auto;
 }
+
 </style>
