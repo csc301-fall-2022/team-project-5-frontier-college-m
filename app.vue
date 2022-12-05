@@ -2,7 +2,6 @@
 useHead({
   title: 'United for Literacy',
   link: [
-    { rel: 'preconnect', href: 'https://rsms.me/' },
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins' }
   ]
 })
