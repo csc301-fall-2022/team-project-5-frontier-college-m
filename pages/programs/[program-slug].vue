@@ -113,9 +113,11 @@ definePageMeta({
           />
       </div>
 
-      <a target="_self" :href="eventInfo.fileSharing">
-        <FCFileButton text="Event Files" />
+      <a v-if="eventInfo.fileSharing" target="_self" :href="eventInfo.fileSharing">
+        <FCFileButton text="Event Files" :enabled ="true"/>
       </a>
+
+      <FCFileButton v-else text="No Event Files" :enabled="false"/>
     </div>
 
     <h2>Description</h2>
@@ -174,4 +176,5 @@ h2 {
   max-width: 25rem;
   margin: 0 auto;
 }
+
 </style>
