@@ -9,7 +9,6 @@ const communityLink =
   'https://unitedforliteracy.my.site.com/customerservice/' +
   'login?sfdcIFrameOrigin=null'
 
-
 // const currUser = 2
 const client = useClient()
 // Obtain the name of the current user (right now fixed on user 2)
@@ -28,11 +27,9 @@ const name = await(
 //     noEarlierThan: new Date('2022-11-01T11:16:01')
 //   })
 // )[0]
-const announcement = {
-  title: 'Midterm Study Session',
-  description:
-    'Midterm study session will be held in the Chem building. Attendees will receive a secret token they can use on the exam for an automatic 10% grade boost.'
-}
+
+const announcementStore = useAnnouncementStore()
+const announcement = announcementStore.announcements[0]
 
 // Obtain the assigned program events for this user
 const events = await(
@@ -63,10 +60,10 @@ if (events.length === 0) {
       <h1>Welcome, {{ name }}!</h1>
     </div>
 
-    <div class="immediate-announcements">
+    <div v-if="announcement" class="immediate-announcements">
       <FCAnnouncementCard
-        :title="announcement.title"
-        :text="announcement.description"
+        :title="announcement.Title"
+        :text="announcement.Body"
       />
       <NuxtLink to="/updates">
         <FCViewAll />
