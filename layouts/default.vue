@@ -13,34 +13,38 @@ type Link = {
   notification?: boolean
 }
 
-const links: Link[] = [
-  {
-    text: 'Home',
-    href: '/',
-    icon: 'feather:home'
-  },
-  {
-    text: 'Programs',
-    href: '/programs',
-    icon: 'feather:briefcase'
-  },
-  {
-    text: 'Profile',
-    href: '/profile',
-    icon: 'feather:user'
-  },
-  {
-    text: 'Chat',
-    href: '/chat',
-    icon: 'feather:message-square'
-  },
-  {
-    text: 'Updates',
-    href: '/updates',
-    icon: 'feather:bell',
-    notification: true
-  }
-]
+const announcementStore = useAnnouncementStore()
+
+const links = computed<Link[]>(() => {
+  return [
+    {
+      text: 'Home',
+      href: '/',
+      icon: 'feather:home'
+    },
+    {
+      text: 'Programs',
+      href: '/programs',
+      icon: 'feather:briefcase'
+    },
+    {
+      text: 'Profile',
+      href: '/profile',
+      icon: 'feather:user'
+    },
+    {
+      text: 'Chat',
+      href: '/chat',
+      icon: 'feather:message-square'
+    },
+    {
+      text: 'Updates',
+      href: '/updates',
+      icon: 'feather:bell',
+      notification: announcementStore.showNotification
+    }
+  ]
+})
 </script>
 
 <template>
