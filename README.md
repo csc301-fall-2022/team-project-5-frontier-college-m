@@ -145,13 +145,13 @@ This project can be quickly deployed using Heroku to host a database, server, an
 
 Configuration details can be found in the `Procfile` and `app.json` files.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/csc301-fall-2022/team-project-5-frontier-college-m)
 
 <!-- 1. Create a new Heroku app
-2. Add the `Heroku Postgres Add-On` to your app. This will automatically configure the `DATABASE_URL` environment variable
-3. Set the other remaining environment variables
-4. Link this repository to your Heroku app
-5. Push your app to Heroku.
+1. Add the `Heroku Postgres Add-On` to your app. This will automatically configure the `DATABASE_URL` environment variable
+2. Set the other remaining environment variables
+3. Link this repository to your Heroku app
+4. Push your app to Heroku.
 
 Remaining Heroku configuration for the build environment and scripts can be found in `app.json` and `Procfile` respectively.
 

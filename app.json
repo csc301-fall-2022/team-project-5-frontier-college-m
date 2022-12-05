@@ -16,7 +16,8 @@
       "value": "false"
     },
     "DATABASE_URL": {
-      "required": true
+      "required": false,
+      "description": "Database URL that will be automatically be set by Heroku Postgres Add-On"
     },
     "SF_BASE_URL": {
       "required": true
