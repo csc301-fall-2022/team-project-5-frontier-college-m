@@ -26,16 +26,6 @@ Run the following commands after cloning this git repository.
 pnpm install
 # Clean install (deletes build artifacts)
 pnpm run clean
-
-# Start a local PostgreSQL instance
-# If this command fails make sure to start the Docker app
-docker-compose up -d
-
-# Migrate the database schema
-pnpm run db-migrate
-
-# Stop the local POstgreSQL instance when you're done
-docker-compose down
 ```
 
 Add the following sensitive environment variables to the `.env` file to connect to a SalesForce environment. This application has been developed to integrate with United for Literacy's SalesForce environment as of December 4th, 2022. See [`server/trpc/salesforce-usage.md`](https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/server/trpc/salesforce-usage.md) for more details.
@@ -61,6 +51,22 @@ Run the following commands to start the development server.
 ```bash
 # Start the development server
 pnpm run dev
+```
+
+## Local Database
+
+Run the following commands to start the local database
+
+```bash
+# Start a local PostgreSQL instance
+# If this command fails make sure to start the Docker app
+docker-compose up -d
+
+# Migrate the database schema
+pnpm run db-migrate
+
+# Stop the local POstgreSQL instance when you're done
+docker-compose down
 ```
 
 ## Tests
@@ -137,7 +143,11 @@ node ./.output/server/index.mjs
 
 This project can be quickly deployed using Heroku to host a database, server, and manage environment variables.
 
-1. Create a new Heroku app
+Configuration details can be found in the `Procfile` and `app.json` files.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+<!-- 1. Create a new Heroku app
 2. Add the `Heroku Postgres Add-On` to your app. This will automatically configure the `DATABASE_URL` environment variable
 3. Set the other remaining environment variables
 4. Link this repository to your Heroku app
@@ -145,7 +155,7 @@ This project can be quickly deployed using Heroku to host a database, server, an
 
 Remaining Heroku configuration for the build environment and scripts can be found in `app.json` and `Procfile` respectively.
 
-See the following [Heroku Guide](https://devcenter.heroku.com/articles/git) for help completing steps 1, 4, and 5. Steps 2 and 3 can be completed using Heroku's web interface.
+See the following [Heroku Guide](https://devcenter.heroku.com/articles/git) for help completing steps 1, 4, and 5. Steps 2 and 3 can be completed using Heroku's web interface. -->
 
 ## Application Stack
 
