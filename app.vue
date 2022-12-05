@@ -2,8 +2,7 @@
 useHead({
   title: 'United for Literacy',
   link: [
-    { rel: 'preconnect', href: 'https://rsms.me/' },
-    { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins' }
   ]
 })
 
@@ -36,7 +35,7 @@ console.log(await client.query('user', { userId: '003Au000005YI4mIAG' }))
 <style>
 body {
   background-color: var(--black);
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 :root {

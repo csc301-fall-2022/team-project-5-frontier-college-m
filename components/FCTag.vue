@@ -16,7 +16,7 @@ const props = defineProps<{
 <style scoped>
 .tag {
     width:fit-content;
-    border-radius: 31px;
+    border-radius: 1.5rem;
     display: flex;
     align-items: center;
     padding: 5px;

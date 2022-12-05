@@ -71,6 +71,7 @@ if (eventDetails?.locationAddress) {
   googleMapsURL = ''
 }
 
+
 definePageMeta({
   title: 'Program Info',
   showBack: true
@@ -78,10 +79,10 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="flex flex-col flex-nowrap justify-center items-center">
+  <div class="flex flex-col flex-nowrap justify-center items-center content-container">
     <h1>{{ eventInfo.name }}</h1>
     <div class="event-tags-wrapper">
-      <div>
+      <div class="tags-wrapper">
         <FCTag
           v-if="eventInfo.type == 'recurring'"
           :text="upperFirst(eventInfo.recurrence.interval)"
@@ -137,6 +138,13 @@ definePageMeta({
 <style scoped>
 .event-tags-wrapper {
   display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tags-wrapper {
+  margin-right: 20px;
 }
 
 h1 {
@@ -158,7 +166,11 @@ h2 {
 .desc-text {
   font-size: 16px;
   margin: 15px;
-  max-width: 322px;
   color: white;
+}
+
+.content-container {
+  max-width: 25rem;
+  margin: 0 auto;
 }
 </style>
