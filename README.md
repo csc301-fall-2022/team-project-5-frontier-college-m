@@ -36,7 +36,7 @@ pnpm run db-migrate
 docker-compose down
 ```
 
-Add the following sensitive environment variables to the `.env` file to connect to a SalesForce environment. This application has been developed to integrate with United for Literacy's SalesForce environment as of December 4th, 2022. See [`server/trpc/salesforce-changes.md`](https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/server/trpc/salesforce-changes.md) for more details.
+Add the following sensitive environment variables to the `.env` file to connect to a SalesForce environment. This application has been developed to integrate with United for Literacy's SalesForce environment as of December 4th, 2022. See [`server/trpc/salesforce-usage.md`](https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/server/trpc/salesforce-usage.md) for more details.
 
 ```bash
 # Leave this as default
