@@ -1,4 +1,40 @@
 {
+  "addons": ["heroku-postgresql:mini"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/TheSecurityDev/heroku-buildpack-nodejs-pnpm"
+    }
+  ],
+  "env": {
+    "HOST": {
+      "value": "0.0.0.0"
+    },
+    "NODE_ENV": {
+      "value": "production"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "value": "false"
+    },
+    "DATABASE_URL": {
+      "required": false,
+      "description": "Database URL that will be automatically be set by Heroku Postgres Add-On"
+    },
+    "SF_BASE_URL": {
+      "required": true
+    },
+    "SF_CLIENT_ID": {
+      "required": true
+    },
+    "SF_CLIENT_SECRET": {
+      "required": true
+    },
+    "SF_USERNAME": {
+      "required": true
+    },
+    "SF_PASSWORD": {
+      "required": true
+    }
+  },
   "environments": {
     "review": {
       "addons": ["heroku-postgresql:hobby-dev"],
@@ -7,6 +43,12 @@
           "url": "https://github.com/TheSecurityDev/heroku-buildpack-nodejs-pnpm"
         }
       ]
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
     }
   }
 }
