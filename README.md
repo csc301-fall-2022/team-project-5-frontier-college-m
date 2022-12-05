@@ -164,6 +164,7 @@ Directory specific documentation can be found in `README.md` files in each of th
 
 - Backend code can be found in the `server` directory.
 - The backend is built using [tRPC](https://trpc.io/) to allow sharing types between the frontend and backend.
+- Database can be accessed using [Prisma](https://www.prisma.io/) ORM.
 
 ## Notes
 
