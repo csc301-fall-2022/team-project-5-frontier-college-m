@@ -1,8 +1,8 @@
-Member Number,Student Number,Student Name,GitHub ID,Status,Role(s),Tutorial 1,Tutorial 2,Tutorial 3,Tutorial 4,Tutorial 5
-1,1007497790,Samm Du,sammdu,enrolled,"Full Stack Development, Infrastructure, Product Management",5,5,5,5,5
-2,100 575 5078,Michael Lai,michaelkplai,enrolled,"Frontend, Deployment/Infrastructure, Project Management",5,5,5,5,5
-3,1007173988,Zachary Lee,ZachLeeTech,enrolled,"Front-end, Protoyping",5,5,5,5,5
-4,1007042460,Shawn Plotko,shawnpl7,enrolled,Frontend Development,5,5,5,5,5
-5,1007290469,Greg Sherman,GregSherman,enrolled,"Backend Development, Database Management",5,5,5,5,5
-6,1006849519,Ricky Yi,rky1618,enrolled,"Backend Development, Database Management",5,5,5,5,5
-7,1007050414,Patrick,PatrickZhou17,enrolled,"Backend, DevOps",5,5,5,5,5
+Member Number,Student Number,Student Name,GitHub ID,Status,Role(s),Tutorial 1,Tutorial 2,Tutorial 3,Tutorial 4,Tutorial 5, Tutorial 6, Tutorial 7, Tutorial 8
+1,1007497790,Samm Du,sammdu,enrolled,"Full Stack Development, Infrastructure, Product Management",5,5,5,5,5,5,5,5
+2,100 575 5078,Michael Lai,michaelkplai,enrolled,"Frontend, Deployment/Infrastructure, Project Management",5,5,5,5,5,5,5,5
+3,1007173988,Zachary Lee,ZachLeeTech,enrolled,"Front-end, Protoyping",5,5,5,5,5,5,5,5
+4,1007042460,Shawn Plotko,shawnpl7,enrolled,Frontend Development,5,5,5,5,5,5,5,5
+5,1007290469,Greg Sherman,GregSherman,enrolled,"Backend Development, Database Management",5,5,5,5,5,5,5,5
+6,1006849519,Ricky Yi,rky1618,enrolled,"Backend Development, Database Management",5,5,5,5,5,5,5,5
+7,1007050414,Patrick,PatrickZhou17,enrolled,"Backend, DevOps",5,5,5,5,5,5,5,5
