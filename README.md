@@ -6,6 +6,7 @@
 - TD2: https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/deliverable-2
   - The TD2 README can be found at `deliverable-2/README.md`
 - TD3: https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/tree/main/deliverable-3
+- Team Participation CSV: https://github.com/csc301-fall-2022/team-project-5-frontier-college-m/blob/5ec366fc487b9ab0f79cec59c9c23440b585b6cf/Team-5-46761d22-32bc-4e1b-9bd8-ff209deb277e.csv
 
 ## Prerequisites
 
