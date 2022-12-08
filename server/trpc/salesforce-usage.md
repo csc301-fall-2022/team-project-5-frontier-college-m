@@ -33,7 +33,7 @@
 
 ## Accessing and querying Salesforce data
 
-View and search through all available objects using this URL: https://frontiercollege--group467.sandbox.lightning.force.com/lightning/setup/ObjectManager/home  
+View and search through all available objects using this URL: [https://`organization--group888`.sandbox.lightning.force.com/lightning/setup/ObjectManager/home]  
 Click into an object and go to "Fields & Relationships" tab on the left, to view all available fields.
 
 You can try out the queries below in the [Developer Console](https://help.salesforce.com/s/articleView?id=sf.code_dev_console_opening.htm&type=5), using the [Query Editor](https://help.salesforce.com/s/articleView?id=sf.code_dev_console_tab_query_editor.htm&type=5).
@@ -62,9 +62,26 @@ Once you are happy with the query results, you can execute the query through the
 
 ### Salesforce Objects and Fields Used:
 
--
+- `Contact`: users in this app (note that a `user` in this app corresponds to a `Contact` in Salesforce)
+  - `Id`, `Name`, `Email`, `RecordTypeId`
+- `RecordType`: types of a particular Salesforce record, like `Volunteer` or `Partner`
+  - `Id`, `Name`, `DeveloperName`
+- `Program__C`: program profiles in Salesforce (each event in our app is a Program in Salesforce)
+  - `Id`, `Name`, `Program_Description__c`, `Goals__c`, `Type__c`, `Contact_Person__c`, `OwnerId`, `Regional_Record_owner_Contact__c`, `Reporting_Region__c`, `Start_Date__c`, `End_Date__c`, `Delivery_Method__c`, `Program_Offering_Schedule__c`, `Location_Label__c`, `Location_Address__c`, `RecordTypeId`, `File_Sharing__c`, `Chatter_Group_ID__c`
+  - 💡 `Program_Offering_Schedule__c` has been modified to store/read a JSON value specifying the recurrence period and specific days of recurrence, as such:
+    ```json
+    { "interval": "weekly", "daysOfWeek": [0, 1, 2, 3] }
+    ```
+  - 💡 `File_Sharing__c` is a newly invented field, to store a URL to a file storage folder (e.g. OneDrive), managed by a program coordinator
+  - 💡 `Chatter_Group_ID__c` is a newly invented field, to store a correspondence between a program and its special chatter group, used by coordinators to send announcements
+- `ProgPar__C`: participation of a `Contact` in a `Program`
+  - `Id`, `Participant_Contact__c`, `Program_Offering__c`
+- `FeedItem`: newsfeed for a given user (`Contact`), used for fetching announcements from Chatter in Salesforce
+  - `Id`, `CreatedDate`, `Title`, `Body`, `ParentId`
 
 ## OAuth App-level Authentication
+
+The following steps allows for the integration of the app into Salesforce.
 
 To get a bearer token, create a [new connected app](https://developer.salesforce.com/docs/atlas.en-us.api_iot.meta/api_iot/qs_auth_connected_app.htm), set permitted users to all users may self-authorize, and ensure trusted IP ranges are set or change IP relaxation to Relax IP restrictions.
 
