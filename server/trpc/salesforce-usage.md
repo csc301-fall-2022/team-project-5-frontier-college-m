@@ -33,14 +33,14 @@
 
 ## Accessing and querying Salesforce data
 
-View and search through all available objects using this URL: [https://`organization--group888`.sandbox.lightning.force.com/lightning/setup/ObjectManager/home]  
+View and search through all available objects using this URL: `https://organization--group888.sandbox.lightning.force.com/lightning/setup/ObjectManager/home`
 Click into an object and go to "Fields & Relationships" tab on the left, to view all available fields.
 
 You can try out the queries below in the [Developer Console](https://help.salesforce.com/s/articleView?id=sf.code_dev_console_opening.htm&type=5), using the [Query Editor](https://help.salesforce.com/s/articleView?id=sf.code_dev_console_tab_query_editor.htm&type=5).
 
 Once you are happy with the query results, you can execute the query through the REST API like so: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm
 
-### Examples:
+### SOQL Examples:
 
 - Get `Contact` info
 
