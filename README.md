@@ -1,6 +1,11 @@
 # United for Literacy Volunteer App
 
-See the [demo video](https://drive.google.com/drive/folders/10RcVk8KPKNIho9CBmX6jrvN6G-dUedn9?usp=sharing).
+### 📽️ See the [demo video](https://drive.google.com/drive/folders/10RcVk8KPKNIho9CBmX6jrvN6G-dUedn9?usp=sharing).
+
+<p align="center">
+<img height="600px" style="margin: 0 auto;" align="center" src="https://user-images.githubusercontent.com/10665890/208497455-f5f80496-fe57-42ed-959d-a67f84412165.png" />
+</p>
+
 
 ## For TAs
 
